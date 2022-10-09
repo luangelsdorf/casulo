@@ -15,12 +15,21 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+
+body {
+  background: #004851;
+}
+
+svg {
+  flex-basis: 30%;
+  width: 100vw;
+  height: auto;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
 }
