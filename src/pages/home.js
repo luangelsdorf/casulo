@@ -1,5 +1,4 @@
 import React from 'react';
-import Hero from 'src/components/home/Hero';
 
 export default function Home() {
   return (
@@ -13,8 +12,7 @@ export default function Home() {
       `}</style>
 
       <main className="main">
-        {/* <Hero /> */}
-        <img style={{ height: '100vh', objectFit: 'contain' }} src="/images/gambi/hero.jpg" alt="" />
+        <img src="/images/gambi/hero.jpg" alt="" />
         <img src="/images/gambi/services.jpg" alt="" />
         <img src="/images/gambi/testimonials.jpg" alt="" />
         <img src="/images/gambi/about-us.jpg" alt="" />
