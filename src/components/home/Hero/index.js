@@ -1,9 +1,6 @@
 import styles from './Hero.module.scss';
 import { Autoplay, EffectFade, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'public/images/hero/dog1.jpg';
-import 'public/images/hero/dog2.jpg';
-import 'public/images/hero/dog3.jpg';
 import Image from 'next/image';
 import Prev from 'public/images/icons/ui/arrow-left.svg';
 import Next from 'public/images/icons/ui/arrow-right.svg';

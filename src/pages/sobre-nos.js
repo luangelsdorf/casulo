@@ -14,6 +14,8 @@ export default function AboutUs() {
       <main className="main">
         <img src="/images/gambi/about/hero.jpg" alt="" />
         <img src="/images/gambi/about/about-us.jpg" alt="" />
+        <img src="/images/gambi/about/purpose.jpg" alt="" />
+        <img src="/images/gambi/about/benefits.jpg" alt="" />
         <img src="/images/gambi/about/testimonials.jpg" alt="" />
         <img src="/images/gambi/about/cta.jpg" alt="" />
         <img src="/images/gambi/faq.jpg" alt="" />
