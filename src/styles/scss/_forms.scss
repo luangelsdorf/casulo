@@ -1,0 +1,191 @@
+@mixin floatingLabel {
+  transform: translateY(-33%) scale(0.75);
+  color: rgb(var(--light-gray));
+}
+
+label {
+  color: rgb(var(--white));
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea,
+select {
+  font: var(--body-default-md);
+  border: 0;
+  background-color: transparent;
+  color: rgb(var(--white));
+  padding: 24px 16px 16px 0;
+  width: 100%;
+  height: 72px;
+  border-bottom: 1px solid;
+  border-bottom-color: rgb(var(--default-cyan));
+  transition: all 350ms;
+
+  &::placeholder {
+    color: rgb(var(--lighter-blue), 0.5);
+  }
+
+  &:focus {
+    outline: 0;
+    border-bottom-color: rgb(var(--white));
+  }
+}
+
+select {
+  appearance: none;
+  background-image: url("/images/icons/CaretDown.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+
+  option {
+    color: rgb(var(--white));
+    background-color: rgb(var(--blue));
+  }
+
+  & + label {
+    pointer-events: none;
+  }
+
+  @supports selector(:has(option:not(:first-child):checked)) {
+    &:focus,
+    &:has(option:not(:first-child):checked) {
+      border-bottom-color: rgb(var(--white));
+      & + label {
+        @include floatingLabel;
+      }
+    }
+  }
+}
+
+textarea {
+  font-family: inherit;
+  resize: none;
+  overflow: hidden;
+
+  &:focus {
+    height: 4lh;
+  }
+}
+
+.floating {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    &::placeholder {
+      transition: all 350ms;
+      opacity: 0;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      border-bottom-color: rgb(var(--white));
+      & + label {
+        @include floatingLabel;
+      }
+
+      & ~ .prefix {
+        opacity: 1;
+      }
+
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.prefixed {
+    input {
+      padding-left: 4ch;
+    }
+  }
+
+  // prefix
+  & > .prefix {
+    position: absolute;
+    opacity: 0;
+    transition: 350ms;
+    transform: translateY(4px);
+
+    & + input {
+      padding-left: 4ch;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transform: translateY(65%);
+    transition: all 350ms;
+    cursor: text;
+
+    & > span:last-of-type {
+      font: var(--body-default-sm);
+      color: rgb(var(--error));
+      margin-left: auto;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateY(calc(100% + 8px));
+      transition: all 350ms;
+      opacity: 0;
+
+      &:not(:empty) {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.error {
+    input,
+    select {
+      border-bottom-color: rgb(var(--error)) !important;
+    }
+
+    & > span:last-child {
+      font: var(--body-default-sm);
+      position: absolute;
+      bottom: 0;
+      transform: translateY(100%);
+      color: rgb(var(--error));
+    }
+  }
+
+  &.sm {
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+      height: 64px;
+    }
+
+    label {
+      transform: translateY(50%);
+    }
+  }
+}
+
+form {
+  .btn {
+    animation: none !important;
+  }
+
+  [disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  [type="submit"] ~ span {
+    font: var(--body-default-md);
+    color: rgb(var(--success));
+    transition: all 500ms;
+  }
+}

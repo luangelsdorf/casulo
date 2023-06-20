@@ -1,0 +1,27 @@
+.collapse:not(.show) {
+  display: none;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1880px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .container {
+    max-width: 1920px;
+  }
+}

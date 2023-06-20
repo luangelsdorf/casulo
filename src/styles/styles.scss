@@ -1,0 +1,161 @@
+@use "scss/mixins";
+@use "scss/buttons";
+@use "scss/typography";
+@use "scss/forms";
+@use "scss/colors";
+@use "scss/bootstrap";
+
+:root {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  transition: background-color 1s;
+}
+
+body,
+html {
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth !important;
+}
+
+#viewport {
+  height: 100vh;
+  transition: all 560ms;
+
+  &.success {
+    height: auto;
+  }
+
+  @include mixins.lg {
+    &.active {
+      transform: translateY(100%);
+    }
+  }
+}
+
+#content {
+  &.success {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    @include mixins.lg {
+      justify-content: flex-start;
+    }
+  }
+}
+
+figure,
+blockquote {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+img,
+video {
+  object-fit: cover;
+  object-position: center;
+}
+
+video {
+  pointer-events: none;
+}
+
+ul,
+ol,
+dl,
+menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+dialog {
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+dialog.fullscreen {
+  max-width: none;
+  max-height: none;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+[data-reveal] {
+  visibility: hidden;
+}
+
+[data-reveal-parent] {
+  & > * {
+    visibility: hidden;
+  }
+}
+
+.swiper[data-reveal-parent] {
+  & > * {
+    visibility: visible;
+  }
+
+  .swiper-slide {
+    visibility: hidden;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(var(--light-cyan), 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(153, 153, 153, 0.5);
+  border-radius: 56px;
+}
+
+.swiper {
+  overflow: visible;
+}
+
+@include mixins.lg {
+  [class*="col-lg"] {
+    &>div {
+      text-align: center;
+      align-items: center;
+    }
+  }
+}
+
+@include mixins.sm {
+  .col-12 {
+    padding: 0 24px;
+    text-align: center;
+  }
+}
