@@ -6,6 +6,190 @@ import dog from 'public/images/doguinho.png';
 export default function Home() {
   return (
     <div className="wrapper">
+
+      <style>{`
+        html,
+        body {
+          overflow-x: hidden;
+          padding: 0;
+          margin: 0;
+          min-height: 100vh;
+          font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        }
+        
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          color: #0f2830;
+          background: #fff4e0;
+          overflow: hidden;
+        }
+        
+        .wrapper::before {
+          content: "";
+          position: absolute;
+          width: 26%;
+          height: 100%;
+          background-color: #004851;
+          z-index: -3;
+        }
+        
+        .dog {
+          position: absolute;
+          height: 100%;
+          bottom: 0;
+          left: 75px;
+          padding-top: 70px;
+          z-index: -1;
+        }
+        @media (max-width: 1200px) {
+          .dog {
+            height: 80%;
+          }
+        }
+        
+        .line {
+          position: absolute;
+          bottom: 0;
+          z-index: -2;
+          right: 0;
+          width: 99%;
+        }
+        
+        .btn {
+          border: 1px solid #ff6a39;
+          border-radius: 4px;
+          padding: 16px 20px;
+          display: flex;
+          gap: 12px;
+          font-weight: bold;
+          transition: all 350ms;
+        }
+        .btn svg {
+          width: 24px;
+          height: 24px;
+        }
+        
+        .btn-primary {
+          background-color: #ff6a39;
+          color: #fff4e0;
+        }
+        .btn-primary:hover {
+          color: #ff6a39;
+          background-color: #fff4e0;
+        }
+        
+        .btn-secondary {
+          background-color: #fff4e0;
+          color: #ff6a39;
+        }
+        .btn-secondary:hover {
+          color: #fff4e0;
+          background-color: #ff6a39;
+        }
+        
+        .textContent {
+          margin-top: 15%;
+        }
+        .textContent > * {
+          margin: 0;
+        }
+        .textContent .brand {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          margin-bottom: 64px;
+        }
+        .textContent h1 {
+          font-size: 72px;
+          line-height: 72px;
+          font-weight: bold;
+          margin-bottom: 32px;
+        }
+        .textContent p {
+          margin-bottom: 48px;
+          max-width: 430px;
+        }
+        .textContent .buttons {
+          display: flex;
+          gap: 24px;
+          align-items: center;
+        }
+        
+        @media (max-width: 992px) {
+          body {
+            position: relative;
+          }
+          body::before {
+            bottom: 0;
+            width: 100%;
+            height: 96px;
+          }
+        
+          .wrapper {
+            position: relative;
+          }
+        
+          .dog {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -6px;
+            height: 600px;
+            padding-top: 24px;
+          }
+        
+          .line {
+            width: 130%;
+            bottom: 80px;
+          }
+        
+          .textContent {
+            text-align: center;
+          }
+          .textContent .brand {
+            justify-content: center;
+            margin-bottom: 48px;
+          }
+          .textContent .brand > :first-child {
+            display: none;
+          }
+          .textContent h1 {
+            font-size: 40px;
+            margin-bottom: 24px;
+            line-height: 48px;
+          }
+          .textContent p {
+            margin: auto;
+            margin-bottom: 32px;
+          }
+          .textContent .buttons {
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+        }
+        @media (max-width: 576px) {
+          .col-12 {
+            padding: 0 30px !important;
+          }
+        
+          .dog {
+            height: 450px;
+          }
+        
+          .line {
+            transform: scale(2);
+          }
+        }        
+    `}</style>
+
       <Head>
         <title>Casulo</title>
         <meta name="description" content="Casulo - Centro Canino" />
