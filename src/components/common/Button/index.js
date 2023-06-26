@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import Open from 'public/images/icons/open.svg';
-import Close from 'public/images/icons/close.svg';
 import { useRouter } from 'next/router';
 
 export default function Button({
@@ -30,18 +28,12 @@ export default function Button({
       {
         children && <span>{children}</span>
       }
-      {
-        floating && (<>
-          <Open />
-          <Close />
-        </>)
-      }
       {RightIcon && <RightIcon />}
     </div>
   );
 
   const baseProps = {
-    className: `${link ? '' : 'btn'} ${floating ? 'floating-btn' : ''} ${className ? ' ' + className : ''}`,
+    className: `${link ? '' : 'btn'}${className ? ' ' + className : ''}`,
   };
 
   if (btnElement) {

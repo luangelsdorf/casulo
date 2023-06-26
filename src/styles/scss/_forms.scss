@@ -12,7 +12,7 @@ input[type="tel"],
 input[type="email"],
 textarea,
 select {
-  font: var(--body-default-md);
+  font: var(--body-md);
   border: 0;
   background-color: transparent;
   color: rgb(var(--white));
@@ -129,7 +129,7 @@ textarea {
     cursor: text;
 
     & > span:last-of-type {
-      font: var(--body-default-sm);
+      font: var(--body-sm);
       color: rgb(var(--error));
       margin-left: auto;
       position: absolute;
@@ -152,7 +152,7 @@ textarea {
     }
 
     & > span:last-child {
-      font: var(--body-default-sm);
+      font: var(--body-sm);
       position: absolute;
       bottom: 0;
       transform: translateY(100%);
@@ -184,7 +184,7 @@ form {
   }
 
   [type="submit"] ~ span {
-    font: var(--body-default-md);
+    font: var(--body-md);
     color: rgb(var(--success));
     transition: all 500ms;
   }

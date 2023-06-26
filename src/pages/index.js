@@ -108,12 +108,15 @@ export default function Home() {
           margin-bottom: 64px;
         }
         .textContent h1 {
+          font-family: "Nunito Sans", sans-serif;
           font-size: 72px;
           line-height: 72px;
           font-weight: bold;
           margin-bottom: 32px;
+          letter-spacing: 0.02em;
         }
         .textContent p {
+          font: var(--body-sm);
           margin-bottom: 48px;
           max-width: 430px;
         }

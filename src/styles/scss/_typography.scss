@@ -2,79 +2,45 @@
 
 :root {
   // heading-fluid
-  --display-ext: 500 clamp(48px, 6.7vw, 120px) / clamp(56px, 7.2vw, 136px) var(--inter);
-  --display: 500 clamp(40px, 5.5vw, 100px) / clamp(48px, 6.7vw, 112px) var(--inter);
-  --heading-large: 500 clamp(36px, 4.4vw, 80px) / clamp(44px, 5.5vw, 96px) var(--inter);
-  --heading-medium: 500 clamp(32px, 3.3vw, 60px) / clamp(40px, 4.4vw, 80px) var(--inter);
-  --heading-small: 500 clamp(28px, 2.8vw, 48px) / clamp(36px, 3.9vw, 64px) var(--inter);
-  --heading-extra-small: 500 clamp(24px, 2.2vw, 40px) / clamp(32px, 2.8vw, 48px) var(--inter);
-
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  // heading serif
-  --heading-serif-large: 500 clamp(36px, 4.4vw, 80px) / clamp(44px, 5.5vw, 96px) var(--inter);
-  --heading-serif-medium: 500 clamp(32px, 3.3vw, 60px) / clamp(40px, 4.4vw, 80px) var(--inter);
-  --heading-serif-small: 500 clamp(28px, 2.8vw, 48px) / clamp(36px, 3.9vw, 64px) var(--inter);
-  --heading-serif-extra-small: 500 clamp(24px, 2.2vw, 40px) / clamp(32px, 2.8vw, 48px) var(--inter);
-
-  // heading sans-serif
-  --heading-sans-large: 500 clamp(36px, 4.4vw, 80px) / clamp(44px, 5.5vw, 96px) var(--inter);
-  --heading-sans-medium: 500 clamp(32px, 3.3vw, 60px) / clamp(40px, 4.4vw, 80px) var(--inter);
-  --heading-sans-small: 500 clamp(28px, 2.8vw, 48px) / clamp(36px, 3.9vw, 64px) var(--inter);
-  --heading-sans-extra-small: 500 clamp(24px, 2.2vw, 40px) / clamp(32px, 2.8vw, 48px) var(--inter);
-
-  --body-default-lg: 400 20px/32px var(--inter);
-  --body-default-md: 400 18px/28px var(--inter);
-  --body-default-sm: 400 14px/24px var(--inter);
-  --body-detail: 400 12px/18px var(--inter);
+  --display-ext: 500 clamp(48px, 6.7vw, 120px) / clamp(56px, 7.2vw, 136px) var(--calistoga);
+  --display: 500 clamp(40px, 5.5vw, 100px) / clamp(48px, 6.7vw, 112px) var(--calistoga);
+  --heading-large: 500 clamp(36px, 4.4vw, 80px) / clamp(44px, 5.5vw, 96px) var(--calistoga);
+  --heading-medium: 500 clamp(32px, 3.3vw, 60px) / clamp(40px, 4.4vw, 80px) var(--calistoga);
+  --heading-small: 500 clamp(28px, 2.8vw, 48px) / clamp(36px, 3.9vw, 64px) var(--calistoga);
+  --heading-extra-small: 500 clamp(24px, 2.2vw, 40px) / clamp(32px, 2.8vw, 48px) var(--calistoga);
+  
+  // body text
+  --body-lg: 400 20px/32px var(--nunito);
+  --body-md: 400 18px/28px var(--nunito);
+  --body-sm: 400 14px/24px var(--nunito);
+  --body-detail: 400 12px/18px var(--nunito);
 
   @media (min-width: 576px) {
-    --body-default-lg: 400 24px/36px var(--inter);
-    --body-default-md: 400 20px/32px var(--inter);
-    --body-default-sm: 400 16px/24px var(--inter);
-    --body-detail: 400 14px/21px var(--inter);
+    --body-lg: 400 24px/36px var(--nunito);
+    --body-md: 400 20px/32px var(--nunito);
+    --body-sm: 400 16px/24px var(--nunito);
+    --body-detail: 400 14px/21px var(--nunito);
   }
 
   @media (min-width: 1920px) {
-    --body-default-lg: 400 28px/40px var(--inter);
-    --body-default-md: 400 22px/34px var(--inter);
-    --body-default-sm: 400 18px/28px var(--inter);
-    --body-detail: 400 15px/22px var(--inter);
+    --body-lg: 400 28px/40px var(--nunito);
+    --body-md: 400 22px/34px var(--nunito);
+    --body-sm: 400 18px/28px var(--nunito);
+    --body-detail: 400 15px/22px var(--nunito);
   }
 
   @media (min-width: 2560px) {
-    --body-default-lg: 400 32px/44px var(--inter);
-    --body-default-md: 400 24px/36px var(--inter);
-    --body-default-sm: 400 20px/32px var(--inter);
-    --body-detail: 400 16px/24px var(--inter);
+    --body-lg: 400 32px/44px var(--nunito);
+    --body-md: 400 24px/36px var(--nunito);
+    --body-sm: 400 20px/32px var(--nunito);
+    --body-detail: 400 16px/24px var(--nunito);
   }
 }
 
 body {
-  font: var(--body-default-md);
-  font-family: var(--inter);
-  letter-spacing: 0.02em;
-}
-
-.overline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 24px;
-  background-color: rgb(var(--black));
-  color: rgb(var(--light-gray));
-  border: 1px solid rgb(var(--dark-gray));
-  border-radius: 56px;
-}
-
-.h-sans {
-  font-family: var(--inter);
-  color: rgb(var(--default-cyan));
-}
-
-.h-serif {
-  font-family: var(--merriweather);
-  color: rgb(var(--white));
+  font: var(--body-md);
+  font-family: var(--nunito);
+  letter-spacing: 0.01em;
 }
 
 p,
@@ -86,26 +52,6 @@ h5,
 h6 {
   margin: 0;
   white-space: break-spaces;
-  color: rgb(var(--white));
-  transition: color 1s;
-
-  &.sans-before {
-    font-family: var(--merriweather);
-    color: rgb(var(--white));
-    &::first-line {
-      font-family: var(--inter);
-      color: rgb(var(--light-gray));
-    }
-  }
-
-  &.sans-after {
-    font-family: var(--inter);
-    color: rgb(var(--light-gray));
-    &::first-line {
-      font-family: var(--merriweather);
-      color: rgb(var(--white));
-    }
-  }
 
   @include mixins.sm {
     white-space: normal;
@@ -113,10 +59,9 @@ h6 {
 }
 
 small {
-  font: var(--body-default-sm);
+  font: var(--body-sm);
 }
 strong {
-  font: var(--body-bold-lg);
   font-weight: 600;
 }
 
@@ -130,14 +75,14 @@ h6 {
 }
 
 h1 {
-  font: var(--heading-serif-large);
+  font: var(--heading-large);
 }
 h2 {
-  font: var(--heading-serif-medium);
+  font: var(--heading-medium);
 }
 h3 {
-  font: var(--heading-serif-small);
+  font: var(--heading-small);
 }
 h4 {
-  font: var(--heading-serif-extra-small);
+  font: var(--heading-extra-small);
 }

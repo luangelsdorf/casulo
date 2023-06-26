@@ -1,147 +1,39 @@
 :root {
   /* grayscale */
-  --black: 0, 0, 0;
-  --shadow: 51, 51, 51;
-  --dark-gray: 102, 102, 102;
-  --gray: 153, 153, 153;
-  --light-gray: 204, 204, 204;
   --white: 255, 255, 255;
+  --light-gray: 221, 221, 221;
+  --gray: 153, 153, 153;
+  --dark-gray: 102, 102, 102;
+  --shadow: 70, 70, 70;
+  --black: 41, 41, 41;
+
+  /* brand */
+  --folha-escura: 15, 40, 48;
+  --folha: 0, 72, 81;
+  --lima: 0, 191, 111;
+  --orvalho: 189, 233, 201;
+  --borboleta: 255, 106, 57;
+  --casca: 190, 83, 28;
+  --maduro: 115, 56, 29;
+  --siciliano: 246, 235, 97;
+  --luz: 255, 244, 224;
 
   /* support */
   --error: 255, 102, 115;
   --warning: 245, 214, 123;
   --success: 10, 194, 133;
-
-  /* cyan blue */
-  --light-cyan: 18, 191, 255;
-  --default-cyan: 0, 174, 239;
-  --dark-cyan: 0, 149, 205;
-
-  /* sea blue */
-  --light-sea: 0, 84, 221;
-  --default-sea: 0, 71, 187;
-  --dark-sea: 0, 58, 153;
-
-  /* dark blue */
-  --lighter-blue: 0, 46, 149;
-  --light-blue: 0, 40, 132;
-  --blue: 0, 30, 98;
-  --dark-blue: 0, 20, 64;
-  --darker-blue: 0, 14, 47;
-
-  [data-navigation] {
-    --black: 0, 0, 0;
-    --shadow: 51, 51, 51;
-    --dark-gray: 102, 102, 102;
-    --gray: 153, 153, 153;
-    --light-gray: 204, 204, 204;
-    --white: 255, 255, 255;
-  }
 }
 
 body {
-  background-color: rgb(var(--blue));
-  color: rgb(var(--white));
+  background-color: rgb(var(--luz));
+  color: rgb(var(--folha-escura));
 }
 
-strong {
-  color: rgb(var(--default-cyan));
-}
-
-/* .light {
-  --black: 255, 255, 255;
-  --shadow: 204, 204, 204;
-  --dark-gray: 153, 153, 153;
-  --gray: 102, 102, 102;
-  --light-gray: 51, 51, 51;
-  --white: 0, 0, 0;
-} */
-
-.dark {
-  background-color: rgb(var(--darker-blue));
-}
-
-.light {
-  background-color: rgb(var(--white)) !important;
-  color: rgb(var(--blue));
-
-  p {
-    color: rgb(var(--blue));
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong {
-    color: rgb(var(--default-cyan));
-  }
-
-  label {
-    color: rgb(var(--blue));
-  }
-
-  input[type="text"],
-  input[type="tel"],
-  input[type="email"],
-  textarea {
-    color: rgb(var(--blue));
-    border-bottom-color: rgb(var(--default-sea));
-
-    &:focus,
-    &:not(:placeholder-shown) {
-      border-bottom-color: rgb(var(--default-cyan));
-      & + label {
-        color: rgb(var(--lighter-blue)) !important;
-      }
-    }
-
-    &::placeholder {
-      color: rgb(var(--light-gray), 0.5);
-    }
-  }
-
-  select {
-    border-bottom-color: rgb(var(--default-sea));
-    background-image: url("/images/icons/CaretDownLight.svg");
-    @supports selector(:has(option:not(:first-child):checked)) {
-      &:focus,
-      &:has(option:not(:first-child):checked) {
-        border-bottom-color: rgb(var(--default-cyan));
-        color: rgb(var(--blue));
-        & + label {
-          color: rgb(var(--lighter-blue));
-        }
-      }
-    }
-  }
-
-  option {
-    color: rgb(var(--blue));
-    background-color: rgb(var(--white));
-  }
-
-  .btn,
-  &.btn {
-    color: rgb(var(--white));
-    background-color: rgb(var(--default-cyan));
-    border-color: rgb(var(--default-cyan));
-
-    &:hover {
-      color: rgb(var(--default-cyan));
-      background-color: rgb(var(--white));
-    }
-
-    &.outline {
-      color: rgb(var(--black));
-      background-color: rgb(var(--white));
-
-      &:hover {
-        color: rgb(var(--white));
-        background-color: rgb(var(--black));
-      }
-    }
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgb(var(--folha));
 }
