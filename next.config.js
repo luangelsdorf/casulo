@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['casulo.pet']
+  },
 
   webpack(config) {
     config.module.rules.push({
