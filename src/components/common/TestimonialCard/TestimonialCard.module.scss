@@ -76,4 +76,15 @@
       }
     }
   }
+
+  &.short {
+    height: 504px;
+    margin-top: 0;
+
+    .infos {
+      text-align: left;
+      right: auto;
+      left: 48px;
+    }
+  }
 }

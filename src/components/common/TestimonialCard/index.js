@@ -5,20 +5,24 @@ import Next from 'public/images/icons/ui/arrow-right.svg';
 
 export default function TestimonialCard({ image, name, services, short }) {
   return (
-    <div className={styles.slide}>
+    <div className={`${styles.slide}${short ? ' ' + styles.short : ''}`}>
       <Image src={image} fill alt="" />
       <div className={styles.infos}>
         <h2>{name}</h2>
         <p>{services}</p>
       </div>
-      <div className={styles.controls}>
-        <div className="prev">
-          <Prev />
-        </div>
-        <div className="next">
-          <Next />
-        </div>
-      </div>
+      {
+        !short && (
+          <div className={styles.controls}>
+            <div className="prev">
+              <Prev />
+            </div>
+            <div className="next">
+              <Next />
+            </div>
+          </div>
+        )
+      }
     </div>
   )
 }

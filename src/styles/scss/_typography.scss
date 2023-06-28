@@ -58,6 +58,13 @@ h6 {
   }
 }
 
+.overline {
+  color: rgb(var(--borboleta));
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
 small {
   font: var(--body-sm);
 }
