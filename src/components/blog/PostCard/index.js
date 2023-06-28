@@ -4,7 +4,6 @@ import React from 'react';
 import { apiURL } from 'src/utils/env';
 import { getExcerpt } from 'src/utils/helpers';
 import styles from './PostCard.module.scss';
-import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Button from 'src/components/common/Button';
 
 export default function PostCard(props) {
@@ -15,9 +14,9 @@ export default function PostCard(props) {
 
       <div>
         <div className={styles.badge}>
-          <Link className="btn sm" href={`/blog/categorias/${category.slug}`}>
+          <Button className="tag folha inverted" href={`/blog/categorias/${category.slug}`}>
             {category.name}
-          </Link>
+          </Button>
         </div>
         <Link href={`/blog/posts/${props.slug}`} className={`link-image ${styles.thumbnail}`}>
           <div>
