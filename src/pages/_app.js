@@ -7,8 +7,8 @@ import 'src/styles/styles.scss';
 import { Calistoga } from 'next/font/google';
 import { Nunito_Sans } from 'next/font/google';
 
-const calistoga = Calistoga({ display: 'swap', subsets: ['latin'], weight: ['400'] });
-const nunito = Nunito_Sans({ display: 'swap', subsets: ['latin'], weight: ['400', '600', '700'] });
+const calistoga = Calistoga({ subsets: ['latin'], weight: ['400'] });
+const nunito = Nunito_Sans({ subsets: ['latin'], weight: ['400', '600', '700'] });
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -12,7 +12,7 @@
   display: inline-flex;
   align-items: center;
   border-radius: 56px;
-  gap: 8px;
+  gap: 16px;
   transition: background-color 350ms, color 350ms, scale 350ms;
 
   span {
@@ -116,7 +116,7 @@ a {
   & > div {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
   }
 
   &:hover {

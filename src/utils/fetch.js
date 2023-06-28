@@ -3,19 +3,19 @@ import { dataSrc, env } from "./env";
 export default async function fetchAPI(endpoint = '', queryString = '', populateDeep = true, dataOnly = true) {
   let result;
 
-  if (dataSrc === 'local') {
+  /* if (dataSrc === 'local') {
     result = require(`src/data/${endpoint}.json`);
-  } else {
+  } else { */
     const populate = populateDeep ? 'deep' : '*';
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${endpoint}?populate=${populate}${queryString}`);
     result = await response.json();
 
     // update local json data
-    if (typeof window === 'undefined' && env === 'dev') {
+    /* if (typeof window === 'undefined' && env === 'dev') {
       const fs = require('fs');
       fs.writeFile(`src/data/${endpoint}.json`, JSON.stringify(result), error => error && console.error(error));
     }
-  }
+  } */
 
   if (dataOnly) {
     if (result.data.attributes) {
