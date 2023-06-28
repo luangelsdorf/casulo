@@ -1,0 +1,18 @@
+.section {
+  background-color: rgb(var(--folha));
+}
+
+.headline {
+  h2 {
+    margin-bottom: 48px;
+    color: rgb(var(--luz));
+  }
+}
+
+.textContent {
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+  white-space: pre-line;
+  color: rgb(var(--luz));
+}
