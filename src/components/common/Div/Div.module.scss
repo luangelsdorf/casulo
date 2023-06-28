@@ -1,0 +1,16 @@
+@keyframes line {
+  to {
+    stroke-dashoffset: 2;
+  }
+}
+
+.line {
+  svg {
+    width: 100%;
+    height: auto;
+
+    path {
+      animation: line 4s ease-in-out infinite alternate;
+    }
+  }
+}
