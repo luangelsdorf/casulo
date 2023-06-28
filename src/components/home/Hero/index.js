@@ -1,9 +1,12 @@
 import styles from './Hero.module.scss';
 import { Autoplay, EffectFade, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
-import Prev from 'public/images/icons/ui/arrow-left.svg';
-import Next from 'public/images/icons/ui/arrow-right.svg';
+import TestimonialCard from 'src/components/common/TestimonialCard';
+import Button from 'src/components/common/Button';
+import Arrow from 'public/images/icons/ui/arrow-right.svg';
+import Calendar from 'public/images/icons/ui/calendar.svg';
+import LogoType from 'public/images/brand/horizontal-dark.svg';
+import Link from 'next/link';
 
 export default function Hero({ content }) {
 
@@ -27,10 +30,29 @@ export default function Hero({ content }) {
 
   return (
     <div className={styles.section}>
-      <div className="container">
+      <div className="container" style={{ position: 'relative' }}>
+        <div className={styles.upperHeader}>
+          <Link href="#" className="link-image">
+            <LogoType />
+          </Link>
+          <Button link>Serviços</Button>
+          <Button link>Quem Somos</Button>
+          <Button LeftIcon={Calendar}>Marque uma Avaliação</Button>
+        </div>
+        <div className={styles.lowerHeader}>
+          <Button link>Adestramento</Button>
+          <Button link>Consultoria</Button>
+          <Button link>Hotel Canino</Button>
+        </div>
         <div className="row">
-          <div className="col-12 col-lg-6"></div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-5">
+            <div className={styles.textContent}>
+              <h1>{'Um Local de \nConfiança'}</h1>
+              <p>Nosso objetivo é garantir uma maior qualidade de vida e bem-estar para os cães e seus donos.</p>
+              <Button className="folha" RightIcon={Arrow}>Fale Conosco</Button>
+            </div>
+          </div>
+          <div className="col-12 col-lg-6 offset-lg-1">
             <Swiper
               modules={[Autoplay, Navigation, /* Pagination */ EffectFade]}
               effect="fade"
@@ -43,7 +65,7 @@ export default function Hero({ content }) {
                 enabled: true,
                 type: 'fraction',
               }} */
-              navigation={{prevEl: '.prev', nextEl: '.next'}}
+              navigation={{ prevEl: '.prev', nextEl: '.next' }}
               loop
               autoplay={{
                 delay: 2100,
@@ -54,21 +76,7 @@ export default function Hero({ content }) {
               {
                 slides.map((slide, index) => (
                   <SwiperSlide key={index} className="col-12 col-lg-6">
-                    <div className={styles.slide}>
-                      <Image src={slide.image} fill alt="" />
-                      <div className={styles.infos}>
-                        <h2>{slide.name}</h2>
-                        <p>{slide.services}</p>
-                      </div>
-                      <div className={styles.controls}>
-                        <div className="prev">
-                          <Prev />
-                        </div>
-                        <div className="next">
-                          <Next />
-                        </div>
-                      </div>
-                    </div>
+                    <TestimonialCard {...slide} />
                   </SwiperSlide>
                 ))
               }

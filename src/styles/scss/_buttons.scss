@@ -128,7 +128,7 @@ a {
     }
   }
 
-  &:not(.btn) {
+  &:not(.btn, .link-image) {
     &::after {
       content: "";
       background-color: rgb(var(--borboleta));
