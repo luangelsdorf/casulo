@@ -1,0 +1,102 @@
+@use "src/styles/scss/mixins";
+
+.section {
+  .headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 56px;
+
+    h2 {
+      font: var(--heading-large);
+    }
+  }
+
+  @include mixins.lg {
+    .headline {
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+  }
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px;
+    transition: 400ms;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(var(--orvalho));
+      border-radius: 56px;
+      height: 48px;
+      width: 48px;
+
+      line {
+        transform-origin: center;
+        transition: 600ms;
+      }
+    }
+
+    &:hover {
+      color: rgb(var(--phthalo-green));
+    }
+  }
+
+  article {
+    background-color: rgb(var(--white));
+    border-radius: 56px;
+
+    h3 {
+      font: var(--body-md);
+      font-weight: 600;
+    }
+
+    .answer {
+      padding: 0 48px 32px 48px;
+
+      p {
+        padding-top: 16px;
+      }
+
+      @include mixins.md {
+        padding: 16px 32px;
+      }
+    }
+  }
+
+  @include mixins.lg {
+    gap: 16px;
+    align-items: stretch !important;
+
+    article {
+      text-align: left;
+    }
+  }
+}
+
+.active {
+  .icon {
+    line {
+      &:first-child {
+        transform: rotate(270deg);
+      }
+      &:last-child {
+        transform: rotate(180deg);
+        opacity: 0;
+      }
+    }
+  }
+}
