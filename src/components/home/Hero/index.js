@@ -48,7 +48,7 @@ export default function Hero({ content }) {
           <div className="col-12 col-lg-5">
             <div className={styles.textContent}>
               <h1>{'Um Local de \nConfiança'}</h1>
-              <p>Nosso objetivo é garantir uma maior qualidade de vida e bem-estar para os cães e seus donos.</p>
+              <p>{'Nosso objetivo é garantir uma maior qualidade de \nvida e bem-estar para os cães e seus donos.'}</p>
               <Button className="folha" RightIcon={Arrow}>Fale Conosco</Button>
             </div>
           </div>

@@ -17,10 +17,6 @@
   box-sizing: border-box;
 }
 
-body {
-  transition: background-color 1s;
-}
-
 body,
 html {
   overflow-x: clip;
@@ -136,7 +132,7 @@ dialog.fullscreen {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--folha-escura), 0.3);
+  background-color: rgb(var(--folha-escura), 0.5);
   border-radius: 56px;
 }
 
