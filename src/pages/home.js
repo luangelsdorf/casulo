@@ -20,10 +20,6 @@ export default function Home({ home, cases, gallery, posts, footer, info }) {
     <>
       <Head>
         <title>Casulo</title>
-        <meta name="description" content="A Casulo é um centro de treinamento canino nasceu do anseio por criar uma conexão mais profunda entre os seres humanos e os animais." />
-        <meta property="og:description" content="A Casulo é um centro de treinamento canino nasceu do anseio por criar uma conexão mais profunda entre os seres humanos e os animais." />
-        <meta property="og:image" content="/images/cover.jpg" />
-        <meta property="og:type" content="website" />
         <meta property="og:title" content="Casulo" />
       </Head>
 
@@ -42,19 +38,19 @@ export default function Home({ home, cases, gallery, posts, footer, info }) {
           <Testimonials />
         </Section>
 
-        <Section id="sobre" pt="96 96" pb="96 96" style={{backgroundColor: 'rgb(var(--folha))'}}>
+        <Section id="sobre" pt="96 96" pb="96 96" style={{ backgroundColor: 'rgb(var(--folha))' }}>
           <AboutUs />
         </Section>
 
-        <Section style={{backgroundColor: 'rgb(var(--folha))'}}>
+        <Section style={{ backgroundColor: 'rgb(var(--folha))' }}>
           <Div />
         </Section>
 
-        <Section id="redes-sociais" pt="48 48" pb="160 80" style={{backgroundColor: 'rgb(var(--folha))'}}>
+        <Section id="redes-sociais" pt="48 48" pb="160 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
           <SocialMedia videos={gallery} />
         </Section>
 
-        <Section id="chamada" pt="140 80" pb="140 80" style={{backgroundColor: 'rgb(var(--folha))'}}>
+        <Section id="chamada" pt="140 80" pb="140 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
           <CallToAction />
         </Section>
 
@@ -67,7 +63,7 @@ export default function Home({ home, cases, gallery, posts, footer, info }) {
         </Section>
       </main>
 
-        <Footer />
+      <Footer />
     </>
   )
 }
