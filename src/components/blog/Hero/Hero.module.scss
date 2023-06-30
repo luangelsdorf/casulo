@@ -1,0 +1,19 @@
+.section {
+  text-align: center;
+}
+
+.textContent {
+  background-color: rgb(var(--borboleta));
+  border-radius: 32px;
+  padding: 64px 0;
+
+  h1 {
+    font: var(--display);
+    color: rgb(var(--siciliano));
+    margin-bottom: 32px;
+  }
+
+  p {
+    color: rgb(var(--luz));
+  }
+}
