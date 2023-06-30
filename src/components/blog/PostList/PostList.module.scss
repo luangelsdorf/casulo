@@ -1,0 +1,13 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  :global(.row) {
+    row-gap: 40px;
+  }
+
+  & > button {
+    margin-top: 56px;
+  }
+}

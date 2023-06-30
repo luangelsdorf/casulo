@@ -3,6 +3,10 @@
 
 @include animations.tip-animation;
 
+button {
+  all: unset;
+}
+
 .btn {
   font: var(--body-md);
   cursor: pointer;
