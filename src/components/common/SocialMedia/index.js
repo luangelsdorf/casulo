@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 
 export default function SocialMedia({ blog, content, videos }) {
-  
   return (
     <div className={`${styles.section}${blog ? ' ' + styles.blog : ''}`}>
       <header>
