@@ -1,0 +1,29 @@
+.section {
+  text-align: center;
+
+  header {
+    margin-bottom: 64px;
+    h2 {
+      font: var(--heading-large);
+    }
+  }
+}
+
+.items {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+
+  article {
+    width: 25%;
+
+    h3 {
+      font: var(--heading-extra-small);
+      color: rgb(var(--borboleta));
+      margin-bottom: 24px;
+    }
+    p {
+      color: rgb(var(--folha));
+    }
+  }
+}
