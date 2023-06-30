@@ -47,7 +47,7 @@ export default function Home({ home, cases, gallery, posts, footer, info }) {
         </Section>
 
         <Section id="redes-sociais" pt="48 48" pb="160 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
-          <SocialMedia videos={gallery} />
+          <SocialMedia content={home.socialMedia} videos={gallery} />
         </Section>
 
         <Section id="chamada" pt="140 80" pb="140 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
