@@ -1,0 +1,44 @@
+.section {
+  text-align: center;
+  background-color: rgb(var(--folha));
+
+  header {
+    margin-bottom: 64px;
+    h2 {
+      font: var(--heading-large);
+      color: rgb(var(--siciliano));
+    }
+  }
+}
+
+.benefit {
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    color: rgb(var(--luz));
+    background-color: rgb(var(--borboleta));
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  h3 {
+    font: var(--body-lg);
+    font-weight: 600;
+    color: rgb(var(--siciliano));
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: rgb(var(--luz));
+  }
+}
