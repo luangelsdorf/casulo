@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 
 export default function SocialMedia({ blog, content, videos }) {
+  console.log(content)
 
   return (
     <div className={`${styles.section}${blog ? ' ' + styles.blog : ''}`}>
@@ -14,8 +15,8 @@ export default function SocialMedia({ blog, content, videos }) {
           <div className="row">
             <div className={`col-12${blog ? '' : ' col-lg-6'}`}>
               <div className={styles.headline}>
-                <p className="overline light">Redes Sociais</p>
-                <h2>{'Siga a Casulo e descubra \ndicas valiosas para o seu pet'}</h2>
+                <p className="overline light">{content.headline.overline}</p>
+                <h2>{content.headline.title}</h2>
               </div>
             </div>
             <div className={`col-12 col-lg-3 offset-lg-3 ${blog ? 'd-none' : 'd-block'}`}>
