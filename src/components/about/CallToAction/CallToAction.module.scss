@@ -1,0 +1,31 @@
+.section {
+  :global(.col-12) {
+    position: relative;
+  }
+}
+
+.content {
+  padding: 106px 0;
+  padding-left: 10.5%;
+  background-color: rgb(var(--folha));
+  border-radius: 32px;
+
+  h2 {
+    margin-bottom: 24px;
+    color: rgb(var(--siciliano));
+  }
+
+  p {
+    margin-bottom: 40px;
+    color: rgb(var(--luz));
+  }
+
+  & + img {
+    position: absolute;
+    bottom: 0;
+    right: 12px;
+    margin-right: 8%;
+    height: calc(100% + 64px);
+    width: auto;
+  }
+}
