@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['casulo.pet']
+    domains: ['localhost', 'casulo.pet']
   },
 
   webpack(config) {
