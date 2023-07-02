@@ -10,7 +10,7 @@
 
   img {
     height: 100%;
-    width: auto;
+    width: auto !important;
     position: absolute;
     left: -96px;
   }
@@ -22,7 +22,7 @@
   align-items: flex-start;
   padding: 144px 0;
   position: relative;
-  width: max-content;
+  width: 25%;
   margin-left: auto;
   margin-right: 80px;
 

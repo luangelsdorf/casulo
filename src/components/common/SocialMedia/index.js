@@ -5,7 +5,7 @@ import Insta from 'public/images/icons/ui/instagram.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 
-export default function SocialMedia({ blog, content, videos }) {
+export default function SocialMedia({ blog, content, videos, info }) {
   return (
     <div className={`${styles.section}${blog ? ' ' + styles.blog : ''}`}>
       <header>
@@ -19,7 +19,7 @@ export default function SocialMedia({ blog, content, videos }) {
             </div>
             <div className={`col-12 col-lg-3 offset-lg-3 ${blog ? 'd-none' : 'd-block'}`}>
               <div className={styles.button}>
-                <Button LeftIcon={Insta} target="_blank" href="https://instagram.com/casulo.adestra">@casulo.adestra</Button>
+                <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{`@${info.instagram}`}</Button>
               </div>
             </div>
           </div>

@@ -5,24 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Prev from 'public/images/icons/ui/arrow-left.svg';
 import Next from 'public/images/icons/ui/arrow-right.svg';
 
-export default function Testimonials({ content }) {
-  const slides = [
-    {
-      image: '/images/hero/dog1.jpg',
-      name: 'Simba',
-      services: 'Adestramento | Comportamental',
-    },
-    {
-      image: '/images/hero/dog2.jpg',
-      name: 'Zeca',
-      services: 'Hotel Canino',
-    },
-    {
-      image: '/images/hero/dog3.jpg',
-      name: 'Nome do Dog',
-      services: 'Serviços Prestados',
-    },
-  ];
+export default function Testimonials({ content, cases }) {
 
   return (
     <div className={styles.section}>
@@ -30,9 +13,9 @@ export default function Testimonials({ content }) {
         <div className="row flex-nowrap">
           <div className="col-12 col-lg-5">
             <header className={styles.textContent}>
-              <p className="overline">Depoimentos</p>
-              <h2>Histórias de Transformação</h2>
-              <p>Descubra como a Casulo tem ajudado cães e seus tutores a alcançarem uma relação equilibrada e harmoniosa.</p>
+              <p className="overline">{content.headline.overline}</p>
+              <h2>{content.headline.title}</h2>
+              <p>{content.text}</p>
               <div className={styles.controls}>
                 <div role="button" className={styles.prev}>
                   <Prev />
@@ -60,9 +43,9 @@ export default function Testimonials({ content }) {
             }} */
             >
               {
-                slides.map((slide, index) => (
+                cases.map((slide, index) => (
                   <SwiperSlide key={index} className="col-12 col-lg-5">
-                    <TestimonialCard {...slide} short />
+                    <TestimonialCard {...slide.attributes} short />
                   </SwiperSlide>
                 ))
               }

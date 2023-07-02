@@ -10,8 +10,8 @@ export default function Footer({ content }) {
         <div className="row">
           <div className="col-12 col-lg-4">
             <div className={styles.cta}>
-              <h2>{'Transforme a \nvida do seu cão'}</h2>
-              <p>{'Conheça nossos serviços e \nmelhore a relação com seu pet.'}</p>
+              <h2>{content.callToAction.title}</h2>
+              <p>{content.callToAction.text}</p>
               <Button RightIcon={Arrow} className="sm folha inverted">Agende uma Consulta</Button>
             </div>
           </div>

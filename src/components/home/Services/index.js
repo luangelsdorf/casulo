@@ -1,17 +1,19 @@
-import Image from 'next/image';
 import styles from './Services.module.scss';
 import Button from 'src/components/common/Button';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Seal from 'public/images/brand/seal-dark.svg';
+import Img from 'src/components/common/Img';
 
 export default function Services({ content }) {
 
-  const Card = ({ image }) => (
-    <a className={`link-image ${styles.card}`}>
-      <img src={image} alt="" />
-      <Button divElement RightIcon={Arrow}>Saiba Mais</Button>
-    </a>
-  );
+  const Card = ({ image }) => {
+    return (
+      <a className={`link-image ${styles.card}`}>
+        <Img {...image} fill alt="" />
+        <Button divElement RightIcon={Arrow}>Saiba Mais</Button>
+      </a>
+    );
+  };
 
   return (
     <div className={styles.section}>
@@ -21,30 +23,30 @@ export default function Services({ content }) {
           <div className="col-12 col-lg-6">
             <article className={styles.training}>
               <div>
-                <h2>Adestramento</h2>
-                <p>Oferecemos treinamentos personalizados, adaptados às necessidades específicas do seu cão e fortalecer os vínculos entre você e seu pet.</p>
+                <h2>{content.training.title}</h2>
+                <p>{content.training.description}</p>
               </div>
-              <Card image="https://casulo.pet/strapi/uploads/adestramento_1ca219560f.jpg" />
+              <Card image={content.training.image} />
             </article>
           </div>
 
           <div className="col-12 col-lg-6">
             <article className={styles.consultancy}>
-              <Card image="https://casulo.pet/strapi/uploads/consultoria_dceb5fb71c.jpg" />
+              <Card image={content.consultancy.image} />
               <div>
-                <h2>Consultoria</h2>
-                <p>Seja para lidar com problemas ou para melhorar a relação com o seu pet, conte com nossa expertise para ajudá-lo a encontrar soluções.</p>
+                <h2>{content.consultancy.title}</h2>
+                <p>{content.consultancy.description}</p>
               </div>
             </article>
           </div>
 
           <div className="col-12">
             <article className={styles.hotel}>
-              <img src="https://casulo.pet/strapi/uploads/Adobe_Stock_346122018_e79891e330.png" alt="" />
+              <Img {...content.dogHotel.image} fill alt="" />
               <div>
-                <h2>Hotel Canino</h2>
-                <p>Quando você precisa viajar, oferecemos um Pet Hotel seguro e acolhedor para hospedar seu companheiro canino. Deixe-o conosco e tenha tranquilidade enquanto está fora.</p>
-                <Button className="inverted" divElement RightIcon={Arrow}>Saiba Mais</Button>
+                <h2>{content.dogHotel.title}</h2>
+                <p>{content.dogHotel.description}</p>
+                <Button className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
               </div>
             </article>
           </div>

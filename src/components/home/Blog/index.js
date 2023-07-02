@@ -10,9 +10,9 @@ export default function Blog({ content, posts }) {
         <div className="row">
           <div className="col-12 col-lg-4">
             <header className={styles.textContent}>
-              <p className="overline">Posts & Artigos</p>
-              <h2>Nosso Blog</h2>
-              <p>{'Uma descrição do seu blog e o que o \nvisitante pode esperar encontrar nele.'}</p>
+              <p className="overline">{content.headline.overline}</p>
+              <h2>{content.headline.title}</h2>
+              <p>{content.text}</p>
               <Button href="/blog" RightIcon={Arrow}>Ver Blog Completo</Button>
             </header>
           </div>

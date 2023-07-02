@@ -4,35 +4,8 @@ import Plus from 'public/images/icons/ui/sum.svg';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Button from '../Button';
 
-export default function FAQ({ content, light }) {
+export default function FAQ({ content }) {
   const faq = useRef(null);
-  const questions = [
-    {
-      id: 1,
-      title: 'Lorem Ipsum sit amet et dolore?',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-    {
-      id: 2,
-      title: 'Lorem Ipsum sit amet et dolore?',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-    {
-      id: 3,
-      title: 'Lorem Ipsum sit amet et dolore?',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-    {
-      id: 4,
-      title: 'Lorem Ipsum sit amet et dolore?',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-    {
-      id: 5,
-      title: 'Lorem Ipsum sit amet et dolore?',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-  ];
 
   useEffect(() => {
     require('bootstrap/js/dist/collapse');
@@ -83,13 +56,13 @@ export default function FAQ({ content, light }) {
           <div className="col-12 col-lg-10">
             <div>
               <header className={styles.headline}>
-                <h2>Perguntas Frequentes</h2>
+                <h2>{content.title}</h2>
                 <Button RightIcon={Arrow} className="folha inverted" href="/faq">Ver todos os FAQs</Button>
               </header>
 
               <div className={styles.questions} ref={faq}>
                 {
-                  questions.map(q => (
+                  content.questions.map(q => (
                     <Question {...q} key={q.id} />
                   ))
                 }

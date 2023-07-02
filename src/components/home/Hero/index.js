@@ -8,25 +8,7 @@ import Calendar from 'public/images/icons/ui/calendar.svg';
 import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
 
-export default function Hero({ content }) {
-
-  const slides = [
-    {
-      image: '/images/hero/dog1.jpg',
-      name: 'Simba',
-      services: 'Adestramento | Comportamental',
-    },
-    {
-      image: '/images/hero/dog2.jpg',
-      name: 'Zeca',
-      services: 'Hotel Canino',
-    },
-    {
-      image: '/images/hero/dog3.jpg',
-      name: 'Nome do Dog',
-      services: 'Serviços Prestados',
-    },
-  ]
+export default function Hero({ content, highlights }) {
 
   return (
     <div className={styles.section}>
@@ -47,8 +29,8 @@ export default function Hero({ content }) {
         <div className="row">
           <div className="col-12 col-lg-5">
             <div className={styles.textContent}>
-              <h1>{'Um Local de \nConfiança'}</h1>
-              <p>{'Nosso objetivo é garantir uma maior qualidade de \nvida e bem-estar para os cães e seus donos.'}</p>
+              <h1>{content.topic.title}</h1>
+              <p>{content.topic.text}</p>
               <Button className="folha" RightIcon={Arrow}>Fale Conosco</Button>
             </div>
           </div>
@@ -74,9 +56,9 @@ export default function Hero({ content }) {
               }}
             >
               {
-                slides.map((slide, index) => (
+                highlights.map((slide, index) => (
                   <SwiperSlide key={index} className="col-12 col-lg-6">
-                    <TestimonialCard {...slide} />
+                    <TestimonialCard {...slide.attributes} />
                   </SwiperSlide>
                 ))
               }
