@@ -1,7 +1,6 @@
 import Button from 'src/components/common/Button';
 import PostCard from '../PostCard';
 import styles from './PostList.module.scss';
-/* import Arrow from 'public/images/icons/ui/arrow-right.svg'; */
 
 export default function PostList({ posts }) {
   return (

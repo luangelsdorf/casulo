@@ -19,7 +19,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
 
       <main>
         <Section id="inicio" pt="16 24" pb="96 80">
-          <Hero />
+          <Hero content={blog.banner} />
         </Section>
 
         <Section id="lista" pt="0" pb="80 80">
@@ -27,11 +27,11 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
         </Section>
 
         <Section id="redes-sociais" pt="64 48" pb="56 80" mb="56" style={{ backgroundColor: 'rgb(var(--folha))' }}>
-          <SocialMedia blog content={blog.socialMedia} videos={gallery} />
+          <SocialMedia blog content={blog.socialMedia} videos={gallery} info={info} />
         </Section>
       </main>
 
-      <Footer />
+      <Footer content={footer} />
     </>
   )
 }
