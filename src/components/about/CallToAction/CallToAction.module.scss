@@ -10,6 +10,10 @@
   background-color: rgb(var(--folha));
   border-radius: 32px;
 
+  & > div {
+    max-width: 335px;
+  }
+
   h2 {
     margin-bottom: 24px;
     color: rgb(var(--siciliano));

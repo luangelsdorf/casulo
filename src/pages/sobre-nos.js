@@ -10,8 +10,9 @@ import FAQ from 'src/components/common/FAQ';
 import Section from 'src/components/common/Section';
 import Footer from 'src/components/layout/Footer';
 import Header from 'src/components/layout/Header';
+import fetchAPI from 'src/utils/fetch';
 
-export default function About() {
+export default function About({ about, cases, faq, footer, info }) {
   return (
     <>
       <Head>
@@ -23,35 +24,55 @@ export default function About() {
 
       <main>
         <Section id="home" pt="16" pb="72 80">
-          <Hero />
+          <Hero content={about.banner} />
         </Section>
 
         <Section id="sobre" pt="176 80" pb="120 80">
-          <AboutUs />
+          <AboutUs content={about.about} />
         </Section>
 
         <Section id="proposito" pt="0" pb="96 80">
-          <Purpose />
+          <Purpose content={about.purpose} />
         </Section>
 
         <Section id="beneficios" pt="80 80" pb="88 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
-          <Benefits />
+          <Benefits content={about.benefits} />
         </Section>
 
         <Section id="depoimentos" pt="64 80" pb="80 80">
-          <Testimonials />
+          <Testimonials content={about.testimonials} cases={cases} />
         </Section>
 
         <Section id="chamada" pt="112 80" pb="96 80">
-          <CallToAction />
+          <CallToAction content={about.cta} info={info} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">
-          <FAQ />
+          <FAQ content={faq} />
         </Section>
       </main>
 
-      <Footer />
+      <Footer content={footer} />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const about = await fetchAPI('about');
+  const cases = await fetchAPI('cases', '', false);
+  const faq = await fetchAPI('faq');
+  const footer = await fetchAPI('footer');
+  const info = await fetchAPI('info');
+
+  return {
+    props: {
+      about,
+      cases,
+      faq,
+      footer,
+      info,
+    },
+
+    revalidate: 60,
+  }
 }

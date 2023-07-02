@@ -1,5 +1,5 @@
+import Img from 'src/components/common/Img';
 import styles from './Benefits.module.scss';
-import Star from 'public/images/icons/ui/star.svg';
 
 export default function Benefits({ content }) {
   return (
@@ -8,45 +8,23 @@ export default function Benefits({ content }) {
         <div className="row">
           <div className="col-12">
             <header>
-              <h2>Por que Trabalhar Conosco</h2>
+              <h2>{content.title}</h2>
             </header>
           </div>
-          <div className="col-12 col-lg-3">
-            <article className={styles.benefit}>
-              <div>
-                <Star />
+
+          {
+            content.items.map((item, index) => (
+              <div className="col-12 col-lg-3" key={index}>
+                <article className={styles.benefit}>
+                  <div>
+                    <Img {...item.icon} />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
               </div>
-              <h3>Vantagem 01</h3>
-              <p>{'Uma breve descrição do \nbenefício / vantagem.'}</p>
-            </article>
-          </div>
-          <div className="col-12 col-lg-3">
-            <article className={styles.benefit}>
-              <div>
-                <Star />
-              </div>
-              <h3>Vantagem 02</h3>
-              <p>{'Uma breve descrição do \nbenefício / vantagem.'}</p>
-            </article>
-          </div>
-          <div className="col-12 col-lg-3">
-            <article className={styles.benefit}>
-              <div>
-                <Star />
-              </div>
-              <h3>Vantagem 03</h3>
-              <p>{'Uma breve descrição do \nbenefício / vantagem.'}</p>
-            </article>
-          </div>
-          <div className="col-12 col-lg-3">
-            <article className={styles.benefit}>
-              <div>
-                <Star />
-              </div>
-              <h3>Vantagem 04</h3>
-              <p>{'Uma breve descrição do \nbenefício / vantagem.'}</p>
-            </article>
-          </div>
+            ))
+          }
         </div>
       </div>
     </div>

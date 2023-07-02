@@ -3,7 +3,7 @@ import styles from './Testimonials.module.scss';
 import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-export default function Testimonials({ content }) {
+export default function Testimonials({ content, cases }) {
   const slides = [
     {
       image: '/images/hero/dog1.jpg',
@@ -58,8 +58,8 @@ export default function Testimonials({ content }) {
         <div className="row">
           <div className="col-12">
             <header>
-              <p className="overline">Depoimentos</p>
-              <h2>Histórias de Transformação</h2>
+              <p className="overline">{content.headline.overline}</p>
+              <h2>{content.headline.title}</h2>
             </header>
           </div>
           <Swiper
@@ -79,9 +79,9 @@ export default function Testimonials({ content }) {
             }}
           >
             {
-              slides.map((slide, index) => (
+              cases.map((slide, index) => (
                 <SwiperSlide key={index} className="col-12 col-lg-5">
-                  <TestimonialCard {...slide} short />
+                  <TestimonialCard {...slide.attributes} short />
                 </SwiperSlide>
               ))
             }
