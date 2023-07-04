@@ -5,6 +5,8 @@
   overflow: hidden;
   height: calc(100vh - (var(--spacing) * 2));
   margin-top: var(--spacing);
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     img {
@@ -18,9 +20,13 @@
     p {
       color: rgb(var(--luz));
     }
+
+    &::after {
+      opacity: 0;
+    }
   }
 
-  &::after {
+  &::after, &::before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -29,7 +35,15 @@
     bottom: 0;
     right: 0;
     border-radius: 32px;
+  }
+
+  &::before {
     background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &::after {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 22.92%, rgba(0, 0, 0, 0.2) 100%);
+    transition: 400ms;
   }
 
   img {

@@ -1,0 +1,26 @@
+.section {
+  a {
+    display: block;
+  }
+
+  [data-display="false"] {
+    display: none;
+  }
+
+  :global(.row) {
+    p {
+      &:only-child {
+        font: var(--heading-medium);
+        margin: 48px 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
