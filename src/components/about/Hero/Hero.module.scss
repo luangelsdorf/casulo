@@ -35,6 +35,10 @@
     font: var(--display);
     color: rgb(var(--siciliano));
     margin-bottom: 32px;
+
+    &:only-child {
+      margin: 72px 0;
+    }
   }
 
   p {

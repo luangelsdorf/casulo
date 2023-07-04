@@ -4,6 +4,7 @@ import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Img from 'src/components/common/Img';
 
 export default function Hero({ content }) {
+  console.log(content);
   return (
     <div className={styles.section}>
       <div className="container">
@@ -12,8 +13,8 @@ export default function Hero({ content }) {
           <div className="co-12 col-lg-8">
             <div className={styles.textContent}>
               <h1>{content.title}</h1>
-              <p>{content.text}</p>
-              <Button RightIcon={Arrow}>Fale Conosco</Button>
+              {content.text && <p>{content.text}</p>}
+              {content.text && <Button RightIcon={Arrow}>Fale Conosco</Button>}
             </div>
           </div>
         </div>

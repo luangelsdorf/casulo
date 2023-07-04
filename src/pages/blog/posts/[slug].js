@@ -1,12 +1,12 @@
 import Head from "next/head";
-import Hero from "src/components/blog/Hero";
+import Hero from "src/components/about/Hero";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import Body from "src/components/post/Body";
 import fetchAPI from "src/utils/fetch";
 
-export default function Post({ post, info, footer }) {
+export default function Post({ post, footer }) {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ export default function Post({ post, info, footer }) {
 
       <main>
         <Section id="inicio" pt="16 24" pb="48 24">
-          <Hero content={{ topic: { title: post.title } }} />
+          <Hero content={{ title: post.title, cover: post.cover }} />
         </Section>
 
         <div className="col-12 col-lg-8 mx-auto">
@@ -43,16 +43,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const singlePost = await fetchAPI('posts', `filters[slug][$eq]=${slug}`, false);
+  const singlePost = await fetchAPI('posts', `filters[slug][$eq]=${slug}`, '*');
   /* const recentPosts = await fetchAPI('posts', `&pagination[start]=${0}&pagination[limit]=${5}`, false); */
-  const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
 
   return {
     props: {
       post: singlePost[0].attributes,
       /* recentPosts, */
-      info,
       footer,
     },
 

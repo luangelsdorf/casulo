@@ -6,7 +6,7 @@ export default function PostList({ posts }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row">
           {
             posts.map((post, index) => (
               <div className="col-12 col-lg-4" key={index}>
