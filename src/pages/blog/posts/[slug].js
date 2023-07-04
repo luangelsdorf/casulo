@@ -3,23 +3,29 @@ import Hero from "src/components/blog/Hero";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
+import Body from "src/components/post/Body";
 import fetchAPI from "src/utils/fetch";
 
 export default function Post({ post, info, footer }) {
-  console.log(post, info, footer);
   return (
     <>
       <Head>
-        <title>Post | Casulo</title>
-        <meta property="og:title" content="Post | Casulo" />
+        <title>{`${post.title} | Blog Casulo`}</title>
+        <meta property="og:title" content={`${post.title} | Blog Casulo`} />
       </Head>
 
       <Header />
 
       <main>
-        <Section id="inicio" pt="16 24" pb="96 80">
-          <Hero content={{ topic: { title: 'Título do Post', text: 'Lorem Ipsum dolor sit amet.' } }} />
+        <Section id="inicio" pt="16 24" pb="48 24">
+          <Hero content={{ topic: { title: post.title } }} />
         </Section>
+
+        <div className="col-12 col-lg-8 mx-auto">
+          <Section pt="0" pb="120">
+            <Body content={post.body} />
+          </Section>
+        </div>
       </main>
 
       <Footer content={footer} />

@@ -1,0 +1,89 @@
+@use "src/styles/scss/mixins";
+
+.article {
+  @media (min-width: 576px) {
+    padding: 0 24px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 0;
+  }
+
+  @include mixins.lg {
+    :global(.image-style-side) {
+      float: initial;
+      margin-left: 0;
+      min-width: 100%;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  & > p,
+  & > h2,
+  & > blockquote {
+    margin: 56px auto;
+  }
+
+  p {
+    font: var(--body-lg);
+    line-height: 48px;
+    @include mixins.lg {
+      font: var(--body-default);
+    }
+  }
+
+  & > p:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font: var(--body-lg);
+    font-weight: 800;
+    @include mixins.lg {
+      font: var(--body-default);
+      font-weight: 800;
+    }
+  }
+
+  a {
+    padding: 0 !important;
+  }
+
+  blockquote {
+    position: relative;
+
+    p {
+      font-size: 28px;
+      line-height: 48px;
+      margin-left: 80px;
+    }
+
+    &::before {
+      content: "";
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48px;
+      height: 40px;
+      background-image: url("/images/icons/quote.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(180deg);
+    }
+  }
+
+  h2 {
+    font: var(--heading-extra-small);
+  }
+
+  ul, ol {
+    padding-inline-start: 40px;
+  }
+}

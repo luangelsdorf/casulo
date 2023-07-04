@@ -153,6 +153,14 @@ a {
       }
     }
   }
+
+  &:not(:has(span)) {
+    color: rgb(var(--borboleta));
+
+    &:hover {
+      color: rgb(var(--casca));
+    }
+  }
 }
 
 a,

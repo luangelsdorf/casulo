@@ -40,7 +40,7 @@ export default function PostCard(props) {
         <p>
           {props.body ? getExcerpt(props.body) : null}
         </p>
-        <Button className="transparent sm">Ler Mais</Button>
+        <Button href={`/blog/posts/${props.slug}`} className="transparent sm">Ler Mais</Button>
       </div>
     </article>
   )
