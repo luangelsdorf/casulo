@@ -3,15 +3,16 @@ import Button from 'src/components/common/Button';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Seal from 'public/images/brand/seal-dark.svg';
 import Img from 'src/components/common/Img';
+import Link from 'next/link';
 
 export default function Services({ content }) {
 
   const Card = ({ image }) => {
     return (
-      <a className={`link-image ${styles.card}`}>
+      <Link href="#services" className={`link-image ${styles.card}`}>
         <Img {...image} fill alt="" />
         <Button divElement RightIcon={Arrow}>Saiba Mais</Button>
-      </a>
+      </Link>
     );
   };
 
@@ -41,13 +42,15 @@ export default function Services({ content }) {
           </div>
 
           <div className="col-12">
-            <article className={styles.hotel}>
-              <Img {...content.dogHotel.image} fill alt="" />
-              <div>
-                <h2>{content.dogHotel.title}</h2>
-                <p>{content.dogHotel.description}</p>
-                <Button className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
-              </div>
+            <article>
+              <Link href="#services" className={`link-image ${styles.hotel}`}>
+                <Img {...content.dogHotel.image} fill alt="" />
+                <div>
+                  <h2>{content.dogHotel.title}</h2>
+                  <p>{content.dogHotel.description}</p>
+                  <Button divElement className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
+                </div>
+              </Link>
             </article>
           </div>
         </div>
