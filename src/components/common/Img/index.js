@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { apiURL } from 'src/utils/env';
 
 export default function Img({ data: { attributes: props }, fill, sizes, ...rest }) {
+  console.log(rest);
   return (
     <Image
       src={apiURL + props.url}

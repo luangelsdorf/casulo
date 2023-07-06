@@ -4,13 +4,14 @@ import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Seal from 'public/images/brand/seal-dark.svg';
 import Img from 'src/components/common/Img';
 import Link from 'next/link';
+import { getSizesString } from 'src/utils/images';
 
 export default function Services({ content }) {
 
-  const Card = ({ image }) => {
+  const Card = ({ image, sizes }) => {
     return (
       <Link href="#services" className={`link-image ${styles.card}`}>
-        <Img {...image} fill alt="" />
+        <Img {...image} sizes={sizes} fill alt="" />
         <Button divElement RightIcon={Arrow}>Saiba Mais</Button>
       </Link>
     );
@@ -27,13 +28,13 @@ export default function Services({ content }) {
                 <h2>{content.training.title}</h2>
                 <p>{content.training.description}</p>
               </div>
-              <Card image={content.training.image} />
+              <Card image={content.training.image} sizes={getSizesString('col-12 col-lg-6')} />
             </article>
           </div>
 
           <div className="col-12 col-lg-6">
             <article className={styles.consultancy}>
-              <Card image={content.consultancy.image} />
+              <Card image={content.consultancy.image} sizes={getSizesString('col-12 col-lg-6')} />
               <div>
                 <h2>{content.consultancy.title}</h2>
                 <p>{content.consultancy.description}</p>

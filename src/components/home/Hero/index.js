@@ -7,8 +7,12 @@ import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Calendar from 'public/images/icons/ui/calendar.svg';
 import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
+import { getSizesString } from 'src/utils/images';
 
 export default function Hero({ content, highlights }) {
+
+  const cardGrid = 'col-12 col-lg-6';
+  const cardSizes = getSizesString(cardGrid);
 
   return (
     <div className={styles.section}>
@@ -57,8 +61,8 @@ export default function Hero({ content, highlights }) {
             >
               {
                 highlights.map((slide, index) => (
-                  <SwiperSlide key={index} className="col-12 col-lg-6">
-                    <TestimonialCard {...slide.attributes} />
+                  <SwiperSlide key={index} className={cardGrid}>
+                    <TestimonialCard {...slide.attributes} sizes={cardSizes} />
                   </SwiperSlide>
                 ))
               }

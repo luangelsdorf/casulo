@@ -4,8 +4,11 @@ import { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Prev from 'public/images/icons/ui/arrow-left.svg';
 import Next from 'public/images/icons/ui/arrow-right.svg';
+import { getSizesString } from 'src/utils/images';
 
 export default function Testimonials({ content, cases }) {
+
+  const cardSizes = getSizesString('col-12 col-lg-5');
 
   return (
     <div className={styles.section}>
@@ -45,7 +48,7 @@ export default function Testimonials({ content, cases }) {
               {
                 cases.map((slide, index) => (
                   <SwiperSlide key={index} className="col-12 col-lg-5">
-                    <TestimonialCard {...slide.attributes} short />
+                    <TestimonialCard {...slide.attributes} short sizes={cardSizes} />
                   </SwiperSlide>
                 ))
               }

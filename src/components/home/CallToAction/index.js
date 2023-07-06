@@ -3,13 +3,14 @@ import styles from './CallToAction.module.scss';
 import Whats from 'public/images/icons/ui/whatsapp.svg';
 import Image from 'next/image';
 import { useEffect } from 'react';
+import { getSizesString } from 'src/utils/images';
 
 export default function CallToAction({ content, info }) {
 
   useEffect(() => {
     function callback(entries) {
       entries.forEach(entry => {
-        if (entry.intersectionRatio > 0.5) {
+        if (entry.intersectionRatio > 0.6) {
           entry.target.classList.add(styles.active);
           entry.target.querySelector('.btn').classList.add('inverted');
         } else {
@@ -19,7 +20,7 @@ export default function CallToAction({ content, info }) {
       });
     }
 
-    const observer = new IntersectionObserver(callback, { rootMargin: '-20% 0% -20% 0%', threshold: 0.5 });
+    const observer = new IntersectionObserver(callback, { rootMargin: '-20% 0% -20% 0%', threshold: 0.6 });
     const targets = document.querySelectorAll(`.${styles.section}`);
     targets.forEach(target => observer.observe(target));
 
@@ -30,7 +31,7 @@ export default function CallToAction({ content, info }) {
     <div className={styles.section}>
       <div className="container">
         <div className={styles.cta}>
-          <Image src="https://casulo.pet/strapi/uploads/dog_eb67cdb9f6.png" alt="" fill />
+          <Image src="/images/home/dog.png" fill sizes={getSizesString('col-12 col-md-8')} alt="" />
           <div className={styles.textContent}>
             <h2>{content.text.title}</h2>
             <p>{content.text.text}</p>
