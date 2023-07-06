@@ -52,7 +52,7 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
           <SocialMedia content={home.socialMedia} videos={gallery} info={info} />
         </Section>
 
-        <Section id="chamada" pt="140 80" pb="140 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
+        <Section id="chamada">
           <CallToAction content={home.cta} info={info} />
         </Section>
 

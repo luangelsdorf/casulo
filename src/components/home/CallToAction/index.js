@@ -2,8 +2,31 @@ import Button from 'src/components/common/Button';
 import styles from './CallToAction.module.scss';
 import Whats from 'public/images/icons/ui/whatsapp.svg';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function CallToAction({ content, info }) {
+
+  useEffect(() => {
+    function callback(entries) {
+      entries.forEach(entry => {
+        console.log(entry.intersectionRatio);
+        if (entry.intersectionRatio > 0.5) {
+          entry.target.classList.add(styles.active);
+          entry.target.querySelector('.btn').classList.add('inverted');
+        } else {
+          entry.target.classList.remove(styles.active);
+          entry.target.querySelector('.btn').classList.remove('inverted');
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(callback, { rootMargin: '-20% 0% -20% 0%', threshold: 0.5 });
+    const targets = document.querySelectorAll(`.${styles.section}`);
+    targets.forEach(target => observer.observe(target));
+
+    return () => targets.forEach(target => observer.unobserve(target));
+  }, []);
+
   return (
     <div className={styles.section}>
       <div className="container">

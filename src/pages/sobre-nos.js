@@ -59,7 +59,7 @@ export default function About({ about, cases, faq, footer, info }) {
 
 export async function getStaticProps() {
   const about = await fetchAPI('about');
-  const cases = await fetchAPI('cases', '', false);
+  const cases = await fetchAPI('cases', 'populate=photo', false);
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');
