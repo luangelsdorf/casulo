@@ -9,7 +9,6 @@ export default function CallToAction({ content, info }) {
   useEffect(() => {
     function callback(entries) {
       entries.forEach(entry => {
-        console.log(entry.intersectionRatio);
         if (entry.intersectionRatio > 0.5) {
           entry.target.classList.add(styles.active);
           entry.target.querySelector('.btn').classList.add('inverted');

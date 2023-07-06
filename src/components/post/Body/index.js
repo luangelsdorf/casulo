@@ -11,12 +11,6 @@ export default function Body({ content }) {
   }
 
   return (
-    <>
-      <Head>
-        <link rel="stylesheet" href="/css/ckeditor.min.css" />
-      </Head>
-
-      <article className={`ck-content ${styles.article}`} dangerouslySetInnerHTML={{ __html: newContent }} />
-    </>
+    <article className={`ck-content ${styles.article}`} dangerouslySetInnerHTML={{ __html: newContent }} />
   )
 }

@@ -4,7 +4,6 @@ import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Img from 'src/components/common/Img';
 
 export default function Hero({ content }) {
-  console.log(content);
   return (
     <div className={styles.section}>
       <div className="container">

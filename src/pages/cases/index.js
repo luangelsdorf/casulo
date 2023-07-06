@@ -7,7 +7,6 @@ import Header from "src/components/layout/Header";
 import fetchAPI from "src/utils/fetch";
 
 export default function Category({ dogs, info, footer, fields }) {
-  console.log(dogs);
   return (
     <>
       <Head>

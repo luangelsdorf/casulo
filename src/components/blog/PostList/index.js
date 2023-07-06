@@ -14,13 +14,6 @@ export default function PostList({ posts }) {
               </div>
             ))
           }
-          {
-            posts.map((post, index) => (
-              <div className="col-12 col-lg-4" key={index}>
-                <PostCard {...post.attributes} />
-              </div>
-            ))
-          }
         </div>
       </div>
       <Button btnElement>Ver Mais Publicações</Button>
