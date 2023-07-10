@@ -1,0 +1,29 @@
+@use "src/styles/scss/mixins";
+
+.wrapper {
+  position: fixed;
+  bottom: 32px;
+  z-index: 3;
+  width: 100%;
+}
+
+.content {
+  font: var(--body-detail);
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid rgb(var(--dark-green), 0.2); */
+
+  @include mixins.md {
+    flex-direction: column;
+    gap: 16px;
+
+    button {
+      width: 100%;
+    }
+  }
+}
