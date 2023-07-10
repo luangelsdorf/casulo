@@ -42,9 +42,9 @@ export default function Footer({ content }) {
               </div>
               <div className={styles.detail}>
                 <small>
-                  <Button link>Termos de Uso</Button>
+                  <Button href="termos-de-uso" link>Termos de Uso</Button>
                   <span>&bull;</span>
-                  <Button link>Política de Privacidade</Button>
+                  <Button href="politica-de-privacidade" link>Política de Privacidade</Button>
                 </small>
                 <small>
                   Todos os Direitos Reservados © 2023
