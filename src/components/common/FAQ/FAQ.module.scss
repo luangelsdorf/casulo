@@ -26,6 +26,16 @@
   flex-direction: column;
   gap: 24px;
 
+  @include mixins.lg {
+    gap: 16px;
+    align-items: stretch !important;
+  }
+}
+
+.question {
+  background-color: rgb(var(--white));
+  border-radius: 56px;
+
   header {
     cursor: pointer;
     display: flex;
@@ -34,6 +44,11 @@
     gap: 24px;
     padding: 24px 32px;
     transition: 400ms;
+
+    h3 {
+      font: var(--body-md);
+      font-weight: 600;
+    }
 
     .icon {
       display: flex;
@@ -55,35 +70,20 @@
     }
   }
 
-  article {
-    background-color: rgb(var(--white));
-    border-radius: 56px;
+  .answer {
+    padding: 0 48px 32px 48px;
 
-    h3 {
-      font: var(--body-md);
-      font-weight: 600;
+    p {
+      padding-top: 16px;
     }
 
-    .answer {
-      padding: 0 48px 32px 48px;
-
-      p {
-        padding-top: 16px;
-      }
-
-      @include mixins.md {
-        padding: 16px 32px;
-      }
+    @include mixins.md {
+      padding: 16px 32px;
     }
   }
 
   @include mixins.lg {
-    gap: 16px;
-    align-items: stretch !important;
-
-    article {
-      text-align: left;
-    }
+    text-align: left;
   }
 }
 

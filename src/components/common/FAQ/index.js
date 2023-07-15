@@ -4,7 +4,23 @@ import Plus from 'public/images/icons/ui/sum.svg';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Button from '../Button';
 
-export default function FAQ({ content }) {
+const Question = ({ id, title, text }) => (
+  <article className={styles.question} data-bs-toggle="collapse" data-bs-target={`#faq-collapse-${id}`}>
+    <header>
+      <h3>{title}</h3>
+      <div className={styles.icon}>
+        <Plus />
+      </div>
+    </header>
+    <div className="collapse" id={`faq-collapse-${id}`}>
+      <div className={styles.answer}>
+        <p>{text}</p>
+      </div>
+    </div>
+  </article>
+)
+
+const FAQ = ({ content }) => {
   const faq = useRef(null);
 
   useEffect(() => {
@@ -33,22 +49,6 @@ export default function FAQ({ content }) {
     }
   }, []);
 
-  const Question = ({ id, title, text }) => (
-    <article className={styles.question} data-bs-toggle="collapse" data-bs-target={`#faq-collapse-${id}`}>
-      <header>
-        <h3>{title}</h3>
-        <div className={styles.icon}>
-          <Plus />
-        </div>
-      </header>
-      <div className="collapse" id={`faq-collapse-${id}`}>
-        <div className={styles.answer}>
-          <p>{text}</p>
-        </div>
-      </div>
-    </article>
-  )
-
   return (
     <div className={styles.section}>
       <div className="container">
@@ -74,3 +74,7 @@ export default function FAQ({ content }) {
     </div>
   )
 }
+
+FAQ.Question = Question;
+
+export default FAQ;
