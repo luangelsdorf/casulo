@@ -36,14 +36,16 @@
   background-color: rgb(var(--white));
   border-radius: 56px;
 
-  header {
+  & > summary {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    padding: 24px 32px;
+    padding: 24px 0;
     transition: 400ms;
+    padding-right: 32px;
+    padding-left: 48px;
 
     h3 {
       font: var(--body-md);
@@ -51,9 +53,7 @@
     }
 
     .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 14px;
       background-color: rgb(var(--orvalho));
       border-radius: 56px;
       height: 48px;
@@ -61,12 +61,8 @@
 
       line {
         transform-origin: center;
-        transition: 600ms;
+        transition: 450ms;
       }
-    }
-
-    &:hover {
-      color: rgb(var(--phthalo-green));
     }
   }
 
@@ -82,21 +78,21 @@
     }
   }
 
-  @include mixins.lg {
-    text-align: left;
-  }
-}
-
-.active {
-  .icon {
-    line {
-      &:first-child {
-        transform: rotate(270deg);
-      }
-      &:last-child {
-        transform: rotate(180deg);
-        opacity: 0;
+  &[open] {
+    .icon {
+      line {
+        &:first-child {
+          transform: rotate(270deg);
+        }
+        &:last-child {
+          transform: rotate(180deg);
+          opacity: 0;
+        }
       }
     }
+  }
+
+  @include mixins.lg {
+    text-align: left;
   }
 }
