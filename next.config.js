@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const path = require('path');
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -20,6 +23,11 @@ const nextConfig = {
         }
       ],
     });
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@icons': path.resolve(__dirname, 'public/images/icons/ui')
+    }
 
     return config;
   }
