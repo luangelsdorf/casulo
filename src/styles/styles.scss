@@ -80,7 +80,8 @@ video {
 ul,
 ol,
 dl,
-menu {
+menu,
+summary {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -113,6 +114,14 @@ dialog.fullscreen {
   }
 }
 
+details {
+  cursor: pointer;
+}
+
+summary {
+  user-select: none;
+}
+
 .swiper[data-reveal-parent] {
   & > * {
     visibility: visible;
@@ -142,7 +151,7 @@ dialog.fullscreen {
 
 @include mixins.lg {
   [class*="col-lg"] {
-    &>div {
+    & > div {
       text-align: center;
       align-items: center;
     }

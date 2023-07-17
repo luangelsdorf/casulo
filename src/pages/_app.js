@@ -9,8 +9,8 @@ import { Calistoga } from 'next/font/google';
 import { Nunito_Sans } from 'next/font/google';
 import Cookies from 'src/components/common/Cookies';
 
-const calistoga = Calistoga({ subsets: ['latin'], weight: ['400'] });
-const nunito = Nunito_Sans({ subsets: ['latin'], weight: ['400', '600', '700'] });
+const calistoga = Calistoga({ subsets: ['latin'], display: 'swap', weight: ['400'] });
+const nunito = Nunito_Sans({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
 
 function MyApp({ Component, pageProps }) {
   return (
