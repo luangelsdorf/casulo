@@ -10,7 +10,7 @@ export default function CallToAction({ content, info }) {
   useEffect(() => {
     function callback(entries) {
       entries.forEach(entry => {
-        if (entry.intersectionRatio > 0.6) {
+        if (entry.isIntersecting) {
           entry.target.classList.add(styles.active);
           entry.target.querySelector('.btn').classList.add('inverted');
         } else {
@@ -20,7 +20,7 @@ export default function CallToAction({ content, info }) {
       });
     }
 
-    const observer = new IntersectionObserver(callback, { rootMargin: '-20% 0% -20% 0%', threshold: 0.6 });
+    const observer = new IntersectionObserver(callback, { rootMargin: '0% 0% -100% 0%' });
     const targets = document.querySelectorAll(`.${styles.section}`);
     targets.forEach(target => observer.observe(target));
 
