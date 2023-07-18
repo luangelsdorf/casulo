@@ -17,10 +17,14 @@
     }
   }
 
-  img {
-    width: 100%;
-    height: auto;
+  figure {
     position: relative;
+  }
+
+  img {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
   }
 
   & > p,
@@ -32,6 +36,8 @@
   p {
     font: var(--body-lg);
     line-height: 48px;
+    position: relative;
+
     @include mixins.lg {
       font: var(--body-default);
     }

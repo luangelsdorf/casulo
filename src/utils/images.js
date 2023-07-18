@@ -20,12 +20,12 @@ export function getSizesObject(className) {
     return { bp, vw, colSpan, value: breakpoints[bp] };
   });
 
-  return {sizes, last: Math.floor(100 / (12 / pairs.at(-1)[1]))};
+  return { sizes, last: Math.floor(100 / (12 / pairs.at(-1)[1])) };
 }
 
-export function getSizesString(className) {
-  let {sizes, last} = getSizesObject(className);
-  let strings = sizes.map(size => `(max-width: ${size.value}) ${size.vw}vw`);
+export function getSizesString(className = 'col-sm-12', min = false) {
+  let { sizes, last } = getSizesObject(className);
+  let strings = sizes.map(size => `(${min ? 'min' : 'max'}-width: ${size.value}) ${size.vw}vw`);
   let mediaString = strings.join(', ');
   mediaString += `, ${last}vw`;
   return mediaString;
