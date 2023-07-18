@@ -18,6 +18,13 @@ export default function Post({ post, footer }) {
 
       <main>
         <Section id="inicio" pt="16 24" pb="48 24">
+          <style>
+            {`
+              #inicio img {
+                object-position: center !important;
+              }
+            `}
+          </style>
           <Hero content={{ title: post.title, cover: post.cover }} />
         </Section>
 

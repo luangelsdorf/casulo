@@ -10,7 +10,7 @@ export default function Hero({ content }) {
       <div className="container">
         <Img {...content.cover} fill alt="" priority sizes={getSizesString('col-ext-8', true)} />
         <div className="row justify-content-center">
-          <div className="co-12 col-lg-8">
+          <div className="col-lg-8">
             <div className={styles.textContent}>
               <h1>{content.title}</h1>
               {content.text && <p>{content.text}</p>}

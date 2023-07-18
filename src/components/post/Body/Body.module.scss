@@ -1,6 +1,7 @@
 @use "src/styles/scss/mixins";
 
 .article {
+  text-align: left !important;
   @media (min-width: 576px) {
     padding: 0 24px;
   }

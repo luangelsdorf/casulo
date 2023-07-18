@@ -1,12 +1,18 @@
+@use "src/styles/scss/mixins";
+
 .section {
   img {
     z-index: -1;
     object-position: left;
+    border-radius: 32px;
+  }
+
+  @include mixins.lg {
+    margin: 0 24px;
   }
 
   :global(.container) {
     position: relative;
-    clip-path: inset(0 0 round 32px);
 
     &::after {
       content: "";
@@ -15,6 +21,7 @@
       height: 100%;
       top: 0;
       left: 0;
+      border-radius: 32px;
       background: linear-gradient(
         90deg,
         rgba(15, 40, 48, 0.4) 0.52%,
