@@ -2,4 +2,19 @@
   & > div {
     overflow: hidden;
   }
+
+  &[data-open="false"] {
+    & > div {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  & + div {
+    overflow: hidden;
+    &[data-open="false"] {
+      display: none;
+    }
+  }
 }

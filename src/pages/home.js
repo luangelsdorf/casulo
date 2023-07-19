@@ -27,7 +27,7 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
 
       <Header home />
 
-      <main>
+      <main className="home">
         <Section id="home">
           <Hero content={home.banner} highlights={highlights} />
         </Section>

@@ -1,9 +1,10 @@
+@use "src/styles/scss/mixins";
+
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 20;
   width: 100%;
-  height: 96px;
   display: flex;
   align-items: center;
   background-color: rgb(var(--luz));
@@ -13,6 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 12px;
   }
 
   .logo {
@@ -32,11 +34,55 @@
   }
 
   &.home {
-    position: fixed;
     transform: translateY(-100%);
 
     &:global(.active) {
       transform: translateY(0);
+    }
+  }
+
+  @include mixins.xxl {
+    .links {
+      font: var(--body-sm);
+    }
+  }
+
+  @include mixins.xl {
+    .logo {
+      svg {
+        height: 48px;
+      }
+    }
+
+    .links {
+      gap: 24px;
+    }
+  }
+
+  @include mixins.lg {
+    :global {
+      .container {
+        flex-wrap: wrap;
+
+        .content {
+          width: 100%;
+        }
+      }
+    }
+
+    .logo {
+      flex: 1;
+    }
+
+    .links {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding-top: 32px;
+      
+      &[data-desktop] {
+        display: none;
+      }
     }
   }
 }

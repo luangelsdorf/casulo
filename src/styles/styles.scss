@@ -53,6 +53,12 @@ html {
   }
 }
 
+main {
+  &:not(.home) {
+    margin-top: 96px;
+  }
+}
+
 figure,
 blockquote {
   margin: 0;

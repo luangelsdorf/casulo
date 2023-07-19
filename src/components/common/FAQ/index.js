@@ -5,7 +5,7 @@ import Button from '../Button';
 import { Collapse } from '../Collapse';
 
 const Question = ({ title, text }) => (
-  <Collapse className={styles.question}>
+  <Collapse details className={styles.question}>
     <Collapse.Title>
       <h3>{title}</h3>
       <Plus className={styles.icon} />

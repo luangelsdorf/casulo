@@ -4,8 +4,9 @@ import Award from 'public/images/icons/ui/award.svg';
 import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
 import { useEffect } from 'react';
+import { Collapse } from 'src/components/common/Collapse';
 
-export default function Header({ content, home }) {
+export default function Header({ home }) {
 
   useEffect(() => {
     function callback(entries) {
@@ -17,13 +18,33 @@ export default function Header({ content, home }) {
         }
       });
     }
-  
+
     const observer = new IntersectionObserver(callback, { rootMargin: '0px' });
     const targets = document.querySelectorAll('#home');
     targets.forEach(target => observer.observe(target));
-  
+
     return () => targets.forEach(target => observer.unobserve(target));
   }, []);
+
+  const Navigation = ({ ...props }) => (
+    <ul className={styles.links} {...props}>
+      <li>
+        <Button link>Serviços</Button>
+      </li>
+      <li>
+        <Button link>Quem Somos</Button>
+      </li>
+      <li>
+        <Button link>Adestramento</Button>
+      </li>
+      <li>
+        <Button link>Consultoria</Button>
+      </li>
+      <li>
+        <Button link>Hotel Canino</Button>
+      </li>
+    </ul>
+  )
 
   return (
     <header className={`${styles.header}${home ? ' ' + styles.home : ''}`}>
@@ -32,25 +53,19 @@ export default function Header({ content, home }) {
           <LogoType />
         </Link>
 
-        <ul className={styles.links}>
-          <li>
-            <Button link>Serviços</Button>
-          </li>
-          <li>
-            <Button link>Quem Somos</Button>
-          </li>
-          <li>
-            <Button link>Adestramento</Button>
-          </li>
-          <li>
-            <Button link>Consultoria</Button>
-          </li>
-          <li>
-            <Button link>Hotel Canino</Button>
-          </li>
-        </ul>
+        <Navigation data-desktop />
 
-        <Button className={styles.button} LeftIcon={Award}>Avaliação</Button>
+        <Button className="d-none d-lg-inline-flex" LeftIcon={Award}>Avaliação</Button>
+        <Collapse className="d-block d-lg-none">
+          <Collapse.Title>
+            <Button btnElement>
+              <span style={{ display: 'inline-block', rotate: '90deg' }}>|||</span>
+            </Button>
+          </Collapse.Title>
+          <Collapse.Content>
+            <Navigation />
+          </Collapse.Content>
+        </Collapse>
       </div>
     </header>
   )
