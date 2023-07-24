@@ -38,7 +38,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
 
 export async function getStaticProps() {
   const blog = await fetchAPI('blog');
-  const posts = await fetchAPI('posts', `&pagination[start]=${0}&pagination[limit]=${6}`, '*');
+  const posts = await fetchAPI('posts', `&sort=createdAt:DESC&pagination[start]=${0}&pagination[limit]=${6}`, '*');
   const gallery = await fetchAPI('gallery');
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');

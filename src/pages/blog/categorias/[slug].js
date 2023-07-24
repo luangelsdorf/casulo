@@ -42,7 +42,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const singleCategory = await fetchAPI('categorias', `filters[slug][$eq]=${slug}`, false);
-  const posts = await fetchAPI('posts', `filters[categories][slug][$contains]=${slug}&pagination[start]=${0}&pagination[limit]=${6}`, '*');
+  const posts = await fetchAPI('posts', `sort=createdAt:DESC&filters[categories][slug][$contains]=${slug}&pagination[start]=${0}&pagination[limit]=${6}`, '*');
   const footer = await fetchAPI('footer');
 
   return {

@@ -7,17 +7,21 @@ import styles from './PostCard.module.scss';
 import Button from 'src/components/common/Button';
 
 export default function PostCard(props) {
-  const category = props.categories.data[0].attributes;
+  const category = props.categories.data[0]?.attributes;
 
   return (
     <article className={styles.card}>
 
       <div>
-        <div className={styles.badge}>
-          <Button className="tag folha inverted" href={`/blog/categorias/${category.slug}`}>
-            {category.name}
-          </Button>
-        </div>
+        {
+          category && (
+            <div className={styles.badge}>
+              <Button className="tag folha inverted" href={`/blog/categorias/${category.slug}`}>
+                {category.name}
+              </Button>
+            </div>
+          )
+        }
         <Link href={`/blog/posts/${props.slug}`} className={`link-image ${styles.thumbnail}`}>
           <div>
             <Image
