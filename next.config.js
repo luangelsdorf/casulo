@@ -8,6 +8,12 @@ const nextConfig = {
   images: {
     domains: ['localhost', 'casulo.pet']
   },
+  sassOptions: {
+    logger: {
+      warn: message => console.warn(message),
+      debug: message => console.log(message),
+    }
+  },
 
   webpack(config) {
     config.module.rules.push({
