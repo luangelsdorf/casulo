@@ -8,6 +8,7 @@ import Header from "src/components/layout/Header";
 import fetchAPI from "src/utils/fetch";
 
 export default function Blog({ blog, gallery, posts, footer, info, }) {
+
   return (
     <>
       <Head>
@@ -23,7 +24,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
         </Section>
 
         <Section id="lista" pt="0" pb="80 80">
-          <PostList posts={posts} />
+          <PostList posts={posts.data} pagination={posts.meta.pagination} />
         </Section>
 
         <Section id="redes-sociais" pt="64 48" pb="56 80" mb="56" style={{ backgroundColor: 'rgb(var(--folha))' }}>
@@ -38,7 +39,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
 
 export async function getStaticProps() {
   const blog = await fetchAPI('blog');
-  const posts = await fetchAPI('posts', `&sort=createdAt:DESC&pagination[start]=${0}&pagination[limit]=${6}`, '*');
+  const posts = await fetchAPI('posts', { populate: '*', sort: 'createdAt:DESC', 'pagination[page]': 1, 'pagination[pageSize]': 6 }, false);
   const gallery = await fetchAPI('gallery');
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');

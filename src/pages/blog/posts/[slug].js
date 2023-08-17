@@ -41,7 +41,7 @@ export default function Post({ post, footer }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await fetchAPI('posts', '', false);
+  const posts = await fetchAPI('posts', { populate: false });
   const paths = posts.map(post => ({
     params: { slug: post.attributes.slug },
   }));
@@ -50,7 +50,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const singlePost = await fetchAPI('posts', `filters[slug][$eq]=${slug}`, '*');
+  const singlePost = await fetchAPI('posts', { populate: '*', "filters[slug]": slug });
   /* const recentPosts = await fetchAPI('posts', `&pagination[start]=${0}&pagination[limit]=${5}`, false); */
   const footer = await fetchAPI('footer');
 

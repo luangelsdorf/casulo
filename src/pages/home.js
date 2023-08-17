@@ -72,9 +72,9 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
 
 export async function getStaticProps() {
   const home = await fetchAPI('home');
-  const cases = await fetchAPI('cases', 'populate=photo', false);
+  const cases = await fetchAPI('cases', { populate: 'photo' });
   const gallery = await fetchAPI('gallery');
-  const posts = await fetchAPI('posts', `&sort=createdAt:DESC&pagination[start]=${0}&pagination[limit]=${2}`, '*');
+  const posts = await fetchAPI('posts', { populate: '*', sort: 'createdAt:DESC', 'pagination[page]': 1, 'pagination[pageSize]': 2 });
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');

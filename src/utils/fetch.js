@@ -1,9 +1,16 @@
-export default async function fetchAPI(endpoint = '', queryString = '', populate = 'deep', dataOnly = true) {
+export default async function fetchAPI(endpoint = '', parameters = { populate: 'deep' }, dataOnly = true) {
   let result;
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${endpoint}?${queryString}${populate ? `&populate=${populate}` : ''}`, {
+  if (parameters.populate === false || parameters.populate === null) delete parameters.populate;
+
+  let [url, endpointParams] = `${process.env.NEXT_PUBLIC_API_URL}/api/${endpoint}`.split('?');
+  let params = new URLSearchParams(parameters);
+  let endpointUSP = new URLSearchParams(endpointParams);
+  let resource = decodeURIComponent(`${url}?${endpointUSP.toString() ? (endpointUSP + '&') : ''}${params}`);
+
+  const response = await fetch(`${resource}`, {
     headers: {
-      Authorization: `bearer ${process.env.API_TOKEN}`,
+      Authorization: `bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
     }
   });
   result = await response.json();

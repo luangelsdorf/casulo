@@ -1,14 +1,14 @@
 import fetchAPI from "src/utils/fetch";
 
 export default function Category({ dog, info, footer }) {
-  /* console.log(dog, info, footer); */
+  console.log(dog);
   return (
     <div>Dog</div>
   )
 }
 
 export async function getStaticPaths() {
-  const cases = await fetchAPI('cases', '', false);
+  const cases = await fetchAPI('cases', { populate: false });
   const paths = cases.map(dog => ({
     params: { dog: dog.attributes.slug },
   }));
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { dog: slug } }) {
-  const dog = await fetchAPI('cases', `filters[slug][$eq]=${slug}`, '*');
+  const dog = await fetchAPI('cases', {populate: '*', "filters[slug]": slug });
   const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
 

@@ -22,7 +22,7 @@ export default function Category({ category, posts, footer }) {
         </Section>
 
         <Section id="lista">
-          <PostList posts={posts} />
+          <PostList posts={posts.data} pagination={posts.meta.pagination} />
         </Section>
       </main>
 
@@ -32,7 +32,7 @@ export default function Category({ category, posts, footer }) {
 }
 
 export async function getStaticPaths() {
-  const categories = await fetchAPI('categorias', '', false);
+  const categories = await fetchAPI('categorias', { populate: false });
   const paths = categories.map(cat => ({
     params: { slug: cat.attributes.slug },
   }));
@@ -41,8 +41,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const singleCategory = await fetchAPI('categorias', `filters[slug][$eq]=${slug}`, false);
-  const posts = await fetchAPI('posts', `sort=createdAt:DESC&filters[categories][slug][$contains]=${slug}&pagination[start]=${0}&pagination[limit]=${6}`, '*');
+  const singleCategory = await fetchAPI('categorias', { populate: false, "filters[slug]": slug });
+  const posts = await fetchAPI('posts', {
+    populate: '*',
+    sort: 'createdAt:DESC',
+    "filters[categories][slug][$contains]": slug,
+    "pagination[page]": 1,
+    "pagination[pageSize]": 6,
+  }, false);
   const footer = await fetchAPI('footer');
 
   return {
