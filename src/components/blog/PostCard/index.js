@@ -7,7 +7,7 @@ import styles from './PostCard.module.scss';
 import Button from 'src/components/common/Button';
 
 export default function PostCard(props) {
-  const category = props.categories.data[0]?.attributes;
+  const category = props.categories?.data[0]?.attributes;
 
   return (
     <article className={styles.card}>

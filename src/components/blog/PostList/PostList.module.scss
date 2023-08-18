@@ -3,8 +3,31 @@
   flex-direction: column;
   align-items: center;
 
-  :global(.row) {
-    row-gap: 40px;
+  :global {
+    .row {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      & > .col-12 {
+        transition: 350ms;
+      }
+
+      .loading {
+        opacity: 0;
+      }
+
+      .ready {
+        opacity: 1;
+      }
+
+      .spinner {
+        position: absolute;
+        top: 0;
+      }
+    }
   }
 
   & > button {

@@ -22,7 +22,7 @@ export default function Category({ category, posts, footer }) {
         </Section>
 
         <Section id="lista">
-          <PostList posts={posts.data} pagination={posts.meta.pagination} />
+          <PostList initialPosts={posts.data} pagination={posts.meta.pagination} />
         </Section>
       </main>
 
