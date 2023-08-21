@@ -8,9 +8,10 @@ import 'src/styles/styles.scss';
 import { Calistoga } from 'next/font/google';
 import { Nunito_Sans } from 'next/font/google';
 import Cookies from 'src/components/common/Cookies';
+import { Lenis } from '@studio-freight/react-lenis';
 
-const calistoga = Calistoga({ subsets: ['latin'], display: 'swap', weight: ['400'] });
-const nunito = Nunito_Sans({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
+const calistoga = Calistoga({ subsets: ['latin'], display: 'auto', weight: ['400'] });
+const nunito = Nunito_Sans({ subsets: ['latin'], display: 'auto', weight: ['400', '600', '700'] });
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps }) {
       `}
       </style>
 
-      <Component {...pageProps} />
+      <Lenis root>
+        <Component {...pageProps} />
+      </Lenis>
       <Cookies />
     </>
   )
