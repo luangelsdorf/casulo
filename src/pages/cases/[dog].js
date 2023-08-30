@@ -1,7 +1,7 @@
 import fetchAPI from "src/utils/fetch";
 
 export default function Category({ dog, info, footer }) {
-  console.log(dog);
+  /* console.log(dog); */
   return (
     <div>Dog</div>
   )
