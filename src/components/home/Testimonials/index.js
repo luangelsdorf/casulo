@@ -8,13 +8,14 @@ import { getSizesString } from 'src/utils/images';
 
 export default function Testimonials({ content, cases }) {
 
-  const cardSizes = getSizesString('col-12 col-lg-5');
+  const cardGrid = 'col-12 col-lg-5 col-xxl-4';
+  const cardSizes = getSizesString(cardGrid);
 
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row flex-nowrap">
-          <div className="col-12 col-lg-5">
+        <div className="row flex-lg-nowrap">
+          <div className={cardGrid}>
             <header className={styles.textContent}>
               <p className="overline">{content.headline.overline}</p>
               <h2>{content.headline.title}</h2>
@@ -31,7 +32,7 @@ export default function Testimonials({ content, cases }) {
           </div>
           <div style={{ overflow: 'hidden' }}>
             <Swiper
-              className="col-12 col-lg-5 m-0"
+              className={`${cardGrid} m-0`}
               modules={[Autoplay, Navigation]}
               spaceBetween={24}
               grabCursor
@@ -47,7 +48,7 @@ export default function Testimonials({ content, cases }) {
             >
               {
                 cases.map((slide, index) => (
-                  <SwiperSlide key={index} className="col-12 col-lg-5">
+                  <SwiperSlide key={index}>
                     <TestimonialCard {...slide.attributes} short sizes={cardSizes} />
                   </SwiperSlide>
                 ))

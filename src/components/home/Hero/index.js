@@ -58,10 +58,11 @@ export default function Hero({ content, highlights }) {
                 pauseOnMouseEnter: true,
                 disableOnInteraction: false,
               }}
+              style={{ overflow: 'hidden' }}
             >
               {
                 highlights.map((slide, index) => (
-                  <SwiperSlide key={index} className={cardGrid}>
+                  <SwiperSlide key={index}>
                     <TestimonialCard {...slide.attributes} sizes={cardSizes} />
                   </SwiperSlide>
                 ))

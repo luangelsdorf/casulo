@@ -1,3 +1,11 @@
+@use 'src/styles/scss/mixins';
+
+.section {
+  /* :global(.swiper-slide) {
+    width: 33.33333333% !important;
+  } */
+}
+
 .textContent {
   display: flex;
   flex-direction: column;
