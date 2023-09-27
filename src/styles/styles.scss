@@ -24,6 +24,10 @@ html {
   padding: 0;
 }
 
+section {
+  scroll-margin-top: 120px;
+}
+
 #viewport {
   height: 100vh;
   transition: all 560ms;
@@ -167,5 +171,39 @@ summary {
   .col-12 {
     padding: 0 24px;
     text-align: center;
+  }
+}
+
+
+#warning {
+  padding: 48px 36px;
+  text-align: center;
+  border-radius: 32px;
+
+  .text {
+    margin: auto auto 40px;
+    max-width: 58%;
+
+    h1 {
+      margin-bottom: 24px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(8px);
+  }
+
+  @include mixins.md {
+    padding: 40px 24px;
+    .text {
+      max-width: none;
+    }
   }
 }
