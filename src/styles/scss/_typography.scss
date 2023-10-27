@@ -41,6 +41,10 @@ body {
   font: var(--body-md);
   font-family: var(--nunito);
   letter-spacing: 0.01em;
+
+  @media (max-height: 600px) {
+    font: var(--body-sm);
+  }
 }
 
 p,

@@ -1,8 +1,10 @@
+@use "src/styles/scss/mixins";
+
 .section {
-  
 }
 
-.upperHeader, .lowerHeader {
+.upperHeader,
+.lowerHeader {
   position: absolute;
   display: flex;
 
@@ -47,5 +49,16 @@
     font: var(--display-ext);
     white-space: normal;
     width: 110%;
+  }
+
+  @media (max-height: 600px) {
+    gap: 24px;
+
+    h1 {
+      font: var(--display);
+    }
+    p {
+      white-space: normal;
+    }
   }
 }
