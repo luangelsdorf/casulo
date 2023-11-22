@@ -51,7 +51,11 @@
     width: 110%;
   }
 
-  @media (max-height: 600px) {
+  p {
+    max-width: 85%;
+  }
+
+  @media (max-height: 740px) {
     gap: 24px;
 
     h1 {
@@ -59,6 +63,11 @@
     }
     p {
       white-space: normal;
+      max-width: 100%;
     }
+  }
+
+  @include mixins.md {
+    max-width: 100%;
   }
 }
