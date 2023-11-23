@@ -35,14 +35,14 @@
 
   img {
     width: auto !important;
-    left: -96px !important;
+    /* left: -96px !important; */
   }
 
-  @include mixins.xxl {
+  /* @include mixins.xxl {
     img {
       left: -180px !important;
     }
-  }
+  } */
   @include mixins.xl {
     img {
       left: -280px !important;
