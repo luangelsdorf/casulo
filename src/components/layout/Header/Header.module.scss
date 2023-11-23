@@ -47,6 +47,12 @@
         }
       }
     }
+    &[data-desktop] {
+      & > [data-collapse-trigger],
+      & > [data-open] {
+        display: none;
+      }
+    }
 
     a {
       font-weight: 700;
@@ -139,6 +145,10 @@
       }
 
       &[data-desktop] {
+        display: none;
+      }
+
+      & > [data-dd-trigger] {
         display: none;
       }
     }

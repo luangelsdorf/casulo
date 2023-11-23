@@ -41,7 +41,7 @@ export default function Header({ home }) {
       <li>
         <Button link>Sobre Nós</Button>
       </li>
-      {/* <li data-dd-trigger>
+      <li data-dd-trigger>
         <div className={styles.dropdown}>
           <div>
             {
@@ -52,7 +52,7 @@ export default function Header({ home }) {
           </div>
         </div>
         <Button link RightIcon={Caret}>Serviços</Button>
-      </li> */}
+      </li>
       <Collapse>
         <Collapse.Title>
           <Button link btnElement RightIcon={Caret}>Serviços</Button>
@@ -110,7 +110,7 @@ export default function Header({ home }) {
 
   const DropDownCard = ({ Icon, title, text, href }) => (
     <div className={styles.dropdownItem}>
-      <Link className="link-image" href={`/servicos${href}`}>
+      <Link className="link-image" href={href}>
         <Icon />
         <div>
           <span>{title}</span>
