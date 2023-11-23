@@ -28,9 +28,9 @@ function MyApp({ Component, pageProps }) {
       window.onkeydown = e => e.preventDefault();
     }
   }, [lenis]);
-  /* const router = useRouter();
+  const router = useRouter();
 
-  useEffect(() => {
+  useEffect(() => {/* 
     const anchors = document.querySelectorAll('a[href*="#"]');
 
     function handleClick(e) {
@@ -42,9 +42,9 @@ function MyApp({ Component, pageProps }) {
 
     anchors.forEach(a => a.addEventListener('click', handleClick));
     return () => anchors.forEach(a => a.removeEventListener('click', handleClick));
-  }, [lenis]);
+   */}, [lenis]);
 
-  useEffect(() => {
+  useEffect(() => {/* 
     const handleRouteChange = (url) => {
       console.log(`App has changed to ${url}`);
     }
@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }) {
       router.events.on('routeChangeComplete', handleRouteChange)
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router]); */
+   */}, [router]);
 
 
 
@@ -70,6 +70,7 @@ function MyApp({ Component, pageProps }) {
       <Lenis root>
         <Component {...pageProps} />
       </Lenis>
+
       <Cookies />
 
       {warning && (

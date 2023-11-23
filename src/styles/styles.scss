@@ -207,3 +207,12 @@ summary {
     }
   }
 }
+
+svg {
+  [font-family="Calistoga"] {
+    font-family: var(--calistoga);
+  }
+  [font-family="Nunito Sans"] {
+    font-family: var(--nunito);
+  }
+}
