@@ -21,14 +21,14 @@ export default function Hero({ content, highlights }) {
           <Link href="/" className="link-image">
             <LogoType />
           </Link>
-          <Button link href="#servicos">Serviços</Button>
-          <Button link href="/sobre-nos">Quem Somos</Button>
+          <Button link href="#servicos">Sobre Nós</Button>
+          <Button link href="/sobre-nos">Adestramento</Button>
           <Button LeftIcon={Calendar}>Marque uma Avaliação</Button>
         </div>
         <div className={styles.lowerHeader}>
-          <Button href="/sobre-nos#proposito" link>Adestramento</Button>
-          <Button link>Consultoria</Button>
+          <Button href="/sobre-nos#proposito" link>Creche Educativa</Button>
           <Button link>Hotel Canino</Button>
+          <Button link>Consultoria</Button>
         </div>
         <div className="row">
           <div className="col-12 col-lg-5">

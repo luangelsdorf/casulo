@@ -7,14 +7,16 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: rgb(var(--luz));
+  background-color: rgb(var(--white));
   transition: 400ms;
+  box-shadow: 10px 10px 42px 0px rgba(8, 15, 52, 0.06);
 
   & > :global(.container) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 12px;
+    padding: 12px;
+    background-color: rgb(var(--white));
   }
 
   .logo {
@@ -28,6 +30,24 @@
     display: flex;
     gap: 40px;
 
+    & > [data-dd-trigger] {
+      &:hover {
+        & > a {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+        .dropdown {
+          transform: translateY(100%);
+          opacity: 1;
+          &:hover {
+            transform: translateY(100%);
+            opacity: 1;
+          }
+        }
+      }
+    }
+
     a {
       font-weight: 700;
     }
@@ -38,12 +58,6 @@
 
     &:global(.active) {
       transform: translateY(0);
-    }
-  }
-
-  @include mixins.xxl {
-    .links {
-      font: var(--body-sm);
     }
   }
 
@@ -79,9 +93,96 @@
       align-items: center;
       gap: 16px;
       padding-top: 32px;
-      
+
       &[data-desktop] {
         display: none;
+      }
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: 350ms 200ms;
+  padding-top: 8px;
+
+  & > div {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(var(--white));
+    border-radius: 0 32px 32px 32px;
+  }
+
+  & + a {
+    svg {
+      transition: 350ms;
+    }
+  }
+
+  .dropdownItem {
+    transition: 350ms;
+    a {
+      align-items: center;
+      gap: 24px;
+      padding: 16px;
+
+      & > svg {
+        width: 96px;
+        height: 96px;
+        circle, g {
+          transition: 400ms;
+          transform-origin: center;
+        }
+      }
+
+      & > div {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 200px;
+        gap: 8px;
+
+        span {
+          transition: 350ms;
+          &:first-child {
+            color: rgb(var(--folha-escura));
+          }
+
+          &:last-child {
+            color: rgb(var(--borboleta));
+            font: var(--body-sm);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: rgb(var(--luz), 0.25);
+      a {
+        & > svg {
+          overflow: visible;
+          g {
+            transform: scale(1.1);
+          }
+          circle {
+            opacity: 1;
+            transform: scale(0.9);
+          }
+        }
+        & > div {
+          span {
+            &:first-child {
+              color: rgb(var(--borboleta));
+            }
+
+            &:last-child {
+              color: rgb(var(--folha-escura));
+            }
+          }
+        }
       }
     }
   }

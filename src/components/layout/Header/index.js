@@ -5,6 +5,11 @@ import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { Collapse } from 'src/components/common/Collapse';
+import Caret from 'public/images/icons/ui/caret.svg';
+import Adestramento from 'public/images/icons/Adestramento.svg';
+import Consultoria from 'public/images/icons/Consultoria.svg';
+import Creche from 'public/images/icons/Creche.svg';
+import Hotel from 'public/images/icons/Hotel.svg';
 
 export default function Header({ home }) {
 
@@ -29,22 +34,70 @@ export default function Header({ home }) {
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
       <li>
-        <Button link>Serviços</Button>
+        <Button link>Início</Button>
       </li>
       <li>
-        <Button link>Quem Somos</Button>
+        <Button link>Sobre Nós</Button>
+      </li>
+      <li data-dd-trigger>
+        <div className={styles.dropdown}>
+          <div>
+            {
+              services.map((service, index) => (
+                <DropDownCard {...service} key={index} />
+              ))
+            }
+          </div>
+        </div>
+        <Button link RightIcon={Caret}>Serviços</Button>
       </li>
       <li>
-        <Button link>Adestramento</Button>
+        <Button link>Cases de Sucesso</Button>
       </li>
       <li>
-        <Button link>Consultoria</Button>
-      </li>
-      <li>
-        <Button link>Hotel Canino</Button>
+        <Button link>Blog</Button>
       </li>
     </ul>
-  )
+  );
+
+  const services = [
+    {
+      Icon: Adestramento,
+      title: 'Adestramento',
+      text: 'Descrição em duas linhas do que se trata o serviço.',
+      href: '/servicos/adestramento',
+    },
+    {
+      Icon: Consultoria,
+      title: 'Consultoria',
+      text: 'Descrição em duas linhas do que se trata o serviço.',
+      href: '/servicos/consultoria',
+    },
+    {
+      Icon: Creche,
+      title: 'Creche Educativa',
+      text: 'Descrição em duas linhas do que se trata o serviço.',
+      href: '/servicos/creche-educativa',
+    },
+    {
+      Icon: Hotel,
+      title: 'Hotel Canino',
+      text: 'Descrição em duas linhas do que se trata o serviço.',
+      href: '/servicos/hotel-canino',
+    },
+  ];
+
+  const DropDownCard = ({ Icon, title, text, href }) => (
+    <div className={styles.dropdownItem}>
+      <Link className="link-image" href={`/servicos${href}`}>
+        <Icon />
+        <div>
+          <span>{title}</span>
+          <span>{text}</span>
+        </div>
+      </Link>
+    </div>
+  );
 
   return (
     <header className={`${styles.header}${home ? ' ' + styles.home : ''}`}>
