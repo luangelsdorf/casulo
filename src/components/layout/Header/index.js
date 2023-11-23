@@ -10,6 +10,8 @@ import Adestramento from 'public/images/icons/Adestramento.svg';
 import Consultoria from 'public/images/icons/Consultoria.svg';
 import Creche from 'public/images/icons/Creche.svg';
 import Hotel from 'public/images/icons/Hotel.svg';
+import X from 'public/images/icons/ui/x.svg';
+import Hamburger from 'public/images/icons/ui/menu.svg';
 
 export default function Header({ home }) {
 
@@ -39,7 +41,7 @@ export default function Header({ home }) {
       <li>
         <Button link>Sobre Nós</Button>
       </li>
-      <li data-dd-trigger>
+      {/* <li data-dd-trigger>
         <div className={styles.dropdown}>
           <div>
             {
@@ -50,12 +52,31 @@ export default function Header({ home }) {
           </div>
         </div>
         <Button link RightIcon={Caret}>Serviços</Button>
-      </li>
+      </li> */}
+      <Collapse>
+        <Collapse.Title>
+          <Button link btnElement RightIcon={Caret}>Serviços</Button>
+        </Collapse.Title>
+        <Collapse.Content>
+          <ul>
+            {
+              services.map((service, index) => (
+                <li key={index}>
+                  <Button link href={service.href}>{service.title}</Button>
+                </li>
+              ))
+            }
+          </ul>
+        </Collapse.Content>
+      </Collapse>
       <li>
         <Button link>Cases de Sucesso</Button>
       </li>
       <li>
         <Button link>Blog</Button>
+      </li>
+      <li className="d-inline-flex d-lg-none">
+        <Button LeftIcon={Award}>Avaliação</Button>
       </li>
     </ul>
   );
@@ -111,8 +132,9 @@ export default function Header({ home }) {
         <Button className="d-none d-lg-inline-flex" LeftIcon={Award}>Avaliação</Button>
         <Collapse className="d-block d-lg-none">
           <Collapse.Title>
-            <Button btnElement>
-              <span style={{ display: 'inline-block', rotate: '90deg' }}>|||</span>
+            <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title="Menu">
+              <Hamburger />
+              <X />
             </Button>
           </Collapse.Title>
           <Collapse.Content>

@@ -32,7 +32,7 @@ export function Collapse({ children, className, details = false, open = false, .
   else {
     return (
       <>
-        <Title details={details} className={className}>{titleChildren}</Title>
+        <Title data-collapse-trigger details={details} className={className}>{titleChildren}</Title>
         <Content data-open={open}>{contentChildren}</Content>
       </>
     )
