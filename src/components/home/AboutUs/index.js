@@ -2,7 +2,7 @@ import Button from 'src/components/common/Button';
 import styles from './AboutUs.module.scss';
 import Heart from 'public/images/icons/ui/heart.svg';
 
-export default function AboutUs({ content }) {
+export default function AboutUs({ content, info }) {
 
   return (
     <div className={styles.section}>
@@ -12,7 +12,7 @@ export default function AboutUs({ content }) {
             <header className={styles.headline}>
               <p className="overline light">{content.headline.overline}</p>
               <h2>{content.headline.title}</h2>
-              <Button className="inverted" LeftIcon={Heart}>Conheça mais</Button>
+              <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="inverted" LeftIcon={Heart}>Conheça mais</Button>
             </header>
           </div>
 

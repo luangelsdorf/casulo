@@ -25,11 +25,11 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
         <meta property="og:title" content="Casulo" />
       </Head>
 
-      <Header home />
+      <Header info={info} home />
 
       <main className="home">
         <Section id="home">
-          <Hero content={home.banner} highlights={highlights} />
+          <Hero info={info} content={home.banner} highlights={highlights} />
         </Section>
 
         <Section id="servicos" pt="160 80" pb="160 80">
@@ -41,7 +41,7 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
         </Section>
 
         <Section id="sobre" pt="96 96" pb="96 96" style={{ backgroundColor: 'rgb(var(--folha))' }}>
-          <AboutUs content={home.aboutUs} />
+          <AboutUs content={home.aboutUs} info={info} />
         </Section>
 
         <Section style={{ backgroundColor: 'rgb(var(--folha))' }}>

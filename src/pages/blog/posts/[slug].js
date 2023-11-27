@@ -14,7 +14,7 @@ export default function Post({ post, footer }) {
         <meta property="og:title" content={`${post.title} | Blog Casulo`} />
       </Head>
 
-      <Header />
+      <Header info={info} />
 
       <main>
         <Section id="inicio" pt="16 24" pb="48 24">

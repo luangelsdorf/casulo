@@ -14,7 +14,7 @@ export default function Category({ dogs, info, footer, fields }) {
         <meta property="og:title" content="Cases de Sucesso | Casulo" />
       </Head>
 
-      <Header />
+      <Header info={info} />
 
       <main>
         <Section id="inicio" pt="16 24" pb="96 80">

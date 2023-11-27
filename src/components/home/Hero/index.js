@@ -9,7 +9,7 @@ import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
 import { getSizesString } from 'src/utils/images';
 
-export default function Hero({ content, highlights }) {
+export default function Hero({ content, highlights, info }) {
 
   const cardGrid = 'col-12 col-lg-6';
   const cardSizes = getSizesString(cardGrid);
@@ -21,21 +21,21 @@ export default function Hero({ content, highlights }) {
           <Link href="/" className="link-image">
             <LogoType />
           </Link>
-          <Button link href="#servicos">Sobre Nós</Button>
-          <Button link href="/sobre-nos">Adestramento</Button>
-          <Button LeftIcon={Calendar}>Marque uma Avaliação</Button>
+          <Button link href="/sobre-nos">Sobre Nós</Button>
+          <Button link href="/servicos/adestramento">Adestramento</Button>
+          <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Calendar}>Marque uma Avaliação</Button>
         </div>
         <div className={styles.lowerHeader}>
-          <Button href="/sobre-nos#proposito" link>Creche Educativa</Button>
-          <Button link>Hotel Canino</Button>
-          <Button link>Consultoria</Button>
+          <Button href="/servicos/creche-educativa" link>Creche Educativa</Button>
+          <Button href="/servicos/hotel-canino" link>Hotel Canino</Button>
+          <Button href="/servicos/consultoria" link>Consultoria</Button>
         </div>
         <div className="row">
           <div className="col-12 col-lg-5">
             <div className={styles.textContent}>
               <h1>{content.topic.title}</h1>
               <p>{content.topic.text}</p>
-              <Button className="folha" RightIcon={Arrow}>Fale Conosco</Button>
+              <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="folha" RightIcon={Arrow}>Fale Conosco</Button>
             </div>
           </div>
           <div className="col-12 col-lg-6 offset-lg-1">

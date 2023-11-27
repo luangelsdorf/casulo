@@ -14,7 +14,7 @@ export default function Politica({ content, footer }) {
         <meta property="og:title" content="Política de Privacidade | Casulo" />
       </Head>
 
-      <Header />
+      <Header info={info} />
 
       <main>
         <Section id="inicio" pt="16 24" pb="48 24">

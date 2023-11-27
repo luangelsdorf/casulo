@@ -4,7 +4,7 @@ import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Img from 'src/components/common/Img';
 import { getSizesString } from 'src/utils/images';
 
-export default function Hero({ content }) {
+export default function Hero({ content, info }) {
   return (
     <div className={styles.section}>
       <div className="container">
@@ -14,7 +14,7 @@ export default function Hero({ content }) {
             <div className={styles.textContent}>
               <h1>{content.title}</h1>
               {content.text && <p>{content.text}</p>}
-              {content.text && <Button RightIcon={Arrow}>Fale Conosco</Button>}
+              {content.text && <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow}>Fale Conosco</Button>}
             </div>
           </div>
         </div>

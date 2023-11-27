@@ -29,7 +29,6 @@ const FAQ = ({ content }) => {
             <div>
               <header className={styles.headline}>
                 <h2>{content.title}</h2>
-                <Button RightIcon={Arrow} className="folha inverted" href="/faq">Ver todos os FAQs</Button>
               </header>
 
               <div className={styles.questions}>

@@ -16,7 +16,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
         <meta property="og:title" content="Nosso Blog | Casulo" />
       </Head>
 
-      <Header />
+      <Header info={info} />
 
       <main>
         <Section id="inicio" pt="16 24" pb="96 80">

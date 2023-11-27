@@ -12,7 +12,7 @@ export default function Footer({ content }) {
             <div className={styles.cta}>
               <h2>{content.callToAction.title}</h2>
               <p>{content.callToAction.text}</p>
-              <Button RightIcon={Arrow} className="sm folha inverted">Agende uma Consulta</Button>
+              <Button href={`https://wa.me/5551997613537?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow} className="sm folha inverted">Agende uma Consulta</Button>
             </div>
           </div>
           <div className="col-12 col-lg-8">

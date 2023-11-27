@@ -8,9 +8,9 @@ import { getSizesString } from 'src/utils/images';
 
 export default function Services({ content }) {
 
-  const Card = ({ image, sizes }) => {
+  const Card = ({ image, sizes, href }) => {
     return (
-      <Link href="#services" className={`link-image ${styles.card}`}>
+      <Link href={href} className={`link-image ${styles.card}`}>
         <Img {...image} sizes={sizes} fill alt="" />
         <Button divElement RightIcon={Arrow}>Saiba Mais</Button>
       </Link>
@@ -28,13 +28,13 @@ export default function Services({ content }) {
                 <h2>{content.training.title}</h2>
                 <p>{content.training.description}</p>
               </div>
-              <Card image={content.training.image} sizes={getSizesString('col-12 col-lg-6')} />
+              <Card image={content.training.image} sizes={getSizesString('col-12 col-lg-6')} href="/servicos/adestramento" />
             </article>
           </div>
 
           <div className="col-12 col-lg-6">
             <article className={styles.consultancy}>
-              <Card image={content.consultancy.image} sizes={getSizesString('col-12 col-lg-6')} />
+              <Card image={content.consultancy.image} sizes={getSizesString('col-12 col-lg-6')} href="/servicos/consultoria" />
               <div>
                 <h2>{content.consultancy.title}</h2>
                 <p>{content.consultancy.description}</p>
@@ -44,7 +44,7 @@ export default function Services({ content }) {
 
           <div className="col-12">
             <article>
-              <Link href="#services" className={`link-image ${styles.hotel}`}>
+              <Link href="/servicos/hotel-canino" className={`link-image ${styles.hotel}`}>
                 <Img {...content.dogHotel.image} fill alt="" />
                 <div>
                   <h2>{content.dogHotel.title}</h2>

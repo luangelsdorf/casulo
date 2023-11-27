@@ -13,7 +13,7 @@ import Hotel from 'public/images/icons/Hotel.svg';
 import X from 'public/images/icons/ui/x.svg';
 import Hamburger from 'public/images/icons/ui/menu.svg';
 
-export default function Header({ home }) {
+export default function Header({ home, info }) {
 
   useEffect(() => {
     function callback(entries) {
@@ -36,10 +36,10 @@ export default function Header({ home }) {
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
       <li>
-        <Button link>Início</Button>
+        <Button href="/" link>Início</Button>
       </li>
       <li>
-        <Button link>Sobre Nós</Button>
+        <Button href="/sobre-nos" link>Sobre Nós</Button>
       </li>
       <li data-dd-trigger>
         <div className={styles.dropdown}>
@@ -51,7 +51,7 @@ export default function Header({ home }) {
             }
           </div>
         </div>
-        <Button link RightIcon={Caret}>Serviços</Button>
+        <Button link onClick={e => e.preventDefault()} RightIcon={Caret}>Serviços</Button>
       </li>
       <Collapse>
         <Collapse.Title>
@@ -70,13 +70,13 @@ export default function Header({ home }) {
         </Collapse.Content>
       </Collapse>
       <li>
-        <Button link>Cases de Sucesso</Button>
+        <Button href="/cases" link>Cases de Sucesso</Button>
       </li>
       <li>
-        <Button link>Blog</Button>
+        <Button href="/blog" link>Blog</Button>
       </li>
       <li className="d-inline-flex d-lg-none">
-        <Button LeftIcon={Award}>Avaliação</Button>
+        <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Award}>Avaliação</Button>
       </li>
     </ul>
   );
@@ -129,7 +129,7 @@ export default function Header({ home }) {
 
         <Navigation data-desktop />
 
-        <Button className="d-none d-lg-inline-flex" LeftIcon={Award}>Avaliação</Button>
+        <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} className="d-none d-lg-inline-flex" LeftIcon={Award}>Avaliação</Button>
         <Collapse className="d-block d-lg-none">
           <Collapse.Title>
             <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title="Menu">

@@ -15,7 +15,7 @@ export default function CallToAction({ content, info }) {
                 <h2>{content.text.title}</h2>
                 <p>{content.text.text}</p>
               </div>
-              <Button LeftIcon={Whats} href={`https://wa.me/${info.whatsapp}`} target="_blank">Fale Conosco</Button>
+              <Button LeftIcon={Whats} href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
             </div>
             <Image src={dog} alt="" />
           </div>
