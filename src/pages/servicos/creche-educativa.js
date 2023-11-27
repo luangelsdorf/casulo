@@ -3,7 +3,7 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import Hero from 'public/images/gambi/adestramento/Hero.svg';
+import Hero from 'public/images/gambi/creche/Hero.svg';
 import fetchAPI from "src/utils/fetch";
 
 export default function Consultancy({ info, faq, footer }) {
