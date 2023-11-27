@@ -7,7 +7,7 @@ import Header from "src/components/layout/Header";
 import Hero from 'public/images/gambi/consultoria/Hero.svg';
 import fetchAPI from "src/utils/fetch";
 
-export default function Consultancy({ about, cases, faq, footer }) {
+export default function Consultancy({ about, info, cases, faq, footer }) {
   return (
     <>
       <Head>
@@ -38,6 +38,7 @@ export default function Consultancy({ about, cases, faq, footer }) {
 
 export async function getStaticProps() {
   const about = await fetchAPI('about');
+  const info = await fetchAPI('info');
   const cases = await fetchAPI('cases', { populate: 'photo' });
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
@@ -45,6 +46,7 @@ export async function getStaticProps() {
   return {
     props: {
       about,
+      info,
       cases,
       faq,
       footer,
