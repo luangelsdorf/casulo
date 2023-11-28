@@ -105,7 +105,8 @@ button {
 
   &.tag {
     font: var(--body-detail);
-    padding: 8px 16px;
+    padding: 0 16px;
+    height: 32px;
   }
 }
 
