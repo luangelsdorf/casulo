@@ -2,6 +2,12 @@
   :global(.col-12) {
     position: relative;
   }
+
+  &.cases {
+    .content {
+      background-color: rgb(var(--borboleta));
+    }
+  }
 }
 
 .content {

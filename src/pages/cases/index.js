@@ -1,12 +1,14 @@
 import Head from "next/head";
+import CallToAction from "src/components/about/CallToAction";
 import Hero from "src/components/blog/Hero";
 import List from "src/components/cases/List";
+import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import fetchAPI from "src/utils/fetch";
 
-export default function Category({ dogs, info, footer, fields }) {
+export default function CasesPage({ cases, dogs, faq, info, footer }) {
   return (
     <>
       <Head>
@@ -24,6 +26,14 @@ export default function Category({ dogs, info, footer, fields }) {
         <Section id="lista">
           <List cases={dogs} />
         </Section>
+
+        <Section id="chamada" pt="72" pb="96" mt="120">
+          <CallToAction cases content={cases.cta} info={info} />
+        </Section>
+
+        <Section id="faq" pt="96 80" pb="120 80">
+          <FAQ content={faq} />
+        </Section>
       </main>
 
       <Footer content={footer} />
@@ -32,17 +42,19 @@ export default function Category({ dogs, info, footer, fields }) {
 }
 
 export async function getStaticProps() {
+  const cases = await fetchAPI('cases-page');
   const dogs = await fetchAPI('cases', 'populate=photo');
+  const faq = await fetchAPI('faq');
   const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
-  const fields = await fetchAPI('content-type-builder/content-types/api::case.case', '', false);
 
   return {
     props: {
+      cases,
       dogs,
+      faq,
       info,
       footer,
-      fields,
     },
 
     revalidate: 60,
