@@ -34,20 +34,24 @@ export default function List({ cases }) {
           <Button onClick={handleClick} data-filter-field="size" data-filter-value="G" className="sm" btnElement>G</Button>
           <Button onClick={handleClick} data-filter-field="size" data-filter-value="GG" className="sm" btnElement>GG</Button>
         </div>
-        <div className="row">
-          {
-            list.length > 0 ? (
-              cases.map((card, index) => (
-                <div className="col-12 col-lg-4 col-xl-6 gy-4" key={index} data-display={list.some(dog => dog.attributes.slug === card.attributes.slug)}>
-                  <Link href={`/cases/${card.attributes.slug}`}>
-                    <TestimonialCard {...card.attributes} short />
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <p>Nenhum cão encontrado.</p>
-            )
-          }
+        <div className="row justify-content-center">
+          <div className="col-10">
+            <div className="row">
+              {
+                list.length > 0 ? (
+                  cases.map((card, index) => (
+                    <div className="col-12 col-lg-6 gy-4" key={index} data-display={list.some(dog => dog.attributes.slug === card.attributes.slug)}>
+                      <Link href={`/cases/${card.attributes.slug}`}>
+                        <TestimonialCard {...card.attributes} short />
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <p>Nenhum cão encontrado.</p>
+                )
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>
