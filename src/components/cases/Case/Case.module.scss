@@ -1,21 +1,36 @@
 .case {
-  max-height: 80vh;
   padding: 40px 0;
   background-color: rgb(var(--white));
   border-radius: 32px;
+  margin: 96px 0;
 
-  .photo {
+
+  .photos {
     height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-left: 40px;
     margin-right: 80px;
+    gap: 24px;
 
-    img {
+    & > img {
       width: 100%;
       aspect-ratio: 1;
       height: auto;
       border-radius: 32px;
+    }
+  }
+
+  .thumbnails {
+    display: flex;
+    gap: 16px;
+
+    & > div {
+      background-color: rgb(var(--folha));
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      flex: 1;
     }
   }
 
@@ -53,7 +68,7 @@
 
     .testimonial {
       p {
-        max-height: 290px;
+        
       }
     }
 

@@ -15,8 +15,14 @@ export default function Case({ name, breed, sex, size, photo, services, testimon
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-6">
-            <div className={styles.photo}>
+            <div className={styles.photos}>
               <Img {...photo} sizes={getSizesString('col-12 col-lg-5')} />
+              <div className={styles.thumbnails}>
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
             </div>
           </div>
           <div className="col-12 col-lg-5">
@@ -28,9 +34,7 @@ export default function Case({ name, breed, sex, size, photo, services, testimon
                 <Button LeftIcon={sex === 'Macho' ? Mars : Venus} btnElement className="folha inverted sm">{sex}</Button>
                 <Button LeftIcon={DogFace} btnElement className="folha inverted sm">Porte {size}</Button>
               </div>
-              <Lenis>
-                <div className={styles.testimonial} dangerouslySetInnerHTML={{ __html: testimonial }} />
-              </Lenis>
+              <div className={styles.testimonial} dangerouslySetInnerHTML={{ __html: testimonial }} />
             </div>
           </div>
         </div>

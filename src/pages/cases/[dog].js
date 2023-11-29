@@ -6,14 +6,15 @@ export default function SingleCase({ dog }) {
 
   return (
     <div style={{
-      height: '100vh',
+      /* height: '100vh', */
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      backgroundColor: 'rgb(var(--folha-escura))',
     }}>
       <Head>
-        <title>Greta | Casulo</title>
-        <meta property="og:title" content="Greta | Casulo" />
+        <title>{`${dog.name} | Casulo`}</title>
+        <meta property="og:title" content={`${dog.name} | Casulo`} />
       </Head>
 
       <Case {...dog} />
