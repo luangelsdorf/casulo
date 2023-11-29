@@ -170,6 +170,8 @@ a:not(.wrapper) {
 
 a.wrapper {
   display: flex;
+  position: relative;
+  text-decoration: none;
 }
 
 a:not(.wrapper),

@@ -41,9 +41,7 @@ export default function List({ cases }) {
                 list.length > 0 ? (
                   cases.map((card, index) => (
                     <div className="col-12 col-lg-6 gy-4" key={index} data-display={list.some(dog => dog.attributes.slug === card.attributes.slug)}>
-                      <Link href={`/cases/${card.attributes.slug}`}>
-                        <TestimonialCard {...card.attributes} short />
-                      </Link>
+                      <TestimonialCard {...card.attributes} short />
                     </div>
                   ))
                 ) : (
