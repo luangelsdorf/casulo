@@ -10,7 +10,7 @@ export default function Services({ content }) {
 
   const Card = ({ image, sizes, href }) => {
     return (
-      <Link href={href} className={`link-image ${styles.card}`}>
+      <Link href={href} className={`wrapper ${styles.card}`}>
         <Img {...image} sizes={sizes} fill alt="" />
         <Button divElement RightIcon={Arrow}>Saiba Mais</Button>
       </Link>
@@ -44,7 +44,7 @@ export default function Services({ content }) {
 
           <div className="col-12">
             <article>
-              <Link href="/servicos/hotel-canino" className={`link-image ${styles.hotel}`}>
+              <Link href="/servicos/hotel-canino" className={`wrapper ${styles.hotel}`}>
                 <Img {...content.dogHotel.image} fill alt="" />
                 <div>
                   <h2>{content.dogHotel.title}</h2>

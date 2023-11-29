@@ -18,7 +18,7 @@ export default function Hero({ content, highlights, info }) {
     <div className={styles.section}>
       <div className="container" style={{ position: 'relative' }}>
         <div className={styles.upperHeader}>
-          <Link href="/" className="link-image">
+          <Link href="/" className="wrapper">
             <LogoType />
           </Link>
           <Button link href="/sobre-nos">Sobre Nós</Button>

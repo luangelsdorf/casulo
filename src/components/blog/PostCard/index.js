@@ -22,7 +22,7 @@ export default function PostCard(props) {
             </div>
           )
         }
-        <Link href={`/blog/posts/${props.slug}`} className={`link-image ${styles.thumbnail}`}>
+        <Link href={`/blog/posts/${props.slug}`} className={`wrapper ${styles.thumbnail}`}>
           <div>
             <Image
               fill
@@ -38,7 +38,7 @@ export default function PostCard(props) {
       </div>
 
       <div className={styles.body}>
-        <Link className="link-image" href={`/blog/posts/${props.slug}`}>
+        <Link className="wrapper" href={`/blog/posts/${props.slug}`}>
           <h3>{props.title}</h3>
         </Link>
         <p>

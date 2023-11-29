@@ -7,7 +7,7 @@ button {
   all: unset;
 }
 
-.btn {
+.btn:not(.wrapper) {
   font: var(--body-md);
   cursor: pointer;
   padding: 0px 24px;
@@ -110,7 +110,7 @@ button {
   }
 }
 
-a {
+a:not(.wrapper) {
   display: inline-flex;
   text-decoration: none;
   color: inherit;
@@ -133,7 +133,7 @@ a {
     }
   }
 
-  &:not(.btn, .link-image) {
+  &:not(.btn, .wrapper) {
     span {
       &::after {
         content: "";
@@ -168,7 +168,11 @@ a {
   }
 }
 
-a,
+a.wrapper {
+  display: flex;
+}
+
+a:not(.wrapper),
 .btn {
   & > div {
     display: flex;

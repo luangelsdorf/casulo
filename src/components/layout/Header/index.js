@@ -110,7 +110,7 @@ export default function Header({ home, info }) {
 
   const DropDownCard = ({ Icon, title, text, href }) => (
     <div className={styles.dropdownItem}>
-      <Link className="link-image" href={href}>
+      <Link className="wrapper" href={href}>
         <Icon />
         <div>
           <span>{title}</span>

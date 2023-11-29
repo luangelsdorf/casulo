@@ -1,7 +1,7 @@
 .section {
   background-color: rgb(var(--folha));
 
-  & > a {
+  & > a:global(.btn) {
     display: none;
   }
 
