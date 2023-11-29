@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const calistoga = Calistoga({ subsets: ['latin'], display: 'auto', weight: ['400'] });
-const nunito = Nunito_Sans({ subsets: ['latin'], display: 'auto', weight: ['400', '600', '700'] });
+const nunito = Nunito_Sans({ subsets: ['latin'], display: 'auto', weight: ['400', '600', '700', '800'] });
 
 function MyApp({ Component, pageProps }) {
   const [warning, setWarning] = useState(false);
@@ -54,8 +54,6 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
    */}, [router]);
-
-
 
   return (
     <>

@@ -1,9 +1,23 @@
+import Head from "next/head";
+import Case from "src/components/cases/Case";
 import fetchAPI from "src/utils/fetch";
 
-export default function Category({ dog, info, footer }) {
-  /* console.log(dog); */
+export default function SingleCase({ dog }) {
+
   return (
-    <div>Dog</div>
+    <div style={{
+      height: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <Head>
+        <title>Greta | Casulo</title>
+        <meta property="og:title" content="Greta | Casulo" />
+      </Head>
+
+      <Case {...dog} />
+    </div>
   )
 }
 
@@ -17,15 +31,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { dog: slug } }) {
-  const dog = await fetchAPI('cases', {populate: '*', "filters[slug]": slug });
-  const info = await fetchAPI('info');
-  const footer = await fetchAPI('footer');
+  const dog = await fetchAPI('cases', { populate: '*', "filters[slug]": slug });
 
   return {
     props: {
       dog: dog[0].attributes,
-      info,
-      footer,
     },
 
     revalidate: 60,
