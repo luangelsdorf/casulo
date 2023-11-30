@@ -6,7 +6,7 @@ import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import fetchAPI from "src/utils/fetch";
 
-export default function Category({ category, posts, footer }) {
+export default function Category({ category, posts, info, footer }) {
   return (
     <>
       <Head>
@@ -49,12 +49,14 @@ export async function getStaticProps({ params: { slug } }) {
     "pagination[page]": 1,
     "pagination[pageSize]": 6,
   }, false);
+  const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
 
   return {
     props: {
       category: singleCategory[0].attributes,
       posts,
+      info,
       footer,
     },
 

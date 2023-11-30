@@ -6,7 +6,7 @@ import Header from "src/components/layout/Header";
 import Body from "src/components/post/Body";
 import fetchAPI from "src/utils/fetch";
 
-export default function Politica({ content, footer }) {
+export default function Politica({ content, info, footer }) {
   return (
     <>
       <Head>
@@ -35,11 +35,13 @@ export default function Politica({ content, footer }) {
 
 export async function getStaticProps() {
   const content = await fetchAPI('politica-de-privacidade');
+  const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
 
   return {
     props: {
       content,
+      info,
       footer,
     },
 

@@ -6,7 +6,7 @@ import Header from "src/components/layout/Header";
 import Body from "src/components/post/Body";
 import fetchAPI from "src/utils/fetch";
 
-export default function Post({ post, footer }) {
+export default function Post({ post, info, footer }) {
   return (
     <>
       <Head>
@@ -52,12 +52,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const singlePost = await fetchAPI('posts', { populate: '*', "filters[slug]": slug });
   /* const recentPosts = await fetchAPI('posts', `&pagination[start]=${0}&pagination[limit]=${5}`, false); */
+  const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
 
   return {
     props: {
       post: singlePost[0].attributes,
       /* recentPosts, */
+      info,
       footer,
     },
 

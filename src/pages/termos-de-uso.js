@@ -6,7 +6,7 @@ import Header from "src/components/layout/Header";
 import Body from "src/components/post/Body";
 import fetchAPI from "src/utils/fetch";
 
-export default function Termos({ content, footer }) {
+export default function Termos({ content, info, footer }) {
   return (
     <>
       <Head>
@@ -35,11 +35,13 @@ export default function Termos({ content, footer }) {
 
 export async function getStaticProps() {
   const content = await fetchAPI('termos-de-uso');
+  const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
 
   return {
     props: {
       content,
+      info,
       footer,
     },
 
