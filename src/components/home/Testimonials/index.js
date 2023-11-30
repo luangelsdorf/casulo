@@ -5,11 +5,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Prev from 'public/images/icons/ui/arrow-left.svg';
 import Next from 'public/images/icons/ui/arrow-right.svg';
 import { getSizesString } from 'src/utils/images';
+import Case from 'src/components/cases/Case';
+import { useRouter } from 'next/router';
+import Modal from 'src/components/common/Modal';
 
 export default function Testimonials({ content, cases }) {
 
   const cardGrid = 'col-12 col-lg-5 col-xxl-4';
   const cardSizes = getSizesString(cardGrid);
+
+  const router = useRouter();
 
   return (
     <div className={styles.section}>
@@ -54,6 +59,13 @@ export default function Testimonials({ content, cases }) {
                 ))
               }
             </Swiper>
+            <Modal open={!!router.query.dog} toggleOpen={() => router.replace(router.pathname, router.asPath, { scroll: false })}>
+              {
+                router.query.dog && (
+                  <Case {...(cases.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+                )
+              }
+            </Modal>
           </div>
         </div>
       </div>

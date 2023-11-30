@@ -1,11 +1,14 @@
 import TestimonialCard from 'src/components/common/TestimonialCard';
 import styles from './List.module.scss';
-import Link from 'next/link';
 import Button from 'src/components/common/Button';
 import { useState } from 'react';
+import Case from '../Case';
+import Modal from 'src/components/common/Modal';
+import { useRouter } from 'next/router';
 
 export default function List({ cases }) {
   const [list, setList] = useState(cases);
+  const router = useRouter();
 
   function handleClick(e) {
     let { filterField, filterValue } = e.currentTarget.dataset;
@@ -45,10 +48,17 @@ export default function List({ cases }) {
                     </div>
                   ))
                 ) : (
-                  <p>Nenhum cão encontrado.</p>
+                  <p className={styles.notFound}>Nenhum cão encontrado.</p>
                 )
               }
             </div>
+            <Modal open={!!router.query.dog} toggleOpen={() => router.replace(router.pathname, router.asPath, { scroll: false })}>
+              {
+                router.query.dog && (
+                  <Case {...(cases.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+                )
+              }
+            </Modal>
           </div>
         </div>
       </div>

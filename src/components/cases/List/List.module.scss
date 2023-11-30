@@ -6,16 +6,12 @@
   [data-display="false"] {
     display: none;
   }
+}
 
-  :global(.row) {
-    p {
-      &:only-child {
-        font: var(--heading-medium);
-        margin: 48px 0;
-        text-align: center;
-      }
-    }
-  }
+.notFound {
+  font: var(--heading-medium);
+  margin: 48px 0;
+  text-align: center;
 }
 
 .filters {

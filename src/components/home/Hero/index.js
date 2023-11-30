@@ -8,11 +8,16 @@ import Calendar from 'public/images/icons/ui/calendar.svg';
 import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
 import { getSizesString } from 'src/utils/images';
+import Modal from 'src/components/common/Modal';
+import Case from 'src/components/cases/Case';
+import { useRouter } from 'next/router';
 
 export default function Hero({ content, highlights, info }) {
 
   const cardGrid = 'col-12 col-lg-6';
   const cardSizes = getSizesString(cardGrid);
+
+  const router = useRouter();
 
   return (
     <div className={styles.section}>
@@ -69,6 +74,13 @@ export default function Hero({ content, highlights, info }) {
               }
             </Swiper>
           </div>
+          <Modal open={!!router.query.dog} toggleOpen={() => router.replace(router.pathname, router.asPath, { scroll: false })}>
+            {
+              router.query.dog && (
+                <Case {...(highlights.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+              )
+            }
+          </Modal>
         </div>
       </div>
     </div>

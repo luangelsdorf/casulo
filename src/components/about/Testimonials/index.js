@@ -2,6 +2,9 @@ import TestimonialCard from 'src/components/common/TestimonialCard';
 import styles from './Testimonials.module.scss';
 import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Case from 'src/components/cases/Case';
+import Modal from 'src/components/common/Modal';
+import { useRouter } from 'next/router';
 
 export default function Testimonials({ content, cases }) {
   const slides = [
@@ -52,6 +55,8 @@ export default function Testimonials({ content, cases }) {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -87,6 +92,14 @@ export default function Testimonials({ content, cases }) {
             }
           </Swiper>
         </div>
+
+        <Modal open={!!router.query.dog} toggleOpen={() => router.replace(router.pathname, router.asPath, { scroll: false })}>
+          {
+            router.query.dog && (
+              <Case {...(cases.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+            )
+          }
+        </Modal>
       </div>
     </div>
   )
