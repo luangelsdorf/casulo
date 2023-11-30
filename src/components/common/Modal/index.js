@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Modal.module.scss';
-import { Lenis } from '@studio-freight/react-lenis';
+import { Lenis, useLenis } from '@studio-freight/react-lenis';
 
 export default function Modal({ children, open, toggleOpen }) {
   const [animation, setAnimation] = useState(null);
   const modalElement = useRef(null);
+  const lenis = useLenis();
 
   /*** create and set animation ***/
   useEffect(() => {
@@ -29,18 +30,20 @@ export default function Modal({ children, open, toggleOpen }) {
   useEffect(() => {
     if (animation && animation.startTime) {
       if (open) {
+        lenis.stop();
         modalElement.current.style.display = 'flex';
         document.addEventListener('keydown', handleCLose);
         document.addEventListener('close-modal', handleCLose);
         document.documentElement.classList.add('no-scroll');
         animation.play();
       } else {
+        lenis.start();
         document.removeEventListener('keydown', handleCLose);
         document.removeEventListener('close-modal', handleCLose);
         animation.reverse();
       }
     }
-  }, [open, animation]);
+  }, [open, lenis, animation]);
 
   function handleFinish(playback) {
     if (playback.currentTime === 0) {
