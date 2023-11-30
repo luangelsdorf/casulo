@@ -68,19 +68,26 @@ export default function Hero({ content, highlights, info }) {
               {
                 highlights.map((slide, index) => (
                   <SwiperSlide key={index}>
-                    <TestimonialCard {...slide.attributes} sizes={cardSizes} />
+                    <TestimonialCard {...slide.attributes} sizes={cardSizes} short={false} />
                   </SwiperSlide>
                 ))
               }
             </Swiper>
-          </div>
-          <Modal open={!!router.query.dog} toggleOpen={() => router.replace(router.pathname, router.asPath, { scroll: false })}>
             {
-              router.query.dog && (
-                <Case {...(highlights.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+              (router.query.dog && router.query.short === 'false') && (
+                <Modal open={(router.query.dog && router.query.short === 'false')} toggleOpen={() => {
+                  console.log('hero');
+                  
+                }}>
+                  {
+                    (router.query.dog && router.query.short === 'false') && (
+                      <Case {...(highlights.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+                    )
+                  }
+                </Modal>
               )
             }
-          </Modal>
+          </div>
         </div>
       </div>
     </div>

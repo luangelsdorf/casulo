@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Modal.module.scss';
 import { Lenis, useLenis } from '@studio-freight/react-lenis';
+import { useRouter } from 'next/router';
 
 export default function Modal({ children, open, toggleOpen }) {
   const [animation, setAnimation] = useState(null);
   const modalElement = useRef(null);
   const lenis = useLenis();
+  const router = useRouter();
 
   /*** create and set animation ***/
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function Modal({ children, open, toggleOpen }) {
         document.documentElement.classList.add('no-scroll');
         animation.play();
       } else {
-        lenis.start();
+        lenis?.start();
         document.removeEventListener('keydown', handleCLose);
         document.removeEventListener('close-modal', handleCLose);
         animation.reverse();
@@ -47,7 +49,8 @@ export default function Modal({ children, open, toggleOpen }) {
 
   function handleFinish(playback) {
     if (playback.currentTime === 0) {
-      toggleOpen();
+      router.replace(router.pathname, router.pathname, { scroll: false });
+      lenis?.start();
       modalElement.current.scrollTop = 0;
       modalElement.current.style.display = 'none';
       playback.currentTarget.playbackRate = 1;

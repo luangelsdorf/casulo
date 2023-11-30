@@ -59,13 +59,20 @@ export default function Testimonials({ content, cases }) {
                 ))
               }
             </Swiper>
-            <Modal open={!!router.query.dog} toggleOpen={() => router.replace(router.pathname, router.asPath, { scroll: false })}>
-              {
-                router.query.dog && (
-                  <Case {...(cases.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
-                )
-              }
-            </Modal>
+            {
+              (router.query.dog && router.query.short === 'true') && (
+                <Modal open={(router.query.dog && router.query.short === 'true')} toggleOpen={() => {
+                  console.log('testimonials');
+                  
+                }}>
+                  {
+                    (router.query.dog && router.query.short === 'true') && (
+                      <Case {...(cases.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
+                    )
+                  }
+                </Modal>
+              )
+            }
           </div>
         </div>
       </div>
