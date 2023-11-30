@@ -11,6 +11,7 @@ import Cookies from 'src/components/common/Cookies';
 import { Lenis, useLenis } from '@studio-freight/react-lenis';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { env } from 'src/utils/env';
 
 const calistoga = Calistoga({ subsets: ['latin'], display: 'auto', weight: ['400'] });
 const nunito = Nunito_Sans({ subsets: ['latin'], display: 'auto', weight: ['400', '600', '700', '800'] });
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }) {
   const lenis = useLenis();
 
   useEffect(() => {
-    if (!localStorage.getItem('navbar-condensed')) {
+    if (!localStorage.getItem('navbar-condensed') && env !== 'dev') {
       setWarning(true);
       lenis?.destroy();
       document.querySelector('#warning')?.showModal();
@@ -71,7 +72,7 @@ function MyApp({ Component, pageProps }) {
 
       <Cookies />
 
-      {warning && (
+      {(warning && env !== 'dev') && (
         <dialog id="warning">
           <div className="text">
             <h1>Nosso novo site está chegando.</h1>

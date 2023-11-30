@@ -6,13 +6,18 @@ import Dog from 'public/images/icons/ui/dog.svg';
 import Mars from 'public/images/icons/ui/mars.svg';
 import Venus from 'public/images/icons/ui/venus.svg';
 import DogFace from 'public/images/icons/ui/dog-face.svg';
-import { Lenis } from '@studio-freight/react-lenis';
+import X from 'public/images/icons/ui/x.svg';
 
 export default function Case({ name, breed, sex, size, photo, services, testimonial }) {
 
+  const modalEvent = new Event('close-modal', { bubbles: true });
+
   return (
-    <div className={styles.case}>
-      <div className="container">
+    <div className="container">
+      <div className={styles.case}>
+        <button id="close-modal" title="Fechar" onClick={e => e.currentTarget.dispatchEvent(modalEvent)}>
+          <X />
+        </button>
         <div className="row">
           <div className="col-12 col-lg-6">
             <div className={styles.photos}>

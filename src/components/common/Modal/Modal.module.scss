@@ -1,0 +1,21 @@
+@use "../../../styles/scss/mixins";
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background: rgb(var(--black), 0.4);
+  backdrop-filter: blur(5px);
+  z-index: 11;
+  display: none;
+  flex-direction: column;
+}
+
+.modalContent {
+  display: flex;
+  justify-content: center;
+}
