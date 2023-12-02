@@ -1,0 +1,93 @@
+.benefits {
+  background-color: rgb(225, 225, 225);
+  border-radius: 32px;
+  padding: 48px 36px 48px 48px;
+
+  h2 {
+    font: var(--heading-small);
+    color: rgb(var(--borboleta));
+    margin-bottom: 24px;
+  }
+
+  & > p {
+    &:first-of-type {
+      margin-bottom: 24px;
+    }
+    &:last-of-type {
+      margin-top: 24px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  li {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transform: translateY(calc(20%));
+    }
+
+    div {
+      flex: 1;
+
+      h3 {
+        font: var(--body-md);
+        font-weight: 600;
+      }
+
+      p {
+        font: var(--body-sm);
+        color: rgb(var(--folha));
+      }
+    }
+  }
+
+  /* *** Variants *** */
+
+  &.training {
+    background-color: rgb(var(--white));
+    color: rgb(var(--maduro));
+    li {
+      svg {
+        color: rgb(var(--borboleta));
+      }
+      h3 {
+        color: rgb(var(--maduro));
+      }
+    }
+  }
+
+  &.hotel, &.nursery {
+    background-color: rgb(var(--white));
+    color: rgb(var(--folha));
+    li {
+      svg {
+        color: rgb(var(--lima));
+      }
+      h3 {
+        color: rgb(var(--folha));
+      }
+    }
+  }
+
+  &.consultancy {
+    background-color: rgb(var(--white));
+    color: rgb(var(--folha));
+    li {
+      svg {
+        color: rgb(var(--casca));
+      }
+      h3 {
+        color: rgb(var(--borboleta));
+      }
+    }
+  }
+}
