@@ -1,0 +1,132 @@
+.hero {
+  background-color: rgb(var(--white));
+  border-radius: 32px;
+  padding-top: 80px;
+  padding-bottom: 72px;
+
+  .textContent {
+    h1 {
+      font: var(--display);
+      margin-bottom: 24px;
+    }
+    & > p {
+      margin-bottom: 32px;
+    }
+  }
+
+  .tags {
+    display: flex;
+    gap: 16px;
+
+    & > div {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      height: 40px;
+      padding: 0 12px;
+      border-radius: 32px;
+      background-color: rgb(var(--white));
+      svg {
+        color: rgb(var(--folha));
+      }
+      p {
+        color: rgb(var(--folha-escura));
+      }
+    }
+  }
+}
+
+.details {
+  margin-top: 64px;
+
+  .detailsText {
+    h2 {
+      font: var(--heading-small);
+      color: rgb(var(--borboleta));
+      margin-bottom: 24px;
+    }
+    p {
+      margin-bottom: 48px;
+    }
+  }
+}
+
+.benefitsWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 12px;
+}
+
+.section {
+  position: relative;
+
+  /* *** Variations *** */
+
+  &.training {
+    .hero {
+      background-color: rgb(var(--siciliano));
+    }
+
+    .textContent {
+      color: rgb(var(--maduro));
+      h1 {
+        color: rgb(var(--borboleta));
+      }
+    }
+
+    .detailsText {
+      p {
+        color: rgb(var(--folha));
+      }
+    }
+  }
+
+
+  &.hotel {
+    .hero {
+      background-color: rgb(var(--orvalho));
+    }
+
+    .textContent {
+      color: rgb(var(--folha));
+      h1 {
+        color: rgb(var(--folha-escura));
+      }
+    }
+  }
+  
+
+  &.nursery {
+    .hero {
+      background-color: rgb(var(--folha));
+    }
+
+    .textContent {
+      color: rgb(var(--luz));
+      h1 {
+        color: rgb(var(--siciliano));
+      }
+    }
+  }
+  
+  
+  &.consultancy {
+    .hero {
+      background-color: rgb(var(--borboleta));
+    }
+
+    .textContent {
+      color: rgb(var(--luz));
+      h1 {
+        color: rgb(var(--siciliano));
+      }
+    }
+
+    .detailsText {
+      p {
+        color: rgb(var(--folha));
+      }
+    }
+  }
+}
