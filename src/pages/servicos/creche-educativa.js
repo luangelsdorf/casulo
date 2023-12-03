@@ -3,22 +3,32 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import Hero from 'public/images/gambi/creche/Hero.svg';
+import Hero from "src/components/services/Hero";
 import fetchAPI from "src/utils/fetch";
 
-export default function Consultancy({ info, faq, footer }) {
+export default function Consultancy({ nursery, info, faq, footer }) {
   return (
     <>
       <Head>
-        <title>Adestramento | Casulo</title>
-        <meta property="og:title" content="Adestramento | Casulo" />
+        <title>Creche Educativa | Casulo</title>
+        <meta property="og:title" content="Creche Educativa | Casulo" />
       </Head>
 
       <Header info={info} />
 
       <main>
         <Section id="home" pt="16" pb="72 80">
-          <Hero style={{ width: '100%', color: '#FFF' }} />
+          <Hero
+            service="nursery"
+            content={{
+              ...nursery.hero,
+              benefits: nursery.benefits,
+              details: {
+                ...nursery.details,
+                button: nursery.button
+              }
+            }}
+          />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">
@@ -32,12 +42,14 @@ export default function Consultancy({ info, faq, footer }) {
 }
 
 export async function getStaticProps() {
+  const nursery = await fetchAPI('nursery');
   const info = await fetchAPI('info');
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
 
   return {
     props: {
+      nursery,
       info,
       faq,
       footer,

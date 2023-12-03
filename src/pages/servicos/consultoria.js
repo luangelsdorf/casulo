@@ -4,10 +4,10 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import Hero from 'public/images/gambi/consultoria/Hero.svg';
+import Hero from "src/components/services/Hero";
 import fetchAPI from "src/utils/fetch";
 
-export default function Consultancy({ about, info, cases, faq, footer }) {
+export default function Consultancy({ consultancy, about, info, cases, faq, footer }) {
   return (
     <>
       <Head>
@@ -19,7 +19,17 @@ export default function Consultancy({ about, info, cases, faq, footer }) {
 
       <main>
         <Section id="home" pt="16" pb="72 80">
-          <Hero style={{ width: '100%' }} />
+          <Hero
+            service="consultancy"
+            content={{
+              ...consultancy.hero,
+              benefits: consultancy.benefits,
+              details: {
+                ...consultancy.details,
+                button: consultancy.button
+              }
+            }}
+          />
         </Section>
 
         <Section id="depoimentos" pt="64 80" pb="80 80">
@@ -37,6 +47,7 @@ export default function Consultancy({ about, info, cases, faq, footer }) {
 }
 
 export async function getStaticProps() {
+  const consultancy = await fetchAPI('consultancy');
   const about = await fetchAPI('about');
   const info = await fetchAPI('info');
   const cases = await fetchAPI('cases', { populate: 'photo' });
@@ -45,6 +56,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      consultancy,
       about,
       info,
       cases,

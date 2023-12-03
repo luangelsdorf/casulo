@@ -1,15 +1,14 @@
 import Head from "next/head";
-import Testimonials from "src/components/about/Testimonials";
 import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import Hero from 'public/images/gambi/hotel/Hero.svg';
 import fetchAPI from "src/utils/fetch";
 import AboutUs from "src/components/about/AboutUs";
 import CallToAction from "src/components/about/CallToAction";
+import Hero from "src/components/services/Hero";
 
-export default function Consultancy({ about, info, faq, footer }) {
+export default function Consultancy({ hotel, about, info, faq, footer }) {
   return (
     <>
       <Head>
@@ -21,7 +20,17 @@ export default function Consultancy({ about, info, faq, footer }) {
 
       <main>
         <Section id="home" pt="16" pb="72 80">
-          <Hero style={{ width: '100%', color: '#FFF' }} />
+          <Hero
+            service="hotel"
+            content={{
+              ...hotel.hero,
+              benefits: hotel.benefits,
+              details: {
+                ...hotel.details,
+                button: hotel.button
+              }
+            }}
+          />
         </Section>
 
         <Section id="sobre" pt="176 80" pb="120 80">
@@ -43,6 +52,7 @@ export default function Consultancy({ about, info, faq, footer }) {
 }
 
 export async function getStaticProps() {
+  const hotel = await fetchAPI('hotel');
   const about = await fetchAPI('about');
   const info = await fetchAPI('info');
   const faq = await fetchAPI('faq');
@@ -50,6 +60,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      hotel,
       about,
       info,
       faq,
