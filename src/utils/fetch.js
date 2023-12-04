@@ -33,8 +33,15 @@ export default async function fetchAPI(endpoint = '', parameters = { populate: '
 
 export async function getLayoutContent() {
   const footer = await fetchAPI('footer');
-
   const info = await fetchAPI('info');
+  
+  // Service summaries:
+  const training = await fetchAPI('training', { populate: false });
+  const hotel = await fetchAPI('hotel', { populate: false });
+  const nursery = await fetchAPI('nursery', { populate: false });
+  const consultancy = await fetchAPI('consultancy', { populate: false });
+  //
+  const serviceSummaries = { training, hotel, nursery, consultancy }
 
-  return { footer, info };
+  return { footer, info, serviceSummaries };
 }

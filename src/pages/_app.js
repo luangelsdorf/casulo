@@ -12,6 +12,7 @@ import { Lenis, useLenis } from '@studio-freight/react-lenis';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { env } from 'src/utils/env';
+import { LayoutContext } from 'src/utils/contexts';
 
 const calistoga = Calistoga({ subsets: ['latin'], display: 'auto', weight: ['400'] });
 const nunito = Nunito_Sans({ subsets: ['latin'], display: 'auto', weight: ['400', '600', '700', '800'] });
@@ -67,7 +68,9 @@ function MyApp({ Component, pageProps }) {
       </style>
 
       <Lenis root>
-        <Component {...pageProps} />
+        <LayoutContext.Provider value={pageProps.layout}>
+          <Component {...pageProps} />
+        </LayoutContext.Provider>
       </Lenis>
 
       <Cookies />
