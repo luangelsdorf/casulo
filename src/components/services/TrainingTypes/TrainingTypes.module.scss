@@ -1,0 +1,29 @@
+.section {
+  position: relative;
+}
+
+.headline {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.card {
+  padding: 56px 56px 40px 56px;
+  background-color: rgb(var(--white));
+  border-radius: 32px;
+
+  h3 {
+    font: var(--heading-small);
+    color: rgb(var(--borboleta));
+    margin-bottom: 24px;
+  }
+
+  p {
+    margin-bottom: 32px;
+    color: rgb(var(--maduro));
+  }
+
+  a {
+    margin-left: -24px;
+  }
+}
