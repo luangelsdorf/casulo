@@ -28,7 +28,7 @@ export default function CasesPage({ cases, dogs, faq, info, footer }) {
         </Section>
 
         <Section id="chamada" pt="72" pb="96" mt="120">
-          <CallToAction cases content={cases.cta} info={info} />
+          <CallToAction variant="cases" content={cases.cta} info={info} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">

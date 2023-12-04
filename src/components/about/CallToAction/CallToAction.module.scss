@@ -8,6 +8,14 @@
       background-color: rgb(var(--borboleta));
     }
   }
+  &.hotel {
+    .content {
+      & + img {
+        height: calc(100% + 104px);
+        bottom: -24px;
+      }
+    }
+  }
 }
 
 .content {
