@@ -4,7 +4,7 @@ import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import fetchAPI from "src/utils/fetch";
-import AboutUs from "src/components/about/AboutUs";
+import AboutUs from "src/components/services/AboutUs";
 import CallToAction from "src/components/about/CallToAction";
 import Hero from "src/components/services/Hero";
 
@@ -33,12 +33,12 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
           />
         </Section>
 
-        <Section id="sobre" pt="176 80" pb="120 80">
-          <AboutUs content={about.about} />
+        <Section id="sobre" pt="96 80" pb="96 80">
+          <AboutUs content={hotel.aboutUs} />
         </Section>
 
-        <Section id="chamada" pt="112 80" pb="96 80">
-          <CallToAction content={about.cta} info={info} />
+        <Section id="chamada" pt="80" pb="96" mt="48">
+          <CallToAction variant="hotel" content={hotel.cta} info={info} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">
