@@ -1,12 +1,15 @@
 import Head from "next/head";
+import CallToAction from "src/components/about/CallToAction";
 import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
+import AboutUs from "src/components/services/AboutUs";
 import Hero from "src/components/services/Hero";
+import TrainingTypes from "src/components/services/TrainingTypes";
 import fetchAPI from "src/utils/fetch";
 
-export default function Consultancy({ training, info, faq, footer }) {
+export default function Training({ training, info, faq, footer }) {
   return (
     <>
       <Head>
@@ -17,7 +20,7 @@ export default function Consultancy({ training, info, faq, footer }) {
       <Header info={info} />
 
       <main>
-        <Section id="home" pt="16" pb="72 80">
+        <Section id="home" pt="16" pb="160 80">
           <Hero
             service="training"
             content={{
@@ -29,6 +32,18 @@ export default function Consultancy({ training, info, faq, footer }) {
               }
             }}
           />
+        </Section>
+
+        <Section id="sobre" pt="96 80" pb="96 80">
+          <AboutUs content={training.trainingIntro} />
+        </Section>
+
+        <Section id="tipos-de-adestramento" pt="64 80" pb="80 80">
+          <TrainingTypes content={training.trainingTypes} />
+        </Section>
+
+        <Section id="chamada" pt="72" pb="96" mt="120">
+          <CallToAction variant="cases" content={training.cta} info={{ whatsapp: '5551999142232' }} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">

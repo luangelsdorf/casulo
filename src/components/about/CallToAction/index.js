@@ -3,7 +3,7 @@ import styles from './CallToAction.module.scss';
 import Whats from 'public/images/icons/ui/whatsapp.svg';
 import Image from 'next/image';
 
-export default function CallToAction({ content, info, variant = 'about', cases = false }) {
+export default function CallToAction({ content, info, variant = 'about' }) {
   let imageUrl;
   switch (variant) {
     case 'cases':
@@ -17,7 +17,7 @@ export default function CallToAction({ content, info, variant = 'about', cases =
   }
 
   return (
-    <div className={`${styles.section}${cases ? ' ' + styles[variant] : ''}`}>
+    <div className={`${styles.section} ${styles[variant]}`}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10">
