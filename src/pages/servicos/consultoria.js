@@ -18,7 +18,7 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
       <Header info={info} />
 
       <main>
-        <Section id="home" pt="16" pb="72 80">
+        <Section id="home" pt="16" pb="80 80">
           <Hero
             service="consultancy"
             content={{
