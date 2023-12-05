@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { LayoutContext } from 'src/utils/contexts';
 
 export default function SocialMedia({ blog, content, videos }) {
-  const { instagram } = useContext(LayoutContext);
+  const { info } = useContext(LayoutContext);
   
   return (
     <div className={`${styles.section}${blog ? ' ' + styles.blog : ''}`}>
@@ -23,7 +23,7 @@ export default function SocialMedia({ blog, content, videos }) {
             </div>
             <div className={`col-12 col-lg-3 offset-lg-3 ${blog ? 'd-none' : 'd-block'}`}>
               <div className={styles.button}>
-                <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${instagram}`}>{`@${instagram}`}</Button>
+                <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{`@${info.instagram}`}</Button>
               </div>
             </div>
           </div>

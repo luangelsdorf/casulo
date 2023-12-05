@@ -7,7 +7,7 @@ export default function Blog({ content, posts }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row">
+        <div className="row gy-5 gy-lg-0">
           <div className="col-12 col-lg-4">
             <header className={styles.textContent}>
               <p className="overline">{content.headline.overline}</p>

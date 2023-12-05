@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
 
 }
@@ -9,5 +11,9 @@
 
   a {
     margin-top: 48px;
+  }
+
+  @include mixins.lg {
+    margin-bottom: 56px;
   }
 }

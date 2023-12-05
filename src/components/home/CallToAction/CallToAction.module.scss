@@ -48,6 +48,11 @@
       left: -280px !important;
     }
   }
+  @include mixins.lg {
+    img {
+      display: none;
+    }
+  }
 }
 
 .textContent {
@@ -69,5 +74,16 @@
     margin-bottom: 40px;
     color: rgb(var(--maduro));
     width: 86%;
+  }
+
+  @include mixins.lg {
+    padding: 72px 24px;
+    width: 100%;
+    align-items: center;
+
+    h2,
+    p {
+      text-align: center;
+    }
   }
 }

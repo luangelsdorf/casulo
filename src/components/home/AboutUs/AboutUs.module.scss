@@ -1,5 +1,11 @@
+@use "src/styles/scss/mixins";
+
 .section {
   background-color: rgb(var(--folha));
+
+  :global(.row) {
+    gap: 56px;
+  }
 }
 
 .headline {

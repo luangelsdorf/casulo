@@ -56,7 +56,7 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
           <CallToAction content={home.cta} />
         </Section>
 
-        <Section id="blog" pt="120 80" pb="96 80">
+        <Section id="blog" pt="120 16" pb="96 80">
           <Blog content={home.blog} posts={posts} />
         </Section>
 
