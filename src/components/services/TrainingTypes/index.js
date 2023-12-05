@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { LayoutContext } from 'src/utils/contexts';
 
 export default function TrainingTypes({ content }) {
-  const { whatsapp } = useContext(LayoutContext);
+  const { info } = useContext(LayoutContext);
 
   return (
     <div className={styles.section}>
@@ -39,7 +39,7 @@ export default function TrainingTypes({ content }) {
                   <div className={styles.card}>
                     <h3>{slide.title}</h3>
                     <p>{slide.text}</p>
-                    <Button RightIcon={Arrow} className="transparent" href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre o serviços de Adestramento/${slide.title}.`}>Solicitar Serviço</Button>
+                    <Button RightIcon={Arrow} className="transparent" href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre o serviços de Adestramento/${slide.title}.`}>Solicitar Serviço</Button>
                   </div>
                 </SwiperSlide>
               ))

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useContext } from 'react';
 import { LayoutContext } from 'src/utils/contexts';
 
-export default function CallToAction({ content, info, variant = 'about' }) {
+export default function CallToAction({ content, variant = 'about' }) {
   let imageUrl;
   switch (variant) {
     case 'cases':
@@ -18,7 +18,7 @@ export default function CallToAction({ content, info, variant = 'about' }) {
       imageUrl = '/images/about/dog-2.png';
   }
 
-  const { whatsapp } = useContext(LayoutContext);
+  const { info } = useContext(LayoutContext);
 
   return (
     <div className={`${styles.section} ${styles[variant]}`}>
@@ -30,7 +30,7 @@ export default function CallToAction({ content, info, variant = 'about' }) {
                 <h2>{content.text.title}</h2>
                 <p>{content.text.text}</p>
               </div>
-              <Button className={(variant === 'cases') && 'inverted'} LeftIcon={Whats} href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
+              <Button className={(variant === 'cases') && 'inverted'} LeftIcon={Whats} href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
             </div>
             <Image className={styles[variant]} width={450} height={600} src={imageUrl} alt="" />
           </div>

@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { LayoutContext } from 'src/utils/contexts';
 
 export default function Hero({ content }) {
-  const { whatsapp } = useContext(LayoutContext);
+  const { info } = useContext(LayoutContext);
 
   return (
     <div className={styles.section}>
@@ -18,7 +18,7 @@ export default function Hero({ content }) {
             <div className={styles.textContent}>
               <h1>{content.title}</h1>
               {content.text && <p>{content.text}</p>}
-              {content.text && <Button href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow}>Fale Conosco</Button>}
+              {content.text && <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow}>Fale Conosco</Button>}
             </div>
           </div>
         </div>

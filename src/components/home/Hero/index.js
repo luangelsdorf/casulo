@@ -21,7 +21,7 @@ export default function Hero({ content, highlights }) {
 
   const router = useRouter();
 
-  const { whatsapp } = useContext(LayoutContext);
+  const { info } = useContext(LayoutContext);
 
   return (
     <div className={styles.section}>
@@ -32,7 +32,7 @@ export default function Hero({ content, highlights }) {
           </Link>
           <Button link href="/sobre-nos">Sobre Nós</Button>
           <Button link href="/servicos/adestramento">Adestramento</Button>
-          <Button href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Calendar}>Marque uma Avaliação</Button>
+          <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Calendar}>Marque uma Avaliação</Button>
         </div>
         <div className={styles.lowerHeader}>
           <Button href="/servicos/creche-educativa" link>Creche Educativa</Button>
@@ -44,7 +44,7 @@ export default function Hero({ content, highlights }) {
             <div className={styles.textContent}>
               <h1>{content.topic.title}</h1>
               <p>{content.topic.text}</p>
-              <Button href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="folha" RightIcon={Arrow}>Fale Conosco</Button>
+              <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="folha" RightIcon={Arrow}>Fale Conosco</Button>
             </div>
           </div>
           <div className="col-12 col-lg-6 offset-lg-1">
