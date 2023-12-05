@@ -32,7 +32,7 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
           <Hero content={home.banner} highlights={highlights} />
         </Section>
 
-        <Section id="servicos" pt="160 80" pb="160 80">
+        <Section id="servicos" pt="160 120" pb="160 80">
           <Services content={home.services} />
         </Section>
 

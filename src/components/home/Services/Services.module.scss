@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -6,7 +8,7 @@
 
 .section {
   position: relative;
-  
+
   article a {
     img {
       transition: 400ms;
@@ -75,6 +77,12 @@
     font: var(--heading-large);
     margin-bottom: 16px;
   }
+
+  @include mixins.lg {
+    & > div {
+      max-width: 100%;
+    }
+  }
 }
 
 .consultancy {
@@ -85,6 +93,10 @@
       left: auto;
       right: 32px;
     }
+  }
+
+  @include mixins.lg {
+    flex-direction: column-reverse;
   }
 }
 
@@ -135,6 +147,27 @@
       color: rgb(var(--luz));
     }
   }
+
+  @include mixins.lg {
+    & > div {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      align-items: flex-start;
+      text-align: left;
+      padding: 0 24px;
+
+      [role="link"] {
+        & > div {
+          gap: 8px;
+        }
+      }
+    }
+
+    &::before {
+      background: linear-gradient(250deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0, 0.75) 50%);
+    }
+  }
 }
 
 .seal {
@@ -146,4 +179,8 @@
   width: 240px;
 
   animation: spin 25s infinite linear;
+
+  @include mixins.lg {
+    display: none;
+  }
 }
