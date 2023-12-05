@@ -17,6 +17,11 @@ import { LayoutContext } from 'src/utils/contexts';
 export default function Header({ home }) {
 
   useEffect(() => {
+    if (matchMedia('(max-width: 576px)').matches) {
+      document.querySelector(`.${styles.home}`)?.classList.add('active');
+      return;
+    }
+
     function callback(entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -124,7 +129,7 @@ export default function Header({ home }) {
   );
 
   return (
-    <header className={`${styles.header}${home ? ' ' + styles.home : ''}`}>
+    <header className={`${styles.header}${home ? (' ' + styles.home) : ''}`}>
       <div className="container">
         <Link href="/" className={styles.logo}>
           <LogoType />
