@@ -5,7 +5,7 @@ import Section from "src/components/common/Section";
 import SocialMedia from "src/components/common/SocialMedia";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function Blog({ blog, gallery, posts, footer, info, }) {
 
@@ -43,6 +43,8 @@ export async function getStaticProps() {
   const gallery = await fetchAPI('gallery');
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
@@ -51,6 +53,8 @@ export async function getStaticProps() {
       posts,
       footer,
       info,
+      
+      layout
     },
 
     revalidate: 60,

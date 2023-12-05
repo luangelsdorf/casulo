@@ -4,7 +4,7 @@ import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import Hero from "src/components/services/Hero";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function Consultancy({ nursery, info, faq, footer }) {
   return (
@@ -46,6 +46,8 @@ export async function getStaticProps() {
   const info = await fetchAPI('info');
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
@@ -53,6 +55,8 @@ export async function getStaticProps() {
       info,
       faq,
       footer,
+      
+      layout
     },
 
     revalidate: 60,

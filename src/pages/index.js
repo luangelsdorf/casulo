@@ -12,7 +12,7 @@ import Services from 'src/components/home/Services';
 import Testimonials from 'src/components/home/Testimonials';
 import Footer from 'src/components/layout/Footer';
 import Header from 'src/components/layout/Header';
-import fetchAPI from 'src/utils/fetch';
+import fetchAPI, { getLayoutContent } from 'src/utils/fetch';
 
 export default function Home({ home, cases, gallery, posts, faq, footer, info }) {
 
@@ -78,6 +78,8 @@ export async function getStaticProps() {
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
   const info = await fetchAPI('info');
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
@@ -88,6 +90,8 @@ export async function getStaticProps() {
       faq,
       footer,
       info,
+      
+      layout
     },
 
     revalidate: 60,

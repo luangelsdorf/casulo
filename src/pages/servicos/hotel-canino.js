@@ -3,7 +3,7 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 import AboutUs from "src/components/services/AboutUs";
 import CallToAction from "src/components/about/CallToAction";
 import Hero from "src/components/services/Hero";
@@ -57,6 +57,8 @@ export async function getStaticProps() {
   const info = await fetchAPI('info');
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
@@ -65,6 +67,8 @@ export async function getStaticProps() {
       info,
       faq,
       footer,
+      
+      layout
     },
 
     revalidate: 60,

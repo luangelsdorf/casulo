@@ -6,7 +6,7 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function CasesPage({ cases, dogs, faq, info, footer }) {
   return (
@@ -47,6 +47,8 @@ export async function getStaticProps() {
   const faq = await fetchAPI('faq');
   const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
@@ -55,6 +57,8 @@ export async function getStaticProps() {
       faq,
       info,
       footer,
+      
+      layout
     },
 
     revalidate: 60,

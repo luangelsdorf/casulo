@@ -4,7 +4,7 @@ import PostList from "src/components/blog/PostList";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function Category({ category, posts, info, footer }) {
   return (
@@ -51,6 +51,8 @@ export async function getStaticProps({ params: { slug } }) {
   }, false);
   const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
@@ -58,6 +60,8 @@ export async function getStaticProps({ params: { slug } }) {
       posts,
       info,
       footer,
+      
+      layout
     },
 
     revalidate: 60,

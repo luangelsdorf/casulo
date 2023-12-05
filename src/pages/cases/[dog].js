@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Case from "src/components/cases/Case";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function SingleCase({ dog }) {
 
@@ -33,10 +33,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { dog: slug } }) {
   const dog = await fetchAPI('cases', { populate: '*', "filters[slug]": slug });
+  
+  const layout = await getLayoutContent();
 
   return {
     props: {
       dog: dog[0].attributes,
+      
+      layout
     },
 
     revalidate: 60,

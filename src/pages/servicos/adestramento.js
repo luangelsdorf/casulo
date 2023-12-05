@@ -7,7 +7,7 @@ import Header from "src/components/layout/Header";
 import AboutUs from "src/components/services/AboutUs";
 import Hero from "src/components/services/Hero";
 import TrainingTypes from "src/components/services/TrainingTypes";
-import fetchAPI from "src/utils/fetch";
+import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function Training({ training, info, faq, footer }) {
   return (
@@ -62,12 +62,16 @@ export async function getStaticProps() {
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
 
+  const layout = await getLayoutContent();
+
   return {
     props: {
       training,
       info,
       faq,
       footer,
+
+      layout
     },
 
     revalidate: 60,
