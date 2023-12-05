@@ -24,20 +24,20 @@ export default function Footer({ content }) {
               <div className={styles.links}>
                 <div className={styles.nav}>
                   <ul>
-                    <li><Button link>Cases de Sucesso</Button></li>
-                    <li><Button link>Nosso Blog</Button></li>
-                    <li><Button link>Sobre Nós</Button></li>
-                    <li><Button link>Contatos</Button></li>
+                    <li><Button href="/cases" link>Cases de Sucesso</Button></li>
+                    <li><Button href="/blog" link>Nosso Blog</Button></li>
+                    <li><Button href="/sobre-nos" link>Sobre Nós</Button></li>
+                    <li><Button href="/#" link>Contatos</Button></li>
                   </ul>
                   <ul>
-                    <li><Button link>Guarda</Button></li>
-                    <li><Button link>Obediência</Button></li>
-                    <li><Button link>Faro</Button></li>
+                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Guarda</Button></li>
+                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Obediência</Button></li>
+                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Faro</Button></li>
                   </ul>
                   <ul>
-                    <li><Button link>Comportamento</Button></li>
-                    <li><Button link>Educação Sanitária</Button></li>
-                    <li><Button link>Cães de Assistência</Button></li>
+                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Comportamento</Button></li>
+                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Educação Sanitária</Button></li>
+                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Cães de Assistência</Button></li>
                   </ul>
                 </div>
                 <div className={styles.logo}>
