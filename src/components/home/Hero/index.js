@@ -39,7 +39,7 @@ export default function Hero({ content, highlights }) {
           <Button href="/servicos/hotel-canino" link>Hotel Canino</Button>
           <Button href="/servicos/consultoria" link>Consultoria</Button>
         </div>
-        <div className="row">
+        <div className="row" id="home">
           <div className="col-12 col-lg-5">
             <div className={styles.textContent}>
               <h1>{content.topic.title}</h1>

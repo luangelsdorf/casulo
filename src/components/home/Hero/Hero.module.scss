@@ -30,11 +30,42 @@
       z-index: 2;
     }
   }
+
+  @include mixins.lg {
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    & > a {
+      &:last-child {
+        display: none;
+        /* margin: 0;
+        font: var(--body-sm);
+        padding: 0 24px;
+        height: 48px; */
+      }
+    }
+  }
+
+  @include mixins.sm {
+    display: none;
+  }
 }
 
 .lowerHeader {
   bottom: 7.5vh;
   gap: 56px;
+
+  @include mixins.lg {
+    bottom: auto;
+    top: 83.3vh;
+    transform: translateY(-100%);
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include mixins.sm {
+    display: none;
+  }
 }
 
 .textContent {
@@ -65,6 +96,10 @@
       white-space: normal;
       max-width: 100%;
     }
+  }
+
+  @include mixins.lg {
+    height: 90vh;
   }
 
   @include mixins.md {

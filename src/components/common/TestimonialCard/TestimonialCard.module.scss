@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .slide {
   --spacing: 3.4vh;
   position: relative;
@@ -101,5 +103,9 @@
       right: auto;
       left: 48px;
     }
+  }
+
+  @include mixins.lg {
+    height: 70vh;
   }
 }
