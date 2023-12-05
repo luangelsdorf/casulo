@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 import Award from 'public/images/icons/ui/award.svg';
 import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Collapse } from 'src/components/common/Collapse';
 import Caret from 'public/images/icons/ui/caret.svg';
 import Adestramento from 'public/images/icons/Adestramento.svg';
@@ -12,8 +12,9 @@ import Creche from 'public/images/icons/Creche.svg';
 import Hotel from 'public/images/icons/Hotel.svg';
 import X from 'public/images/icons/ui/x.svg';
 import Hamburger from 'public/images/icons/ui/menu.svg';
+import { LayoutContext } from 'src/utils/contexts';
 
-export default function Header({ home, info }) {
+export default function Header({ home }) {
 
   useEffect(() => {
     function callback(entries) {
@@ -32,6 +33,8 @@ export default function Header({ home, info }) {
 
     return () => targets.forEach(target => observer.unobserve(target));
   }, []);
+
+  const data = useContext(LayoutContext);
 
   const Navigation = ({ ...props }) => (
     <ul className={styles.links} {...props}>
@@ -76,7 +79,7 @@ export default function Header({ home, info }) {
         <Button href="/blog" link>Blog</Button>
       </li>
       <li className="d-inline-flex d-lg-none">
-        <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Award}>Avaliação</Button>
+        <Button href={`https://wa.me/${data.info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Award}>Avaliação</Button>
       </li>
     </ul>
   );
@@ -85,25 +88,25 @@ export default function Header({ home, info }) {
     {
       Icon: Adestramento,
       title: 'Adestramento',
-      text: 'Descrição em duas linhas do que se trata o serviço.',
+      text: data.serviceSummaries.training,
       href: '/servicos/adestramento',
     },
     {
       Icon: Consultoria,
       title: 'Consultoria',
-      text: 'Descrição em duas linhas do que se trata o serviço.',
+      text: data.serviceSummaries.consultancy,
       href: '/servicos/consultoria',
     },
     {
       Icon: Creche,
       title: 'Creche Educativa',
-      text: 'Descrição em duas linhas do que se trata o serviço.',
+      text: data.serviceSummaries.nursery,
       href: '/servicos/creche-educativa',
     },
     {
       Icon: Hotel,
       title: 'Hotel Canino',
-      text: 'Descrição em duas linhas do que se trata o serviço.',
+      text: data.serviceSummaries.hotel,
       href: '/servicos/hotel-canino',
     },
   ];
@@ -129,7 +132,7 @@ export default function Header({ home, info }) {
 
         <Navigation data-desktop />
 
-        <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} className="d-none d-lg-inline-flex" LeftIcon={Award}>Avaliação</Button>
+        <Button href={`https://wa.me/${data.info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} className="d-none d-lg-inline-flex" LeftIcon={Award}>Avaliação</Button>
         <Collapse className="d-block d-lg-none">
           <Collapse.Title>
             <Button onClick={e => e.currentTarget.classList.toggle(styles.active)} btnElement title="Menu">
