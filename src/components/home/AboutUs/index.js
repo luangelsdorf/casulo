@@ -1,8 +1,11 @@
 import Button from 'src/components/common/Button';
 import styles from './AboutUs.module.scss';
 import Heart from 'public/images/icons/ui/heart.svg';
+import { useContext } from 'react';
+import { LayoutContext } from 'src/utils/contexts';
 
-export default function AboutUs({ content, info }) {
+export default function AboutUs({ content }) {
+  const { whatsapp } = useContext(LayoutContext);
 
   return (
     <div className={styles.section}>
@@ -12,7 +15,7 @@ export default function AboutUs({ content, info }) {
             <header className={styles.headline}>
               <p className="overline light">{content.headline.overline}</p>
               <h2>{content.headline.title}</h2>
-              <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="inverted" LeftIcon={Heart}>Conheça mais</Button>
+              <Button href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="inverted" LeftIcon={Heart}>Conheça mais</Button>
             </header>
           </div>
 

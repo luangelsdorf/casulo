@@ -16,7 +16,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
         <meta property="og:title" content="Nosso Blog | Casulo" />
       </Head>
 
-      <Header info={info} />
+      <Header />
 
       <main>
         <Section id="inicio" pt="16 24" pb="96 80">
@@ -28,7 +28,7 @@ export default function Blog({ blog, gallery, posts, footer, info, }) {
         </Section>
 
         <Section id="redes-sociais" pt="64 48" pb="56 80" mb="56" style={{ backgroundColor: 'rgb(var(--folha))' }}>
-          <SocialMedia blog content={blog.socialMedia} videos={gallery} info={info} />
+          <SocialMedia blog content={blog.socialMedia} videos={gallery} />
         </Section>
       </main>
 

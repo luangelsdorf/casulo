@@ -3,8 +3,12 @@ import styles from './TrainingTypes.module.scss';
 import { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
+import { useContext } from 'react';
+import { LayoutContext } from 'src/utils/contexts';
 
 export default function TrainingTypes({ content }) {
+  const { whatsapp } = useContext(LayoutContext);
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -35,7 +39,7 @@ export default function TrainingTypes({ content }) {
                   <div className={styles.card}>
                     <h3>{slide.title}</h3>
                     <p>{slide.text}</p>
-                    <Button RightIcon={Arrow} className="transparent" href={`https://wa.me/5551999142232?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre o serviços de Adestramento/${slide.title}.`}>Solicitar Serviço</Button>
+                    <Button RightIcon={Arrow} className="transparent" href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre o serviços de Adestramento/${slide.title}.`}>Solicitar Serviço</Button>
                   </div>
                 </SwiperSlide>
               ))

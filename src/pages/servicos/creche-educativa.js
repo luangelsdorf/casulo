@@ -14,7 +14,7 @@ export default function Consultancy({ nursery, info, faq, footer }) {
         <meta property="og:title" content="Creche Educativa | Casulo" />
       </Head>
 
-      <Header info={info} />
+      <Header />
 
       <main>
         <Section id="home" pt="16" pb="64 80">

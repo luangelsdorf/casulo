@@ -2,8 +2,9 @@ import Button from 'src/components/common/Button';
 import styles from './CallToAction.module.scss';
 import Whats from 'public/images/icons/ui/whatsapp.svg';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { getSizesString } from 'src/utils/images';
+import { LayoutContext } from 'src/utils/contexts';
 
 export default function CallToAction({ content, info }) {
 
@@ -27,6 +28,8 @@ export default function CallToAction({ content, info }) {
     return () => targets.forEach(target => observer.unobserve(target));
   }, []);
 
+  const { whatsapp } = useContext(LayoutContext);
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -35,7 +38,7 @@ export default function CallToAction({ content, info }) {
           <div className={styles.textContent}>
             <h2>{content.text.title}</h2>
             <p>{content.text.text}</p>
-            <Button LeftIcon={Whats} href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
+            <Button LeftIcon={Whats} href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
           </div>
         </div>
       </div>

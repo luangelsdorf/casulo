@@ -2,8 +2,12 @@ import Button from 'src/components/common/Button';
 import styles from './Footer.module.scss';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Symbol from 'public/images/symbol.svg';
+import { useContext } from 'react';
+import { LayoutContext } from 'src/utils/contexts';
 
 export default function Footer({ content }) {
+  const { whatsapp } = useContext(LayoutContext);
+  
   return (
     <div className={styles.section}>
       <div className="container">
@@ -12,7 +16,7 @@ export default function Footer({ content }) {
             <div className={styles.cta}>
               <h2>{content.callToAction.title}</h2>
               <p>{content.callToAction.text}</p>
-              <Button href={`https://wa.me/5551997613537?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow} className="sm folha inverted">Agende uma Consulta</Button>
+              <Button href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow} className="sm folha inverted">Agende uma Consulta</Button>
             </div>
           </div>
           <div className="col-12 col-lg-8">

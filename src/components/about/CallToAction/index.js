@@ -2,6 +2,8 @@ import Button from 'src/components/common/Button';
 import styles from './CallToAction.module.scss';
 import Whats from 'public/images/icons/ui/whatsapp.svg';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { LayoutContext } from 'src/utils/contexts';
 
 export default function CallToAction({ content, info, variant = 'about' }) {
   let imageUrl;
@@ -16,6 +18,8 @@ export default function CallToAction({ content, info, variant = 'about' }) {
       imageUrl = '/images/about/dog-2.png';
   }
 
+  const { whatsapp } = useContext(LayoutContext);
+
   return (
     <div className={`${styles.section} ${styles[variant]}`}>
       <div className="container">
@@ -26,7 +30,7 @@ export default function CallToAction({ content, info, variant = 'about' }) {
                 <h2>{content.text.title}</h2>
                 <p>{content.text.text}</p>
               </div>
-              <Button className={(variant === 'cases') && 'inverted'} LeftIcon={Whats} href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
+              <Button className={(variant === 'cases') && 'inverted'} LeftIcon={Whats} href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} target="_blank">Fale Conosco</Button>
             </div>
             <Image className={styles[variant]} width={450} height={600} src={imageUrl} alt="" />
           </div>

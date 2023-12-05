@@ -15,7 +15,7 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
         <meta property="og:title" content="Consultoria | Casulo" />
       </Head>
 
-      <Header info={info} />
+      <Header />
 
       <main>
         <Section id="home" pt="16" pb="80 80">

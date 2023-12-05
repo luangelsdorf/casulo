@@ -17,7 +17,7 @@ export default function Training({ training, info, faq, footer }) {
         <meta property="og:title" content="Adestramento | Casulo" />
       </Head>
 
-      <Header info={info} />
+      <Header />
 
       <main>
         <Section id="home" pt="16" pb="160 80">
@@ -43,7 +43,7 @@ export default function Training({ training, info, faq, footer }) {
         </Section>
 
         <Section id="chamada" pt="72" pb="96" mt="120">
-          <CallToAction variant="cases" content={training.cta} info={{ whatsapp: '5551999142232' }} />
+          <CallToAction variant="cases" content={training.cta} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">

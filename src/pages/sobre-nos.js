@@ -20,11 +20,11 @@ export default function About({ about, cases, faq, footer, info }) {
         <meta property="og:title" content="Sobre Nós | Casulo" />
       </Head>
 
-      <Header info={info} />
+      <Header />
 
       <main>
         <Section id="home" pt="16" pb="72 80">
-          <Hero content={about.banner} info={info} />
+          <Hero content={about.banner} />
         </Section>
 
         <Section id="sobre" pt="176 80" pb="120 80">
@@ -44,7 +44,7 @@ export default function About({ about, cases, faq, footer, info }) {
         </Section>
 
         <Section id="chamada" pt="112 80" pb="96 80">
-          <CallToAction content={about.cta} info={info} />
+          <CallToAction content={about.cta} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">

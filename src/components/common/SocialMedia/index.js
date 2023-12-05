@@ -4,8 +4,12 @@ import styles from './SocialMedia.module.scss';
 import Insta from 'public/images/icons/ui/instagram.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
+import { useContext } from 'react';
+import { LayoutContext } from 'src/utils/contexts';
 
-export default function SocialMedia({ blog, content, videos, info }) {
+export default function SocialMedia({ blog, content, videos }) {
+  const { instagram } = useContext(LayoutContext);
+  
   return (
     <div className={`${styles.section}${blog ? ' ' + styles.blog : ''}`}>
       <header>
@@ -19,7 +23,7 @@ export default function SocialMedia({ blog, content, videos, info }) {
             </div>
             <div className={`col-12 col-lg-3 offset-lg-3 ${blog ? 'd-none' : 'd-block'}`}>
               <div className={styles.button}>
-                <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{`@${info.instagram}`}</Button>
+                <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${instagram}`}>{`@${instagram}`}</Button>
               </div>
             </div>
           </div>

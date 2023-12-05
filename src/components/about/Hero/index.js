@@ -3,8 +3,12 @@ import styles from './Hero.module.scss';
 import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import Img from 'src/components/common/Img';
 import { getSizesString } from 'src/utils/images';
+import { useContext } from 'react';
+import { LayoutContext } from 'src/utils/contexts';
 
-export default function Hero({ content, info }) {
+export default function Hero({ content }) {
+  const { whatsapp } = useContext(LayoutContext);
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -14,7 +18,7 @@ export default function Hero({ content, info }) {
             <div className={styles.textContent}>
               <h1>{content.title}</h1>
               {content.text && <p>{content.text}</p>}
-              {content.text && <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow}>Fale Conosco</Button>}
+              {content.text && <Button href={`https://wa.me/${whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} RightIcon={Arrow}>Fale Conosco</Button>}
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
         <meta property="og:title" content="Hotel Canino | Casulo" />
       </Head>
 
-      <Header info={info} />
+      <Header />
 
       <main>
         <Section id="home" pt="16" pb="72 80">
@@ -38,7 +38,7 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
         </Section>
 
         <Section id="chamada" pt="80" pb="96" mt="48">
-          <CallToAction variant="hotel" content={hotel.cta} info={info} />
+          <CallToAction variant="hotel" content={hotel.cta} />
         </Section>
 
         <Section id="faq" pt="96 80" pb="120 80">
