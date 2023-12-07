@@ -12,7 +12,7 @@ export default function Hero({ content }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <Img {...content.cover} fill alt="" priority sizes={getSizesString('col-ext-8', true)} />
+        <Img {...content.cover} fill alt="" priority sizes="(max-width: 576px) 1vw, (max-width: 992px) 66vw, 100vw" />
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className={styles.textContent}>

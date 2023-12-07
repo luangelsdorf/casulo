@@ -7,10 +7,6 @@
     border-radius: 32px;
   }
 
-  @include mixins.lg {
-    margin: 0 24px;
-  }
-
   :global(.container) {
     position: relative;
 
@@ -28,6 +24,16 @@
         rgba(15, 40, 48, 0.6) 48.44%,
         rgba(15, 40, 48, 0.1) 100%
       );
+    }
+  }
+
+  @include mixins.lg {
+    margin: 0 24px;
+
+    :global(.container) {
+      &::after {
+        background: rgb(var(--folha));
+      }
     }
   }
 }
