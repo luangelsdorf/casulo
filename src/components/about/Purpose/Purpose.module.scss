@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   text-align: center;
 
@@ -24,6 +26,21 @@
     }
     p {
       color: rgb(var(--folha));
+    }
+  }
+
+  @include mixins.xl {
+    article {
+      width: 30%;
+    }
+  }
+
+  @include mixins.lg {
+    flex-direction: column;
+    gap: 64px;
+
+    article {
+      width: auto;
     }
   }
 }

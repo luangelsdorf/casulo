@@ -5,7 +5,7 @@ export default function Benefits({ content }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row">
+        <div className="row gy-5 gy-lg-0">
           <div className="col-12">
             <header>
               <h2>{content.title}</h2>

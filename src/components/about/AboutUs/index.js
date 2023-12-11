@@ -1,6 +1,7 @@
 import styles from './AboutUs.module.scss';
 import Seal from 'public/images/brand/seal-dark.svg';
 import Img from 'src/components/common/Img';
+import { getSizesString } from 'src/utils/images';
 
 export default function AboutUs({ content }) {
   const paragraphs = content.content.text.split('\n\n');
@@ -13,8 +14,8 @@ export default function AboutUs({ content }) {
         <div className="row">
           <div className="col-12 col-lg-6">
             <div className={styles.image}>
-              <Seal />
-              <Img {...content.image} fill alt="" />
+              <Seal className="d-none d-lg-inline" />
+              <Img {...content.image} fill sizes={getSizesString('col-12 col-lg-6')} />
             </div>
           </div>
           <div className="col-12 col-lg-5 offset-lg-1">

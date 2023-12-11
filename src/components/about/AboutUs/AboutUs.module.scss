@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -10,6 +12,20 @@
       &:last-child {
         width: calc(41.66666667% + 12px);
         margin-left: auto;
+      }
+    }
+  }
+
+  @include mixins.lg {
+    :global(.row) {
+      & > div {
+        &:first-child {
+          order: 1;
+        }
+        &:last-child {
+          width: 100%;
+          order: 0;
+        }
       }
     }
   }
@@ -30,6 +46,12 @@
 
   img {
     border-radius: 32px;
+  }
+
+  @include mixins.lg {
+    img {
+      position: relative !important;
+    }
   }
 }
 

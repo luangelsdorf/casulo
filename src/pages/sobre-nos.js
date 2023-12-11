@@ -23,15 +23,15 @@ export default function About({ about, cases, faq, footer, info }) {
       <Header />
 
       <main>
-        <Section id="home" pt="16" pb="72 80">
+        <Section id="home" pt="16" pb="72 40">
           <Hero content={about.banner} />
         </Section>
 
-        <Section id="sobre" pt="176 80" pb="120 80">
+        <Section id="sobre" pt="176 40" pb="120 80">
           <AboutUs content={about.about} />
         </Section>
 
-        <Section id="proposito" pt="0" pb="96 80">
+        <Section id="proposito" pt="0 80" pb="96 80">
           <Purpose content={about.purpose} />
         </Section>
 
