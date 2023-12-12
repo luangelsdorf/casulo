@@ -23,6 +23,7 @@ export default function Consultancy({ nursery, info, faq, footer }) {
             content={{
               ...nursery.hero,
               benefits: nursery.benefits,
+              offer: nursery.offer,
               details: {
                 ...nursery.details,
                 button: nursery.button

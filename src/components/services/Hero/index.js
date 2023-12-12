@@ -28,7 +28,7 @@ export default function Hero({ service, content }) {
             </div>
             <div className="col-12 col-lg-4 offset-lg-1" style={{ position: 'relative' }}>
               <div className={styles.benefitsWrapper}>
-                <Benefits service={service} content={content.benefits} />
+                <Benefits service={service} content={{...content.benefits, offer: content.offer}} />
               </div>
             </div>
           </div>

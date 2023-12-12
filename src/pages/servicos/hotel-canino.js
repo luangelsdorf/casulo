@@ -25,6 +25,7 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
             content={{
               ...hotel.hero,
               benefits: hotel.benefits,
+              offer: hotel.offer,
               details: {
                 ...hotel.details,
                 button: hotel.button

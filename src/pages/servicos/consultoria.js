@@ -24,6 +24,7 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
             content={{
               ...consultancy.hero,
               benefits: consultancy.benefits,
+              offer: consultancy.offer,
               details: {
                 ...consultancy.details,
                 button: consultancy.button

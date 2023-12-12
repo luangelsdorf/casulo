@@ -26,6 +26,7 @@ export default function Training({ training, info, faq, footer }) {
             content={{
               ...training.hero,
               benefits: training.benefits,
+              offer: training.offer,
               details: {
                 ...training.details,
                 button: training.button

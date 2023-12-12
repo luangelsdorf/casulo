@@ -1,3 +1,4 @@
+import ServiceOffering from '../../ServiceOffering';
 import styles from './Benefits.module.scss';
 import Check from 'public/images/icons/ui/check-circle.svg';
 
@@ -21,6 +22,7 @@ export default function Benefits({ service, content }) {
         }
       </ul>
       {content.additionalText && <p>{content.additionalText}</p>}
+      {content.offer && <ServiceOffering content={content.offer} />}
     </div>
   )
 }
