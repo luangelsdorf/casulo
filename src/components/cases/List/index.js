@@ -38,7 +38,7 @@ export default function List({ cases }) {
           <Button onClick={handleClick} data-filter-field="size" data-filter-value="GG" className="sm" btnElement>GG</Button>
         </div>
         <div className="row justify-content-center">
-          <div className="col-10">
+          <div className="col-12 col-sm-10">
             <div className="row">
               {
                 list.length > 0 ? (

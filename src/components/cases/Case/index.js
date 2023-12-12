@@ -18,10 +18,10 @@ export default function Case({ name, breed, sex, size, photo, services, testimon
         <button id="close-modal" title="Fechar" onClick={e => e.currentTarget.dispatchEvent(modalEvent)}>
           <X />
         </button>
-        <div className="row">
+        <div className="row justify-content-center justify-content-xl-end">
           <div className="col-12 col-lg-6">
             <div className={styles.photos}>
-              <Img {...photo} sizes={getSizesString('col-12 col-lg-5')} />
+              <Img {...photo} sizes="(max-width: 992px) 80vw, 41vw" />
               <div className={styles.thumbnails}>
                 <div />
                 <div />
