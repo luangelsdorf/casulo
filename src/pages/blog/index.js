@@ -7,7 +7,7 @@ import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
-export default function Blog({ blog, gallery, posts, footer, info, }) {
+export default function Blog({ blog, gallery, posts, footer, }) {
 
   return (
     <>
@@ -42,7 +42,6 @@ export async function getStaticProps() {
   const posts = await fetchAPI('posts', { populate: '*', sort: 'createdAt:DESC', 'pagination[page]': 1, 'pagination[pageSize]': 3 }, false);
   const gallery = await fetchAPI('gallery');
   const footer = await fetchAPI('footer');
-  const info = await fetchAPI('info');
   
   const layout = await getLayoutContent();
 
@@ -52,7 +51,6 @@ export async function getStaticProps() {
       gallery: gallery.videos.data,
       posts,
       footer,
-      info,
       
       layout
     },

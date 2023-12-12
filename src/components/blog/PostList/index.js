@@ -16,7 +16,7 @@ export default function PostList({ initialPosts, pagination }) {
       { fallbackData: initialPosts }
     );
     return (
-      <div className="row justify-content-center">
+      <div className="row justify-content-center gy-5">
         {data.map((post, index) => (
           <div className={`col-12 col-lg-4 ${!isLoading ? 'ready' : 'loading'}`} key={index}>
             <PostCard {...post.attributes} />
