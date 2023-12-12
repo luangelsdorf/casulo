@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .benefits {
   background-color: rgb(225, 225, 225);
   border-radius: 32px;
@@ -48,6 +50,15 @@
         color: rgb(var(--folha));
       }
     }
+  }
+
+  @include mixins.lg {
+    ul {
+      text-align: left;
+    }
+  }
+  @include mixins.md {
+    padding: 48px 12px;
   }
 
   /* *** Variants *** */

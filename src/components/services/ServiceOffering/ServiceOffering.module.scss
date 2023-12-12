@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .offering {
   position: relative;
   background-color: rgb(var(--siciliano), 0.8);
@@ -30,5 +32,19 @@
 
   a {
     margin-left: -24px;
+  }
+
+  @include mixins.lg {
+    header {
+      justify-content: center;
+    }
+
+    a {
+      margin: 0;
+    }
+  }
+  @include mixins.md {
+    width: 100%;
+    left: auto;
   }
 }

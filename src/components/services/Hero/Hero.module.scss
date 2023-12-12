@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .hero {
   background-color: rgb(var(--white));
   border-radius: 32px;
@@ -35,6 +37,21 @@
       }
     }
   }
+
+  @include mixins.lg {
+    padding: 80px 24px 72px 24px;
+    .textContent {
+      margin-bottom: 32px;
+    }
+
+    .tags {
+      justify-content: center;
+    }
+  }
+
+  @include mixins.md {
+    padding: 72px 0;
+  }
 }
 
 .details {
@@ -57,6 +74,10 @@
   top: 0;
   left: 0;
   padding: 0 12px;
+
+  @include mixins.lg {
+    position: static;
+  }
 }
 
 .section {
