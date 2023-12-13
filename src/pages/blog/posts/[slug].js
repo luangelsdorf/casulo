@@ -4,9 +4,12 @@ import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import Body from "src/components/post/Body";
+import Share from "src/components/post/Share";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
-export default function Post({ post, info, footer }) {
+export default function Post({ post, footer }) {
+  console.log(post);
+
   return (
     <>
       <Head>
@@ -25,12 +28,13 @@ export default function Post({ post, info, footer }) {
               }
             `}
           </style>
-          <Hero content={{ title: post.title, cover: post.cover }} />
+          <Hero content={{ headline: {title: post.title, overline: post.categories.data[0].attributes.name}, cover: post.cover }} />
         </Section>
 
         <div className="col-12 col-lg-8 mx-auto">
           <Section pt="0" pb="120">
             <Body content={post.body} />
+            <Share />
           </Section>
         </div>
       </main>
