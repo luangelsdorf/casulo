@@ -4,11 +4,11 @@ import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import Body from "src/components/post/Body";
+import RecentPosts from "src/components/post/RecentPosts";
 import Share from "src/components/post/Share";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
-export default function Post({ post, footer }) {
-  console.log(post);
+export default function Post({ post, recentPosts, footer }) {
 
   return (
     <>
@@ -32,11 +32,15 @@ export default function Post({ post, footer }) {
         </Section>
 
         <div className="col-12 col-lg-8 mx-auto">
-          <Section pt="0" pb="120">
+          <Section>
             <Body content={post.body} />
             <Share />
           </Section>
         </div>
+
+        <Section pt="96 80" pb="96 80">
+          <RecentPosts posts={recentPosts} />
+        </Section>
       </main>
 
       <Footer content={footer} />
@@ -55,8 +59,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const singlePost = await fetchAPI('posts', { populate: '*', "filters[slug]": slug });
-  /* const recentPosts = await fetchAPI('posts', `&pagination[start]=${0}&pagination[limit]=${5}`, false); */
-  const info = await fetchAPI('info');
+  const recentPosts = await fetchAPI('posts', `&sort=createdAt:DESC&pagination[start]=${0}&pagination[limit]=${3}&populate=*`);
   const footer = await fetchAPI('footer');
   
   const layout = await getLayoutContent();
@@ -64,8 +67,7 @@ export async function getStaticProps({ params: { slug } }) {
   return {
     props: {
       post: singlePost[0].attributes,
-      /* recentPosts, */
-      info,
+      recentPosts,
       footer,
       
       layout

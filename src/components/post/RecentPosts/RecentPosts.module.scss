@@ -1,0 +1,22 @@
+@use "src/styles/scss/mixins";
+
+.section {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 72px;
+    flex-wrap: wrap;
+
+    h2 {
+      font: var(--heading-large);
+    }
+  }
+
+  @include mixins.lg {
+    header {
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}
