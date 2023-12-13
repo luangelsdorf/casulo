@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
   a {
     display: block;
@@ -20,4 +22,44 @@
   gap: 24px;
   justify-content: center;
   align-items: center;
+  background-color: rgb(var(--white));
+  padding: 8px 36px;
+  border-radius: 56px;
+  transform: translateY(-50%);
+  position: relative;
+  z-index: 1;
+
+  & > button:not(:global(.wrapper))[data-filter-value] {
+    font: var(--body-sm);
+    padding: 8px 12px;
+    border-radius: 16px;
+    /* height: 60px; */
+
+    & > div {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .div {
+    width: 1px;
+    height: calc(100% + 16px);
+    margin-top: -8px;
+    background-color: rgb(var(--orvalho), 0.5);
+  }
+
+  @include mixins.lg {
+    padding: 8px 24px;
+    transform: none;
+    margin-top: 24px;
+
+    .div {
+      display: none;
+    }
+  }
 }

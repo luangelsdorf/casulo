@@ -8,8 +8,7 @@ import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
-export default function CasesPage({ cases, dogs, faq, info, footer }) {
-  console.log(cases);
+export default function CasesPage({ cases, dogs, faq, footer }) {
   return (
     <>
       <Head>
