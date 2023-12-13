@@ -1,6 +1,6 @@
 import Head from "next/head";
 import CallToAction from "src/components/about/CallToAction";
-import Hero from "src/components/blog/Hero";
+import Hero from "src/components/about/Hero";
 import List from "src/components/cases/List";
 import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
@@ -9,6 +9,7 @@ import Header from "src/components/layout/Header";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function CasesPage({ cases, dogs, faq, info, footer }) {
+  console.log(cases);
   return (
     <>
       <Head>
@@ -19,8 +20,8 @@ export default function CasesPage({ cases, dogs, faq, info, footer }) {
       <Header />
 
       <main>
-        <Section id="inicio" pt="16 24" pb="96 80">
-          <Hero content={{ topic: { title: 'Cases de Sucesso' } }} />
+        <Section id="inicio" pt="16 24" pb="0">
+          <Hero content={cases} />
         </Section>
 
         <Section id="lista">

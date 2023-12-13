@@ -59,4 +59,12 @@
     color: rgb(var(--luz));
     margin-bottom: 40px;
   }
+
+  header {
+    p {
+      font: var(--body-md);
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+  }
 }
