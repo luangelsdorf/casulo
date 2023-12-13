@@ -43,7 +43,7 @@ export default function Training({ training, info, faq, footer }) {
           <TrainingTypes content={training.trainingTypes} />
         </Section>
 
-        <Section id="chamada" pt="72" pb="96" mt="120">
+        <Section id="chamada" pt="72" pb="96" mt="120 16">
           <CallToAction variant="cases" content={training.cta} />
         </Section>
 

@@ -1,3 +1,5 @@
+@use "src/styles/scss/mixins";
+
 .section {
 
 }
@@ -18,5 +20,9 @@
   h2 {
     font: var(--heading-large);
     margin-bottom: 48px;
+  }
+
+  @include mixins.lg {
+    margin-left: 0;
   }
 }
