@@ -4,7 +4,7 @@ import Arrow from 'public/images/icons/ui/arrow-right.svg';
 import PostCard from 'src/components/blog/PostCard';
 
 export default function RecentPosts({ posts }) {
-  console.log(posts);
+
   return (
     <div className={styles.section}>
       <div className="container">

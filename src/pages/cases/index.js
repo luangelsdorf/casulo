@@ -43,11 +43,11 @@ export default function CasesPage({ cases, dogs, faq, footer }) {
 
 export async function getStaticProps() {
   const cases = await fetchAPI('cases-page');
-  const dogs = await fetchAPI('cases', 'populate=photo');
+  const dogs = await fetchAPI('cases', { populate: 'deep' });
   const faq = await fetchAPI('faq');
   const info = await fetchAPI('info');
   const footer = await fetchAPI('footer');
-  
+
   const layout = await getLayoutContent();
 
   return {
@@ -57,7 +57,7 @@ export async function getStaticProps() {
       faq,
       info,
       footer,
-      
+
       layout
     },
 

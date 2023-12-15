@@ -65,7 +65,7 @@ export default function Hero({ content, highlights }) {
               autoplay={{
                 delay: 2100,
                 pauseOnMouseEnter: true,
-                disableOnInteraction: false,
+                disableOnInteraction: true,
               }}
               style={{ overflow: 'hidden' }}
             >

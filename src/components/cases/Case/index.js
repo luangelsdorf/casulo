@@ -7,10 +7,21 @@ import Mars from 'public/images/icons/ui/mars.svg';
 import Venus from 'public/images/icons/ui/venus.svg';
 import DogFace from 'public/images/icons/ui/dog-face.svg';
 import X from 'public/images/icons/ui/x.svg';
+import { useState } from 'react';
+import Image from 'next/image';
+import { apiURL } from 'src/utils/env';
 
-export default function Case({ name, breed, sex, size, photo, services, testimonial }) {
+export default function Case({ name, breed, sex, size, photo, photos, services, testimonial }) {
+  const [coverURL, setCoverURL] = useState(photos[0].photo.data.attributes.url);
 
   const modalEvent = new Event('close-modal', { bubbles: true });
+
+  function handleThumbnailClick(photo) {
+    document.querySelector(`.${styles.cover}`).style.opacity = 0;
+    setTimeout(() => {
+      setCoverURL(photo.photo.data.attributes.url);
+    }, 350);
+  }
 
   return (
     <div className="container">
@@ -21,12 +32,17 @@ export default function Case({ name, breed, sex, size, photo, services, testimon
         <div className="row justify-content-center justify-content-xl-end">
           <div className="col-12 col-lg-6">
             <div className={styles.photos}>
-              <Img {...photo} sizes="(max-width: 992px) 80vw, 41vw" />
+              <div className={styles.cover}>
+                <Image onLoadingComplete={img => img.parentElement.style.opacity = 1} width={500} height={500} src={apiURL + coverURL} sizes="(max-width: 992px) 80vw, 41vw" alt="Foto do cão" />
+              </div>
               <div className={styles.thumbnails}>
-                <div />
-                <div />
-                <div />
-                <div />
+                {
+                  photos.map((photo, i) => (
+                    <div key={i}>
+                      <Img className={photo.photo.data.attributes.url === coverURL ? styles.active : undefined} onClick={() => handleThumbnailClick(photo)} {...photo.photo} width={100} height={100} />
+                    </div>
+                  ))
+                }
               </div>
             </div>
           </div>

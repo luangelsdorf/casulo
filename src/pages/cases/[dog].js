@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { dog: slug } }) {
-  const dog = await fetchAPI('cases', { populate: '*', "filters[slug]": slug });
+  const dog = await fetchAPI('cases', { populate: 'deep', "filters[slug]": slug });
   
   const layout = await getLayoutContent();
 

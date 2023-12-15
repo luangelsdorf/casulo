@@ -51,10 +51,10 @@ export async function getStaticProps() {
   const consultancy = await fetchAPI('consultancy');
   const about = await fetchAPI('about');
   const info = await fetchAPI('info');
-  const cases = await fetchAPI('cases', { populate: 'photo' });
+  const cases = await fetchAPI('cases', { populate: 'deep' });
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
-  
+
   const layout = await getLayoutContent();
 
   return {
@@ -65,7 +65,7 @@ export async function getStaticProps() {
       cases,
       faq,
       footer,
-      
+
       layout
     },
 

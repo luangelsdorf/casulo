@@ -48,7 +48,7 @@ export default function Testimonials({ content, cases }) {
             /* autoplay={{
               delay: 2100,
               pauseOnMouseEnter: true,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }} */
             >
               {

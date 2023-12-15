@@ -45,7 +45,7 @@ export default function SocialMedia({ blog, content, videos }) {
               autoplay={{
                 delay: 800,
                 pauseOnMouseEnter: true,
-                disableOnInteraction: false,
+                disableOnInteraction: true,
               }}
             >
               {
