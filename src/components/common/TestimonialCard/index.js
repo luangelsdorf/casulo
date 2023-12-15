@@ -4,7 +4,7 @@ import Next from 'public/images/icons/ui/arrow-right.svg';
 import Img from '../Img';
 import Link from 'next/link';
 
-export default function TestimonialCard({ photo, name, slug, services, short, sizes }) {
+export default function TestimonialCard({ photos, name, slug, services, short, sizes }) {
 
   return (
     <Link
@@ -13,7 +13,7 @@ export default function TestimonialCard({ photo, name, slug, services, short, si
       as={`/cases/${slug}`}
       className={`wrapper ${styles.slide}${short ? ' ' + styles.short : ''}`}
     >
-      <Img {...photo} sizes={sizes} fill priority={short ? undefined : true} />
+      <Img {...photos[0].photo} sizes={sizes} fill priority={short ? undefined : true} />
       <div className={styles.infos}>
         <h2>{name}</h2>
         <p>{services}</p>

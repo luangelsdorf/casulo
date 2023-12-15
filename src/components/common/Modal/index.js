@@ -51,8 +51,10 @@ export default function Modal({ children, open, toggleOpen }) {
     if (playback.currentTime === 0) {
       router.replace(router.pathname, router.pathname, { scroll: false });
       lenis?.start();
-      modalElement.current.scrollTop = 0;
-      modalElement.current.style.display = 'none';
+      if (modalElement.current) {
+        modalElement.current.scrollTop = 0;
+        modalElement.current.style.display = 'none';
+      }
       playback.currentTarget.playbackRate = 1;
       document.documentElement.classList.remove('no-scroll');
     }
