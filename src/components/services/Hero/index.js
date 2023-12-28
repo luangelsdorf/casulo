@@ -18,7 +18,7 @@ export default function Hero({ service, content }) {
                   {
                     content.extraInfo.map((info, i) => (
                       <div key={i}>
-                        <Img {...info.icon} />
+                        {info.icon.data && <Img {...info.icon} />}
                         <p>{info.text}</p>
                       </div>
                     ))
