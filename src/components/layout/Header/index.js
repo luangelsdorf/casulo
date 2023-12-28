@@ -13,6 +13,7 @@ import Hotel from 'public/images/icons/Hotel.svg';
 import X from 'public/images/icons/ui/x.svg';
 import Hamburger from 'public/images/icons/ui/menu.svg';
 import { LayoutContext } from 'src/utils/contexts';
+import { useLenis } from '@studio-freight/react-lenis';
 
 export default function Header({ home }) {
 
@@ -38,6 +39,24 @@ export default function Header({ home }) {
 
     return () => targets.forEach(target => observer.unobserve(target));
   }, []);
+
+  useLenis(({ scroll }) => {
+    if (scroll > 0) {
+      document.querySelector('#header').classList.remove(styles.transparent);
+    } else {
+      document.querySelector('#header').classList.add(styles.transparent);
+    }
+  });
+
+  /* useEffect(() => {
+    function onScroll(e, e2) {
+      console.log(e);
+      console.log(e2);
+    }
+
+    lenis.onscroll = onScroll;
+    return () => lenis.onscroll = null;
+  }, [lenis]); */
 
   const data = useContext(LayoutContext);
 
@@ -129,7 +148,7 @@ export default function Header({ home }) {
   );
 
   return (
-    <header className={`${styles.header}${home ? (' ' + styles.home) : ''}`}>
+    <header id="header" className={`${styles.header}${home ? (' ' + styles.home) : ''}`}>
       <div className="container">
         <Link href="/" className={styles.logo}>
           <LogoType />

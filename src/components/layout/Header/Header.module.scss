@@ -16,7 +16,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px;
-    background-color: rgb(var(--white));
   }
 
   .logo {
@@ -85,6 +84,11 @@
     &:global(.active) {
       transform: translateY(0);
     }
+  }
+
+  &.transparent {
+    background-color: transparent;
+    box-shadow: none;
   }
 
   @include mixins.xl {
