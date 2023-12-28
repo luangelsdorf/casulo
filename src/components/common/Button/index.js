@@ -63,7 +63,7 @@ export default function Button({
   else {
     prefix + href
     return (
-      <Link {...baseProps} href={prefix + href} {...otherProps}>
+      <Link scroll={true} {...baseProps} href={prefix + href} {...otherProps}>
         <Children />
       </Link>
     )

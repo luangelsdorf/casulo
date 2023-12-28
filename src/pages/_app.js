@@ -46,16 +46,18 @@ function MyApp({ Component, pageProps }) {
     return () => anchors.forEach(a => a.removeEventListener('click', handleClick));
    */}, [lenis]);
 
-  useEffect(() => {/* 
+  useEffect(() => {
     const handleRouteChange = (url) => {
       console.log(`App has changed to ${url}`);
+      lenis.scrollTo(0);
     }
-
+    
+    router.events.on('routeChangeComplete', handleRouteChange);
+    
     return () => {
-      router.events.on('routeChangeComplete', handleRouteChange)
-      router.events.off('routeChangeComplete', handleRouteChange)
+      router.events.off('routeChangeComplete', handleRouteChange);
     }
-   */}, [router]);
+  }, [router, lenis]);
 
   return (
     <>
