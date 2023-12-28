@@ -34,7 +34,7 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
           />
         </Section>
 
-        <Section id="sobre" pt="96 80" pb="96 80">
+        <Section id="sobre" pt="208 80" pb="96 80">
           <AboutUs content={hotel.aboutUs} />
         </Section>
 
