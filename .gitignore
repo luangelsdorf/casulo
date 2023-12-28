@@ -37,3 +37,7 @@ src/pages/styleguide.js
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE/workspace
+/.idea
+/.vscode
