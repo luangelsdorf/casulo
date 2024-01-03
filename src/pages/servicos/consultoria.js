@@ -37,6 +37,8 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
           <Testimonials content={about.testimonials} cases={cases} />
         </Section>
 
+        <Gallery images={consultancy.gallery.data} />
+
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
         </Section>

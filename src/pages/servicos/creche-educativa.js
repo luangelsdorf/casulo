@@ -32,6 +32,8 @@ export default function Consultancy({ nursery, info, faq, footer }) {
           />
         </Section>
 
+        <Gallery images={nursery.gallery.data} />
+
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
         </Section>

@@ -47,6 +47,8 @@ export default function Training({ training, info, faq, footer }) {
           <CallToAction variant="cases" content={training.cta} />
         </Section>
 
+        <Gallery images={training.gallery.data} />
+
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
         </Section>
