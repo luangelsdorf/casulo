@@ -4,6 +4,7 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
+import Gallery from "src/components/services/Gallery";
 import Hero from "src/components/services/Hero";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
@@ -36,6 +37,8 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
         <Section id="depoimentos" pt="64 80" pb="80 80">
           <Testimonials content={about.testimonials} cases={cases} />
         </Section>
+
+        <Gallery images={consultancy.gallery.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />

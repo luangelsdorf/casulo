@@ -7,6 +7,7 @@ import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 import AboutUs from "src/components/services/AboutUs";
 import CallToAction from "src/components/about/CallToAction";
 import Hero from "src/components/services/Hero";
+import Gallery from "src/components/services/Gallery";
 
 export default function Consultancy({ hotel, about, info, faq, footer }) {
   return (
@@ -41,6 +42,8 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
         <Section id="chamada" pt="80" pb="96" mt="48">
           <CallToAction variant="hotel" content={hotel.cta} />
         </Section>
+
+        <Gallery images={hotel.gallery.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />

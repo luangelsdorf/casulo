@@ -3,6 +3,7 @@ import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
+import Gallery from "src/components/services/Gallery";
 import Hero from "src/components/services/Hero";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
@@ -31,6 +32,8 @@ export default function Consultancy({ nursery, info, faq, footer }) {
             }}
           />
         </Section>
+
+        <Gallery images={nursery.gallery.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />

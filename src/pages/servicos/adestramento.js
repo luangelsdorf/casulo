@@ -5,6 +5,7 @@ import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
 import Header from "src/components/layout/Header";
 import AboutUs from "src/components/services/AboutUs";
+import Gallery from "src/components/services/Gallery";
 import Hero from "src/components/services/Hero";
 import TrainingTypes from "src/components/services/TrainingTypes";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
@@ -46,6 +47,8 @@ export default function Training({ training, info, faq, footer }) {
         <Section id="chamada" pt="72" pb="96" mt="120 16">
           <CallToAction variant="cases" content={training.cta} />
         </Section>
+
+        <Gallery images={training.gallery.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />

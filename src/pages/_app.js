@@ -4,6 +4,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'public/css/ckeditor.min.css';
+import 'lightgallery/css/lightgallery.css';
 import 'src/styles/styles.scss';
 import { Calistoga } from 'next/font/google';
 import { Nunito_Sans } from 'next/font/google';
