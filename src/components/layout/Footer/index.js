@@ -7,7 +7,8 @@ import { LayoutContext } from 'src/utils/contexts';
 
 export default function Footer({ content }) {
   const { info } = useContext(LayoutContext);
-  
+  console.log(content);
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -23,22 +24,19 @@ export default function Footer({ content }) {
             <div className={styles.footer}>
               <div className={styles.links}>
                 <div className={styles.nav}>
-                  <ul>
-                    <li><Button href="/cases" link>Cases de Sucesso</Button></li>
-                    <li><Button href="/blog" link>Nosso Blog</Button></li>
-                    <li><Button href="/sobre-nos" link>Sobre Nós</Button></li>
-                    <li><Button href="/#" link>Contatos</Button></li>
-                  </ul>
-                  <ul>
-                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Guarda</Button></li>
-                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Obediência</Button></li>
-                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Faro</Button></li>
-                  </ul>
-                  <ul>
-                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Comportamento</Button></li>
-                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Educação Sanitária</Button></li>
-                    <li><Button href="/servicos/adestramento#tipos-de-adestramento" link>Cães de Assistência</Button></li>
-                  </ul>
+                  {
+                    content.firstColumn.map((col, i) => (
+                      <ul key={i}>
+                        {
+                          col.column.map((link, i) => (
+                            <li key={i}>
+                              <Button link href={link.url}>{link.text}</Button>
+                            </li>
+                          ))
+                        }
+                      </ul>
+                    ))
+                  }
                 </div>
                 <div className={styles.logo}>
                   <Symbol />
