@@ -7,6 +7,7 @@ import Hero from 'src/components/about/Hero';
 import Purpose from 'src/components/about/Purpose';
 import Team from 'src/components/about/Team';
 import Testimonials from 'src/components/about/Testimonials';
+import Area from 'src/components/common/Area';
 import FAQ from 'src/components/common/FAQ';
 import Section from 'src/components/common/Section';
 import Footer from 'src/components/layout/Footer';
@@ -54,6 +55,10 @@ export default function About({ about, cases, faq, footer }) {
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
+        </Section>
+
+        <Section pt="32" pb="80" id="area-de-atuacao">
+          <Area />
         </Section>
       </main>
 

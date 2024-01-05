@@ -1,5 +1,6 @@
 import Head from "next/head";
 import CallToAction from "src/components/about/CallToAction";
+import Area from "src/components/common/Area";
 import FAQ from "src/components/common/FAQ";
 import Section from "src/components/common/Section";
 import Footer from "src/components/layout/Footer";
@@ -52,6 +53,10 @@ export default function Training({ training, info, faq, footer }) {
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
+        </Section>
+
+        <Section pt="32" pb="80" id="area-de-atuacao">
+          <Area />
         </Section>
       </main>
 

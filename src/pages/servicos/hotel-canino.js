@@ -8,6 +8,7 @@ import AboutUs from "src/components/services/AboutUs";
 import CallToAction from "src/components/about/CallToAction";
 import Hero from "src/components/services/Hero";
 import Gallery from "src/components/services/Gallery";
+import Area from "src/components/common/Area";
 
 export default function Consultancy({ hotel, about, info, faq, footer }) {
   return (
@@ -47,6 +48,10 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
+        </Section>
+
+        <Section pt="32" pb="80" id="area-de-atuacao">
+          <Area />
         </Section>
       </main>
 

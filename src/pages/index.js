@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import Area from 'src/components/common/Area';
 import Div from 'src/components/common/Div';
 import FAQ from 'src/components/common/FAQ';
 import Section from 'src/components/common/Section';
@@ -62,6 +63,10 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
+        </Section>
+
+        <Section pt="32" pb="80" id="area-de-atuacao">
+          <Area />
         </Section>
       </main>
 
