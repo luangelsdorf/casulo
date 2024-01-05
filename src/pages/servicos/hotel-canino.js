@@ -44,7 +44,7 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
           <CallToAction variant="hotel" content={hotel.cta} />
         </Section>
 
-        <Gallery images={hotel.gallery.data} />
+        <Gallery images={hotel.gallery.photos.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />

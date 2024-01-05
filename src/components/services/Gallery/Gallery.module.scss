@@ -3,6 +3,14 @@
 .section {
   padding: 140px 0;
 
+  header {
+    text-align: center;
+    h2 {
+      font: var(--heading-large);
+      margin-bottom: 64px;
+    }
+  }
+
   @include mixins.lg {
     padding: 80px 0;
   }
@@ -10,7 +18,7 @@
 
 .photo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   height: 100%;
 
   img {

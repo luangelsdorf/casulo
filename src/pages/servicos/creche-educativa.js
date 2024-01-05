@@ -34,7 +34,7 @@ export default function Consultancy({ nursery, info, faq, footer }) {
           />
         </Section>
 
-        <Gallery images={nursery.gallery.data} />
+        <Gallery images={nursery.gallery.photos.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />

@@ -4,12 +4,16 @@ import Img from 'src/components/common/Img';
 import Image from 'next/image';
 import { apiURL } from 'src/utils/env';
 
-export default function Gallery({ images }) {
+export default function Gallery({ headline, images }) {
   if (images) {
     return (
       <div className={styles.section}>
+        <header>
+          <p className="overline">{headline.overline}</p>
+          <h2>{headline.title}</h2>
+        </header>
         <div className="container">
-          <LightGallery speed={500} elementClassNames="row gy-5">
+          <LightGallery download={false} speed={500} elementClassNames="row gy-5">
             {
               images.map((img) => {
                 return (

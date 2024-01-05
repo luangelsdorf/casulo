@@ -11,7 +11,7 @@ import Hero from "src/components/services/Hero";
 import TrainingTypes from "src/components/services/TrainingTypes";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
-export default function Training({ training, info, faq, footer }) {
+export default function Training({ training, faq, footer }) {
   return (
     <>
       <Head>
@@ -49,7 +49,7 @@ export default function Training({ training, info, faq, footer }) {
           <CallToAction variant="cases" content={training.cta} />
         </Section>
 
-        <Gallery images={training.gallery.data} />
+        <Gallery headline={training.gallery.headline} images={training.gallery.photos.data} />
 
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
