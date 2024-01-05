@@ -29,7 +29,7 @@ export default function SocialMedia({ blog, content, videos }) {
           </div>
         </div>
       </header>
-      <div className={styles.videos}>
+      <a className={styles.videos} href={`https://instagram.com/${info.instagram}/reels`} target="_blank">
         <div className="container">
           <div className="row">
             <Swiper
@@ -65,7 +65,7 @@ export default function SocialMedia({ blog, content, videos }) {
             </Swiper>
           </div>
         </div>
-      </div>
+      </a>
       <Button LeftIcon={Insta} target="_blank" href="https://instagram.com/casulo.adestra">@casulo.adestra</Button>
     </div>
   )
