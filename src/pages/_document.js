@@ -16,7 +16,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" />
+        <Script strategy="afterInteractive" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" />
       </body>
     </Html>
   )
