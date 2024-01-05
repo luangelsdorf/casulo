@@ -37,10 +37,11 @@
     fill="#004851" stroke="#FFF4E0" stroke-width="2.08026" stroke-linecap="round"
     stroke-linejoin="round" />
   <circle class="pulse" cx="430.534" cy="292.196" r="138.337" transform="rotate(180 430.534 292.196)" fill="#F6EB61" />
-  <!-- <circle opacity="0.1" cx="430.534" cy="292.197" r="88.4111" transform="rotate(180 430.534
-  292.197)" fill="#F6EB61" /> -->
-  <!-- <circle opacity="0.1" cx="430.534" cy="292.197" r="38.4848" transform="rotate(180 430.534
-  292.197)" fill="#F6EB61" /> -->
+  <circle opacity="0.1" cx="430.534" cy="292.196" r="138.337" transform="rotate(180 430.534 292.196)" fill="#F6EB61" />
+  <circle opacity="0.1" cx="430.534" cy="292.197" r="88.4111" transform="rotate(180 430.534
+  292.197)" fill="#F6EB61" />
+  <circle opacity="0.1" cx="430.534" cy="292.197" r="38.4848" transform="rotate(180 430.534
+  292.197)" fill="#F6EB61" />
   <circle cx="430.534" cy="292.197" r="4.16052" transform="rotate(180 430.534 292.197)"
     fill="#F6EB61" />
 </svg>
