@@ -8,8 +8,22 @@ import { getSizesString } from 'src/utils/images';
 import Case from 'src/components/cases/Case';
 import { useRouter } from 'next/router';
 import Modal from 'src/components/common/Modal';
+import { useEffect, useState } from 'react';
 
 export default function Testimonials({ content, cases }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    function handleDeviceSize() {
+      let mobile = matchMedia('(max-width: 992px)').matches;
+      if (mobile) setIsMobile(true);
+    }
+
+    handleDeviceSize();
+    window.onresize = handleDeviceSize;
+
+    return () => window.onresize = null;
+  }, []);
 
   const cardGrid = 'col-12 col-lg-5 col-xxl-4';
   const cardSizes = getSizesString(cardGrid);
@@ -37,33 +51,35 @@ export default function Testimonials({ content, cases }) {
           </div>
           <div style={{ overflow: 'hidden' }}>
             <Swiper
-              className={`${cardGrid} m-0`}
               modules={[Autoplay, Navigation]}
               spaceBetween={24}
+              slidesPerView={'auto'}
+              centerSlides
               grabCursor
               speed={800}
               onTransitionEnd={self => self.params.speed = 800}
               onTouchStart={self => self.params.speed = 300}
               navigation={{ prevEl: `.${styles.prev}`, nextEl: `.${styles.next}` }}
-            /* autoplay={{
-              delay: 2100,
-              pauseOnMouseEnter: true,
-              disableOnInteraction: true,
-            }} */
+              autoplay={{
+                delay: 2100,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: true,
+              }}
             >
               {
                 cases.map((slide, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide className={cardGrid} key={index}>
                     <TestimonialCard {...slide.attributes} short sizes={cardSizes} />
                   </SwiperSlide>
                 ))
               }
+              {!isMobile && <SwiperSlide className={cardGrid} />}
             </Swiper>
             {
               (router.query.dog && router.query.short === 'true') && (
                 <Modal open={(router.query.dog && router.query.short === 'true')} toggleOpen={() => {
                   console.log('testimonials');
-                  
+
                 }}>
                   {
                     (router.query.dog && router.query.short === 'true') && (

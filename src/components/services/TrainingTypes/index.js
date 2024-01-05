@@ -20,9 +20,9 @@ export default function TrainingTypes({ content }) {
             </header>
           </div>
           <Swiper
-            className="col-12 col-lg-6 m-0"
             modules={[Autoplay]}
             spaceBetween={24}
+            slidesPerView={1}
             grabCursor
             speed={800}
             onTransitionEnd={self => self.params.speed = 800}
@@ -31,6 +31,12 @@ export default function TrainingTypes({ content }) {
               delay: 2500,
               pauseOnMouseEnter: true,
               disableOnInteraction: true,
+            }}
+
+            breakpoints={{
+              992: {
+                slidesPerView: 2,
+              }
             }}
           >
             {

@@ -1,9 +1,13 @@
 @use 'src/styles/scss/mixins';
 
 .section {
-  /* :global(.swiper-slide) {
-    width: 33.33333333% !important;
-  } */
+  :global(.swiper-slide) {
+    padding: 0px !important;
+
+    @include mixins.lg {
+      padding: 0 12px !important;
+    }
+  }
 }
 
 .textContent {
