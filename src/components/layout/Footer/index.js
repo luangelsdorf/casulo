@@ -7,7 +7,6 @@ import { LayoutContext } from 'src/utils/contexts';
 
 export default function Footer({ content }) {
   const { info } = useContext(LayoutContext);
-  console.log(content);
 
   return (
     <div className={styles.section}>

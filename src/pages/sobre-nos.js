@@ -5,6 +5,7 @@ import Benefits from 'src/components/about/Benefits';
 import CallToAction from 'src/components/about/CallToAction';
 import Hero from 'src/components/about/Hero';
 import Purpose from 'src/components/about/Purpose';
+import Team from 'src/components/about/Team';
 import Testimonials from 'src/components/about/Testimonials';
 import FAQ from 'src/components/common/FAQ';
 import Section from 'src/components/common/Section';
@@ -12,7 +13,7 @@ import Footer from 'src/components/layout/Footer';
 import Header from 'src/components/layout/Header';
 import fetchAPI, { getLayoutContent } from 'src/utils/fetch';
 
-export default function About({ about, cases, faq, footer, info }) {
+export default function About({ about, cases, faq, footer }) {
   return (
     <>
       <Head>
@@ -37,6 +38,10 @@ export default function About({ about, cases, faq, footer, info }) {
 
         <Section id="beneficios" pt="80 80" pb="88 80" style={{ backgroundColor: 'rgb(var(--folha))' }}>
           <Benefits content={about.benefits} />
+        </Section>
+
+        <Section pt="96 80" pb="96 72" id="time">
+          <Team content={about.team} />
         </Section>
 
         <Section id="depoimentos" pt="64 80" pb="80 80">
