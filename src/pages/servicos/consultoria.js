@@ -43,6 +43,10 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
         </Section>
+
+        <Section pt="32" pb="80" id="area-de-atuacao">
+          <Area />
+        </Section>
       </main>
 
       <Footer content={footer} />

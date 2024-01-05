@@ -63,6 +63,10 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
         <Section id="faq" pt="96 80" pb="120 80">
           <FAQ content={faq} />
         </Section>
+
+        <Section pt="32" pb="80" id="area-de-atuacao">
+          <Area />
+        </Section>
       </main>
 
       <Footer content={footer} />

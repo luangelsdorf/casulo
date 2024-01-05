@@ -1,0 +1,69 @@
+@use 'src/styles/scss/mixins';
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0);
+  }
+
+  80%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.section {
+}
+
+.map {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  svg {
+    width: 100%;
+    height: auto;
+
+    :global(.pulse) {
+      opacity: 0.1;
+      transform: scale(1);
+      transform-origin: center;
+      transform-box: content-box;
+      animation: pulse 1800ms ease-in-out infinite;
+    }
+  }
+}
+
+.textContent {
+  margin-left: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+
+  header {
+    margin-bottom: 48px;
+
+    h2 {
+      font: var(--heading-large);
+    }
+  }
+
+  & > p {
+    &:first-of-type {
+      color: rgb(var(--borboleta));
+      font: var(--body-lg);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+  }
+
+  & > a {
+    margin-top: 48px;
+  }
+
+  @include mixins.lg {
+    margin-left: 0;
+  }
+}
