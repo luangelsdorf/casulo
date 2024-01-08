@@ -33,6 +33,7 @@ export default function Modal({ children, open, toggleOpen }) {
     if (animation && animation.startTime) {
       if (open) {
         lenis.stop();
+        document.querySelector('#header').classList.remove('active');
         modalElement.current.style.display = 'flex';
         document.addEventListener('keydown', handleCLose);
         document.addEventListener('close-modal', handleCLose);
@@ -49,8 +50,9 @@ export default function Modal({ children, open, toggleOpen }) {
 
   function handleFinish(playback) {
     if (playback.currentTime === 0) {
-      router.replace(router.pathname, router.pathname, { scroll: false });
+      router.replace(router.pathname, router.pathname, { scroll: false, shallow: true, });
       lenis?.start();
+      if (window.scrollY > window.innerHeight) document.querySelector('#header').classList.add('active');
       if (modalElement.current) {
         modalElement.current.scrollTop = 0;
         modalElement.current.style.display = 'none';

@@ -11,7 +11,7 @@ import { Nunito_Sans } from 'next/font/google';
 import Cookies from 'src/components/common/Cookies';
 import { Lenis, useLenis } from '@studio-freight/react-lenis';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { env } from 'src/utils/env';
 import { LayoutContext } from 'src/utils/contexts';
 
@@ -47,18 +47,27 @@ function MyApp({ Component, pageProps }) {
     return () => anchors.forEach(a => a.removeEventListener('click', handleClick));
    */}, [lenis]);
 
+  const prevRoute = useRef(null);
+
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      console.log(`App has changed to ${url}`);
-      lenis.scrollTo(0);
+    prevRoute.current = router.asPath;
+  }, [router.asPath]);
+
+  useEffect(() => {
+    const handleRouteChangeComplete = (url, { shallow }) => {
+      if (shallow || url.includes('/cases/')) {
+        return;
+      } else {
+        lenis.scrollTo(0);
+      }
     }
-    
-    router.events.on('routeChangeComplete', handleRouteChange);
-    
+
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
     }
-  }, [router, lenis]);
+  }, [lenis]);
 
   return (
     <>

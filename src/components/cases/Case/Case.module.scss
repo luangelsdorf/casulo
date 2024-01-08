@@ -8,7 +8,7 @@
   margin: 96px 0;
 
   @include mixins.lg {
-    padding: 72px 24px;
+    padding: 72px 8px;
   }
 
   & > button {
@@ -29,6 +29,7 @@
     gap: 24px;
 
     .cover {
+      cursor: pointer;
       border-radius: 32px;
       transition: 350ms;
       img {
@@ -50,6 +51,8 @@
 
   .thumbnails {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
 
     & > div {
@@ -74,6 +77,10 @@
     .active {
       outline-color: rgb(var(--folha));
     }
+
+    @include mixins.lg {
+      margin-bottom: 48px;
+    }
   }
 
   .textContent {
@@ -81,6 +88,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    padding-right: 24px;
 
     & > p {
       color: rgb(var(--folha));
@@ -99,7 +107,12 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
+
+      :global(.btn) {
+        background-color: rgb(var(--orvalho), 0.4);
+        pointer-events: none;
+      }
 
       button {
         & > div {
@@ -113,7 +126,34 @@
     }
 
     .testimonial {
-      p {
+      font: var(--body-sm);
+      padding: 40px 48px;
+      border-radius: 24px;
+      border: 1px solid rgba(var(--orvalho), 0.2);
+      background-color: rgba(var(--orvalho), 0.1);
+      color: rgb(var(--folha));
+      position: relative;
+
+      & > svg {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+      }
+
+      blockquote {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 16px;
+      }
+
+      figcaption {
+        p {
+          &:first-of-type {
+            font: var(--body-md);
+            font-weight: 600;
+            color: rgb(var(--borboleta));
+          }
+        }
       }
     }
 
@@ -122,10 +162,25 @@
     }
 
     @include mixins.lg {
+      padding-right: 0;
+
+      & > h2 {
+        margin-bottom: 24px;
+      }
+
       & > p {
         font: var(--body-sm);
         font-weight: 800;
         margin-bottom: 8px;
+      }
+
+      .testimonial {
+        padding: 24px 16px;
+
+        & > svg {
+          top: 8px;
+          left: 8px;
+        }
       }
     }
   }

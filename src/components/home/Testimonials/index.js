@@ -54,17 +54,16 @@ export default function Testimonials({ content, cases }) {
               modules={[Autoplay, Navigation]}
               spaceBetween={24}
               slidesPerView={'auto'}
-              centerSlides
               grabCursor
               speed={800}
               onTransitionEnd={self => self.params.speed = 800}
               onTouchStart={self => self.params.speed = 300}
               navigation={{ prevEl: `.${styles.prev}`, nextEl: `.${styles.next}` }}
-              autoplay={{
+              /* autoplay={{
                 delay: 2100,
                 pauseOnMouseEnter: true,
                 disableOnInteraction: true,
-              }}
+              }} */
             >
               {
                 cases.map((slide, index) => (

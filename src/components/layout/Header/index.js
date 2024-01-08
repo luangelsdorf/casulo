@@ -148,7 +148,7 @@ export default function Header({ home }) {
   );
 
   return (
-    <header id="header" className={`${styles.header}${home ? (' ' + styles.home) : ''}`}>
+    <header id="header" className={`${styles.header} ${home ? styles.home : 'active'}`}>
       <div className="container">
         <Link href="/" className={styles.logo}>
           <LogoType />

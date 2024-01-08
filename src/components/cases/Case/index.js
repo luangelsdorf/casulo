@@ -1,27 +1,19 @@
 import Button from 'src/components/common/Button';
 import styles from './Case.module.scss';
 import Img from 'src/components/common/Img';
-import { getSizesString } from 'src/utils/images';
 import Dog from 'public/images/icons/ui/dog.svg';
 import Mars from 'public/images/icons/ui/mars.svg';
 import Venus from 'public/images/icons/ui/venus.svg';
 import DogFace from 'public/images/icons/ui/dog-face.svg';
 import X from 'public/images/icons/ui/x.svg';
-import { useState } from 'react';
 import Image from 'next/image';
 import { apiURL } from 'src/utils/env';
+import LightGallery from 'lightgallery/react';
+import Quote from 'public/images/icons/Quote.svg';
 
-export default function Case({ name, breed, sex, size, photo, photos, services, testimonial }) {
-  const [coverURL, setCoverURL] = useState(photos[0].photo.data.attributes.url);
+export default function Case({ name, breed, sex, size, photos, services, quote, tutor }) {
 
   const modalEvent = new Event('close-modal', { bubbles: true });
-
-  function handleThumbnailClick(photo) {
-    document.querySelector(`.${styles.cover}`).style.opacity = 0;
-    setTimeout(() => {
-      setCoverURL(photo.photo.data.attributes.url);
-    }, 350);
-  }
 
   return (
     <div className="container">
@@ -29,21 +21,21 @@ export default function Case({ name, breed, sex, size, photo, photos, services, 
         <button id="close-modal" title="Fechar" onClick={e => e.currentTarget.dispatchEvent(modalEvent)}>
           <X />
         </button>
-        <div className="row justify-content-center justify-content-xl-end">
+        <div className="row justify-content-center justify-content-xl-start">
           <div className="col-12 col-lg-6">
             <div className={styles.photos}>
               <div className={styles.cover}>
-                <Image onLoadingComplete={img => img.parentElement.style.opacity = 1} width={500} height={500} src={apiURL + coverURL} sizes="(max-width: 992px) 80vw, 41vw" alt="Foto do cão" />
+                <Image onClick={() => document.querySelector(`.${styles.thumbnails}`).firstChild.click()} width={500} height={500} src={apiURL + photos[0].photo.data.attributes.url} sizes="(max-width: 992px) 80vw, 41vw" alt="Foto do cão" />
               </div>
-              <div className={styles.thumbnails}>
+              <LightGallery elementClassNames={styles.thumbnails} download={false}>
                 {
                   photos.map((photo, i) => (
-                    <div key={i}>
-                      <Img className={photo.photo.data.attributes.url === coverURL ? styles.active : undefined} onClick={() => handleThumbnailClick(photo)} {...photo.photo} width={100} height={100} />
+                    <div key={i} data-src={apiURL + photo.photo.data.attributes.url}>
+                      <Img {...photo.photo} width={100} height={100} />
                     </div>
                   ))
                 }
-              </div>
+              </LightGallery>
             </div>
           </div>
           <div className="col-12 col-lg-5">
@@ -55,7 +47,14 @@ export default function Case({ name, breed, sex, size, photo, photos, services, 
                 <Button LeftIcon={sex === 'Macho' ? Mars : Venus} btnElement className="folha inverted sm">{sex}</Button>
                 <Button LeftIcon={DogFace} btnElement className="folha inverted sm">Porte {size}</Button>
               </div>
-              <div className={styles.testimonial} dangerouslySetInnerHTML={{ __html: testimonial }} />
+              <figure className={styles.testimonial}>
+                <Quote />
+                <blockquote>{quote}</blockquote>
+                <figcaption>
+                  <p>{tutor}</p>
+                  <p>Tutor(a) d{sex === 'Macho' ? 'o' : 'a'} {name}</p>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
