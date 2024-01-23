@@ -3,7 +3,7 @@
 .section {
   background-color: rgb(var(--folha));
 
-  & > a:global(.btn) {
+  & > div {
     display: none;
   }
 
