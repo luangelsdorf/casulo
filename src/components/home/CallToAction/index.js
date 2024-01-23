@@ -34,7 +34,7 @@ export default function CallToAction({ content }) {
     <div className={styles.section}>
       <div className="container">
         <div className={styles.cta}>
-          <Image src="/images/home/dog.png" fill sizes={getSizesString('col-12 col-md-8')} alt="" />
+          <Image src="/images/home/dog.png" fill sizes={getSizesString('col-12 col-md-8')} alt="" loading="eager" />
           <div className={styles.textContent}>
             <h2>{content.text.title}</h2>
             <p>{content.text.text}</p>

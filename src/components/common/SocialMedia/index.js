@@ -9,7 +9,7 @@ import { LayoutContext } from 'src/utils/contexts';
 
 export default function SocialMedia({ blog, content, videos }) {
   const { info } = useContext(LayoutContext);
-  
+
   return (
     <div className={`${styles.section}${blog ? ' ' + styles.blog : ''}`}>
       <header>
@@ -23,7 +23,8 @@ export default function SocialMedia({ blog, content, videos }) {
             </div>
             <div className={`col-12 col-lg-3 offset-lg-3 ${blog ? 'd-none' : 'd-block'}`}>
               <div className={styles.button}>
-                <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{`@${info.instagram}`}</Button>
+                <Button className="sm" LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{`@${info.instagram}`}</Button>
+                {info.extraInstagram && <Button className="sm" LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.extraInstagram}`}>{`@${info.extraInstagram}`}</Button>}
               </div>
             </div>
           </div>
@@ -66,7 +67,10 @@ export default function SocialMedia({ blog, content, videos }) {
           </div>
         </div>
       </a>
-      <Button LeftIcon={Insta} target="_blank" href="https://instagram.com/casulo.adestra">@casulo.adestra</Button>
+      <div>
+        <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{info.instagram}</Button>
+        {info.extraInstagram && <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.extraInstagram}`}>{`@${info.extraInstagram}`}</Button>}
+      </div>
     </div>
   )
 }
