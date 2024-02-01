@@ -9,8 +9,6 @@ export default function Area() {
   const { info } = useContext(LayoutContext);
 
   const paragraphs = info.area.text.split('\n\n');
-  const first = paragraphs[0];
-  const second = [paragraphs[1], paragraphs[2]].join('\n\n');
 
   return (
     <div className={styles.section}>
@@ -27,8 +25,8 @@ export default function Area() {
                 <p className="overline">{info.area.headline.overline}</p>
                 <h2>{info.area.headline.title}</h2>
               </header>
-              <p>{first}</p>
-              <p>{second}</p>
+              <p>{paragraphs[0]}</p>
+              <p>{paragraphs[1]}</p>
               <Button LeftIcon={Whats} href={`https://wa.me/${info.whatsapp}`}>Fale Conosco</Button>
             </div>
           </div>
