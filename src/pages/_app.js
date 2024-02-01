@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { env } from 'src/utils/env';
 import { LayoutContext } from 'src/utils/contexts';
+import Analytics from 'src/components/analytics/Analytics';
 
 const calistoga = Calistoga({ subsets: ['latin'], display: 'swap', weight: ['400'] });
 const nunito = Nunito_Sans({ subsets: ['latin'], display: 'auto', weight: ['400', '600', '700', '800'] });
