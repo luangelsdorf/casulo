@@ -86,6 +86,9 @@
   &.transparent {
     background-color: transparent;
     box-shadow: none;
+    @include mixins.lg {
+      background-color: rgb(var(--white));
+    }
   }
 
   @include mixins.xl {
