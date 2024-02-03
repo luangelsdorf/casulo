@@ -38,7 +38,7 @@ export default function Case({ name, breed, sex, size, photos, services, quote, 
               </LightGallery>
             </div>
           </div>
-          <div className="col-12 col-lg-5">
+          <div className="col-12 col-lg-6">
             <div className={styles.textContent}>
               <p>{services}</p>
               <h2>{name}</h2>
