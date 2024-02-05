@@ -29,7 +29,7 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
       <Header home />
 
       <main className="home">
-        <Section id="inicio">
+        <Section id="inicio" pt="0 120" pb="0 80">
           <Hero content={home.banner} highlights={highlights} />
         </Section>
 

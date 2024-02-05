@@ -104,6 +104,7 @@
   }
 
   @include mixins.lg {
+    transform: translateY(0) !important;
     :global {
       .container {
         flex-wrap: wrap;

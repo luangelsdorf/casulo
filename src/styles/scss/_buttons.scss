@@ -81,7 +81,7 @@ button {
   }
 
   @media (max-width: 1200px), (max-height: 600px) {
-    padding: 0 16px;
+    padding: 0 32px;
     font: var(--body-sm);
   }
 
@@ -91,7 +91,7 @@ button {
     height: 48px;
 
     @media (max-width: 1200px), (max-height: 600px) {
-      padding: 0 16px;
+      padding: 0 32px;
     }
   }
 

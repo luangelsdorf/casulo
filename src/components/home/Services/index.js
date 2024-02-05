@@ -27,6 +27,7 @@ export default function Services({ content }) {
               <div>
                 <h2>{content.training.title}</h2>
                 <p>{content.training.description}</p>
+                <Button className="d-lg-none" RightIcon={Arrow} href="/servicos/adestramento">Saiba Mais</Button>
               </div>
               <Card image={content.training.image} sizes={getSizesString('col-12 col-lg-6')} href="/servicos/adestramento" />
             </article>
@@ -38,20 +39,21 @@ export default function Services({ content }) {
               <div>
                 <h2>{content.consultancy.title}</h2>
                 <p>{content.consultancy.description}</p>
+                <Button className="d-lg-none" RightIcon={Arrow} href="/servicos/consultoria">Saiba Mais</Button>
               </div>
             </article>
           </div>
 
           <div className="col-12">
-            <article>
-              <Link href="/servicos/hotel-canino" className={`wrapper ${styles.hotel}`}>
+            <article className={styles.hotel}>
+              <Link href="/servicos/hotel-canino" className={`wrapper`}>
                 <Img {...content.dogHotel.image} fill alt="" />
-                <div>
-                  <h2>{content.dogHotel.title}</h2>
-                  <p>{content.dogHotel.description}</p>
-                  <Button divElement className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
-                </div>
               </Link>
+              <div>
+                <h2>{content.dogHotel.title}</h2>
+                <p>{content.dogHotel.description}</p>
+                <Button divElement className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
+              </div>
             </article>
           </div>
         </div>
