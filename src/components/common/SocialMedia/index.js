@@ -30,43 +30,30 @@ export default function SocialMedia({ blog, content, videos }) {
           </div>
         </div>
       </header>
-      <a className={styles.videos} href={`https://instagram.com/${info.instagram}/reels`} target="_blank">
-        <div className="container">
-          <div className="row">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={24}
-              initialSlide={2}
-              slidesPerView="auto"
-              grabCursor
-              loop
-              speed={800}
-              onTransitionEnd={self => self.params.speed = 800}
-              onTouchStart={self => self.params.speed = 300}
-              autoplay={{
-                delay: 800,
-                pauseOnMouseEnter: true,
-                disableOnInteraction: true,
-              }}
-            >
-              {
-                videos.map((video, index) => (
-                  <SwiperSlide key={index} className="col-12 col-lg-3">
-                    <video src={apiURL + video.attributes.url} loop autoPlay muted />
-                  </SwiperSlide>
-                ))
-              }
-              {
-                videos.length < 10 && videos.map((video, index) => (
-                  <SwiperSlide key={index} className="col-12 col-lg-3">
-                    <video src={apiURL + video.attributes.url} loop autoPlay muted />
-                  </SwiperSlide>
-                ))
-              }
-            </Swiper>
-          </div>
-        </div>
-      </a>
+      <div className={`container ${styles.videos}`}>
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={24}
+          slidesPerView="auto"
+          grabCursor
+          speed={800}
+          onTransitionEnd={self => self.params.speed = 800}
+          onTouchStart={self => self.params.speed = 300}
+          autoplay={{
+            delay: 1500,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: true,
+          }}
+        >
+          {
+            videos.map((video, index) => (
+              <SwiperSlide key={index}>
+                <video src={apiURL + video.attributes.url} loop autoPlay muted />
+              </SwiperSlide>
+            ))
+          }
+        </Swiper>
+      </div>
       <div>
         <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.instagram}`}>{info.instagram}</Button>
         {info.extraInstagram && <Button LeftIcon={Insta} target="_blank" href={`https://instagram.com/${info.extraInstagram}`}>{`@${info.extraInstagram}`}</Button>}

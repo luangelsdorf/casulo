@@ -3,8 +3,16 @@
 .section {
   background-color: rgb(var(--folha));
 
-  & > div {
+  & > div:last-child {
     display: none;
+
+    @include mixins.lg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 36px;
+      gap: 16px;
+    }
   }
 
   &.blog {
@@ -23,6 +31,14 @@
       margin-bottom: 56px;
       h2 {
         font: var(--heading-large);
+      }
+    }
+  }
+
+  header {
+    .button {
+      @include mixins.lg {
+        display: none;
       }
     }
   }
@@ -56,7 +72,24 @@
     border-radius: 24px;
   }
 
+  :global(.swiper-slide) {
+    padding-left: 0;
+    width: 25% !important;
+
+    @include mixins.xl {
+      width: 33.33333% !important;
+    }
+
+    @include mixins.md {
+      width: 100% !important;
+    }
+  }
+
   @include mixins.lg {
     margin-top: 48px;
+  }
+
+  @include mixins.md {
+    padding: 0 24px;
   }
 }

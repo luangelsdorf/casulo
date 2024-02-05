@@ -1,7 +1,5 @@
 import styles from './FAQ.module.scss';
 import Plus from 'public/images/icons/ui/sum.svg';
-import Arrow from 'public/images/icons/ui/arrow-right.svg';
-import Button from '../Button';
 import { Collapse } from '../Collapse';
 
 const Question = ({ title, text }) => (

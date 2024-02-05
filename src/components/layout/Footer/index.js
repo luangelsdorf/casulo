@@ -44,7 +44,7 @@ export default function Footer({ content }) {
               <div className={styles.detail}>
                 <small>
                   <Button href="/termos-de-uso" link>Termos de Uso</Button>
-                  <span>&bull;</span>
+                  <span className="d-none d-lg-inline">&bull;</span>
                   <Button href="/politica-de-privacidade" link>Política de Privacidade</Button>
                 </small>
                 <small>

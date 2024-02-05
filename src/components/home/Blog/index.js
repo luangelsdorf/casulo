@@ -7,13 +7,13 @@ export default function Blog({ content, posts }) {
   return (
     <div className={styles.section}>
       <div className="container">
-        <div className="row gy-5 gy-lg-0">
+        <div className="row gy-5 gy-lg-0 justify-content-center">
           <div className="col-12 col-lg-4">
             <header className={styles.textContent}>
               <p className="overline">{content.headline.overline}</p>
               <h2>{content.headline.title}</h2>
               <p>{content.text}</p>
-              <Button href="/blog" RightIcon={Arrow}>Ver Blog Completo</Button>
+              <Button className="d-none d-lg-inline-flex" href="/blog" RightIcon={Arrow}>Ver Blog Completo</Button>
             </header>
           </div>
           {
@@ -23,6 +23,7 @@ export default function Blog({ content, posts }) {
               </div>
             ))
           }
+          <Button href="/blog" style={{width: 'max-content'}} className="d-inline-flex d-lg-none" RightIcon={Arrow}>Ver Blog Completo</Button>
         </div>
       </div>
     </div>

@@ -13,6 +13,10 @@
   @include mixins.lg {
     .headline {
       margin-bottom: 48px;
+
+      h2 {
+        padding: 0 48px;
+      }
     }
   }
 }

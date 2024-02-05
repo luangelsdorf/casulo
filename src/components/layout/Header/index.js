@@ -1,5 +1,6 @@
 import Button from 'src/components/common/Button';
 import styles from './Header.module.scss';
+import Calendar from 'public/images/icons/ui/calendar.svg';
 import Award from 'public/images/icons/ui/award.svg';
 import LogoType from 'public/images/brand/horizontal-dark.svg';
 import Link from 'next/link';
@@ -103,7 +104,7 @@ export default function Header({ home }) {
         <Button href="/blog" link>Blog</Button>
       </li>
       <li className="d-inline-flex d-lg-none">
-        <Button href={`https://wa.me/${data.info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Award}>Avaliação</Button>
+        <Button href={`https://wa.me/${data.info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de marcar uma avaliação.`} LeftIcon={Calendar}>Marque uma Avaliação</Button>
       </li>
     </ul>
   );

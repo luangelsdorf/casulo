@@ -39,7 +39,7 @@ export default function Testimonials({ content, cases }) {
               <p className="overline">{content.headline.overline}</p>
               <h2>{content.headline.title}</h2>
               <p>{content.text}</p>
-              <div className={styles.controls}>
+              <div className={`d-none d-lg-flex ${styles.controls}`}>
                 <div role="button" className={styles.prev}>
                   <Prev />
                 </div>
@@ -49,7 +49,7 @@ export default function Testimonials({ content, cases }) {
               </div>
             </header>
           </div>
-          <div style={{ overflow: 'hidden' }}>
+          <div style={{ overflow: 'hidden', textAlign: 'center' }}>
             <Swiper
               modules={[Autoplay, Navigation]}
               spaceBetween={24}
@@ -59,11 +59,11 @@ export default function Testimonials({ content, cases }) {
               onTransitionEnd={self => self.params.speed = 800}
               onTouchStart={self => self.params.speed = 300}
               navigation={{ prevEl: `.${styles.prev}`, nextEl: `.${styles.next}` }}
-              /* autoplay={{
-                delay: 2100,
-                pauseOnMouseEnter: true,
-                disableOnInteraction: true,
-              }} */
+            /* autoplay={{
+              delay: 2100,
+              pauseOnMouseEnter: true,
+              disableOnInteraction: true,
+            }} */
             >
               {
                 cases.map((slide, index) => (
@@ -74,12 +74,10 @@ export default function Testimonials({ content, cases }) {
               }
               {!isMobile && <SwiperSlide className={cardGrid} />}
             </Swiper>
+
             {
               (router.query.dog && router.query.short === 'true') && (
-                <Modal open={(router.query.dog && router.query.short === 'true')} toggleOpen={() => {
-                  console.log('testimonials');
-
-                }}>
+                <Modal open={(router.query.dog && router.query.short === 'true')}>
                   {
                     (router.query.dog && router.query.short === 'true') && (
                       <Case {...(cases.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />
@@ -88,6 +86,15 @@ export default function Testimonials({ content, cases }) {
                 </Modal>
               )
             }
+
+            <div className={`d-flex d-lg-none ${styles.controls}`} style={{ position: 'relative', left: '50%', transform: 'translateX(-50%)' }}>
+              <div role="button" className={styles.prev}>
+                <Prev />
+              </div>
+              <div role="button" className={styles.next}>
+                <Next />
+              </div>
+            </div>
           </div>
         </div>
       </div>

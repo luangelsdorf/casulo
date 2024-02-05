@@ -6,7 +6,6 @@ import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function SingleCase({ dog }) {
   const r = useRouter();
-  console.log(r);
 
   useEffect(() => {
     function beforeUnloadHandler(e) {

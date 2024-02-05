@@ -53,15 +53,15 @@ export default function Home({ home, cases, gallery, posts, faq, footer, info })
           <SocialMedia content={home.socialMedia} videos={gallery} />
         </Section>
 
-        <Section id="chamada">
+        <Section id="chamada" className="d-none d-lg-block">
           <CallToAction content={home.cta} />
         </Section>
 
-        <Section id="blog" pt="120 16" pb="96 80">
+        <Section id="blog" pt="120 80" pb="96 56">
           <Blog content={home.blog} posts={posts} />
         </Section>
 
-        <Section id="faq" pt="96 80" pb="120 80">
+        <Section id="faq" pt="96 56" pb="120 80">
           <FAQ content={faq} />
         </Section>
 
