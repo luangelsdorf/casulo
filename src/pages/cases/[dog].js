@@ -1,8 +1,22 @@
 import Head from "next/head";
+import { Router, useRouter } from "next/router";
+import { useEffect } from "react";
 import Case from "src/components/cases/Case";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
 export default function SingleCase({ dog }) {
+  const r = useRouter();
+  console.log(r);
+
+  useEffect(() => {
+    function beforeUnloadHandler(e) {
+      e.preventDefault();
+      r.push('/');
+    }
+
+    window.addEventListener('beforeunload', beforeUnloadHandler);
+    return () => window.removeEventListener('beforeunload', beforeUnloadHandler);
+  }, []);
 
   return (
     <div style={{

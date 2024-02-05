@@ -47,7 +47,7 @@ export default function Hero({ content, highlights }) {
               <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="folha" RightIcon={Arrow}>Fale Conosco</Button>
             </div>
           </div>
-          <div className="col-12 col-lg-6 offset-lg-1">
+          <div className="col-12 col-lg-6 offset-lg-1 d-none d-lg-block">
             <Swiper
               modules={[Autoplay, Navigation, /* Pagination */ EffectFade]}
               effect="fade"

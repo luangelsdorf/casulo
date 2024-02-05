@@ -3,14 +3,17 @@ import Prev from 'public/images/icons/ui/arrow-left.svg';
 import Next from 'public/images/icons/ui/arrow-right.svg';
 import Img from '../Img';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function TestimonialCard({ photos, name, slug, services, short, sizes }) {
+
+  const router = useRouter();
 
   return (
     <Link
       scroll={false}
       href={`?dog=${slug}&short=${short}`}
-      as={`/cases/${slug}`}
+      as={router.pathname}
       className={`wrapper ${styles.slide}${short ? ' ' + styles.short : ''}`}
     >
       <Img {...photos[0].photo} sizes={sizes} fill priority={short ? undefined : true} />

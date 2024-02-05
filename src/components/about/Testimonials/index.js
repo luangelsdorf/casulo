@@ -7,53 +7,6 @@ import Modal from 'src/components/common/Modal';
 import { useRouter } from 'next/router';
 
 export default function Testimonials({ content, cases }) {
-  const slides = [
-    {
-      image: '/images/hero/dog1.jpg',
-      name: 'Simba',
-      services: 'Adestramento | Comportamental',
-    },
-    {
-      image: '/images/hero/dog2.jpg',
-      name: 'Zeca',
-      services: 'Hotel Canino',
-    },
-    {
-      image: '/images/hero/dog3.jpg',
-      name: 'Nome do Dog',
-      services: 'Serviços Prestados',
-    },
-    {
-      image: '/images/hero/dog1.jpg',
-      name: 'Simba',
-      services: 'Adestramento | Comportamental',
-    },
-    {
-      image: '/images/hero/dog2.jpg',
-      name: 'Zeca',
-      services: 'Hotel Canino',
-    },
-    {
-      image: '/images/hero/dog3.jpg',
-      name: 'Nome do Dog',
-      services: 'Serviços Prestados',
-    },
-    {
-      image: '/images/hero/dog1.jpg',
-      name: 'Simba',
-      services: 'Adestramento | Comportamental',
-    },
-    {
-      image: '/images/hero/dog2.jpg',
-      name: 'Zeca',
-      services: 'Hotel Canino',
-    },
-    {
-      image: '/images/hero/dog3.jpg',
-      name: 'Nome do Dog',
-      services: 'Serviços Prestados',
-    },
-  ];
 
   const router = useRouter();
 
