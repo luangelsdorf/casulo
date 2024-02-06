@@ -7,6 +7,14 @@
     border-radius: 32px;
   }
 
+  &.cases {
+    .textContent {
+      @include mixins.lg {
+        padding: 72px 24px;
+      }
+    }
+  }
+
   :global(.container) {
     position: relative;
 
@@ -33,6 +41,21 @@
     :global(.container) {
       &::after {
         background: rgb(var(--folha));
+      }
+    }
+  }
+
+  &.post {
+    @include mixins.lg {
+      :global(.container) {
+        &::after {
+          background: linear-gradient(
+            90deg,
+            rgba(15, 40, 48, 0.4) 0.52%,
+            rgba(15, 40, 48, 0.6) 48.44%,
+            rgba(15, 40, 48, 0.1) 100%
+          );
+        }
       }
     }
   }
@@ -66,5 +89,9 @@
       font-weight: 800;
       margin-bottom: 24px;
     }
+  }
+
+  @include mixins.lg {
+    padding: 120px 24px;
   }
 }

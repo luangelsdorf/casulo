@@ -8,10 +8,12 @@ export default function Gallery({ headline, images }) {
   if (images) {
     return (
       <div className={styles.section}>
-        <header>
-          <p className="overline">{headline.overline}</p>
-          <h2>{headline.title}</h2>
-        </header>
+        <div className="col-12">
+          <header>
+            <p className="overline">{headline.overline}</p>
+            <h2>{headline.title}</h2>
+          </header>
+        </div>
         <div className="container">
           <LightGallery download={false} speed={500} elementClassNames="row gy-lg-4">
             {

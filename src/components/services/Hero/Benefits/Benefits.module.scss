@@ -58,7 +58,7 @@
     }
   }
   @include mixins.md {
-    padding: 48px 12px;
+    padding: 24px 24px;
   }
 
   /* *** Variants *** */
@@ -74,9 +74,26 @@
         color: rgb(var(--maduro));
       }
     }
+
+    @include mixins.lg {
+      ul {
+        li {
+          justify-content: center;
+          & > div {
+            display: flex;
+            justify-content: center;
+            flex: 0 1 auto;
+            h3 {
+              text-wrap: nowrap;
+            }
+          }
+        }
+      }
+    }
   }
 
-  &.hotel, &.nursery {
+  &.hotel,
+  &.nursery {
     background-color: rgb(var(--white));
     color: rgb(var(--folha));
     li {

@@ -54,9 +54,10 @@
   }
 
   @include mixins.lg {
-    padding: 8px 24px;
+    padding: 32px 8px;
     transform: none;
     margin-top: 24px;
+    border-radius: 32px;
 
     .div {
       display: none;

@@ -32,6 +32,10 @@
   & > h2,
   & > blockquote {
     margin: 56px auto;
+
+    @include mixins.lg {
+      margin: 40px auto;
+    }
   }
 
   p {

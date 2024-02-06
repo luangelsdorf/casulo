@@ -50,7 +50,7 @@
   }
 
   @include mixins.xxl {
-    padding: 80px 0;
+    padding: 80px 12px;
     padding-left: 8.5%;
     & + img {
       right: 0;
@@ -59,7 +59,7 @@
   }
 
   @include mixins.lg {
-    padding: 96px 12px;
+    padding: 96px 24px;
     display: flex;
     flex-direction: column;
 

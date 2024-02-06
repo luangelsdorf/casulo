@@ -28,7 +28,7 @@ export default function Post({ post, recentPosts, footer }) {
               }
             `}
           </style>
-          <Hero content={{ headline: {title: post.title, overline: post.categories.data[0].attributes.name}, cover: post.cover }} />
+          <Hero content={{ headline: {title: post.title, overline: post.categories.data[0].attributes.name}, cover: post.cover }} post />
         </Section>
 
         <div className="col-12 col-lg-8 mx-auto">

@@ -20,7 +20,7 @@ export default function CasesPage({ cases, dogs, faq, footer }) {
 
       <main>
         <Section id="inicio" pt="16 24" pb="0">
-          <Hero content={cases} />
+          <Hero content={cases} cases />
         </Section>
 
         <Section id="lista">

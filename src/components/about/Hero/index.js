@@ -5,13 +5,13 @@ import Img from 'src/components/common/Img';
 import { useContext } from 'react';
 import { LayoutContext } from 'src/utils/contexts';
 
-export default function Hero({ content }) {
+export default function Hero({ content, cases, post }) {
   const { info } = useContext(LayoutContext);
 
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${cases ? styles.cases : ''} ${post ? styles.post : ''}`}>
       <div className="container">
-        <Img {...content.cover} fill alt="" priority sizes="(max-width: 576px) 1vw, (max-width: 992px) 66vw, 100vw" />
+        <Img {...content.cover} fill alt="" priority sizes={`(max-width: 576px) ${post ? '80vw' : '1vw'}, (max-width: 992px) 66vw, 100vw`} />
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className={styles.textContent}>
