@@ -22,7 +22,13 @@ export default function Training({ training, faq, footer }) {
       <Header />
 
       <main>
-        <Section id="home" pt="16" pb="160 80">
+        <style jsx>{`
+          #home {
+            background-color: rgb(var(--siciliano))
+          }
+        `}</style>
+
+        <Section id="home" pt="16 0" pb="160 80">
           <Hero
             service="training"
             content={{

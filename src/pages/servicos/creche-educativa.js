@@ -19,7 +19,13 @@ export default function Consultancy({ nursery, info, faq, footer }) {
       <Header />
 
       <main>
-        <Section id="home" pt="16" pb="64 80">
+        <style jsx>{`
+          #home {
+            background-color: rgb(var(--folha))
+          }
+        `}</style>
+
+        <Section id="home" pt="16 0" pb="64 80">
           <Hero
             service="nursery"
             content={{
@@ -55,7 +61,7 @@ export async function getStaticProps() {
   const info = await fetchAPI('info');
   const faq = await fetchAPI('faq');
   const footer = await fetchAPI('footer');
-  
+
   const layout = await getLayoutContent();
 
   return {
@@ -64,7 +70,7 @@ export async function getStaticProps() {
       info,
       faq,
       footer,
-      
+
       layout
     },
 

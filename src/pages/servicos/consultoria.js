@@ -20,7 +20,13 @@ export default function Consultancy({ consultancy, about, info, cases, faq, foot
       <Header />
 
       <main>
-        <Section id="home" pt="16" pb="80 80">
+        <style jsx global>{`
+          #home {
+            background-color: rgb(var(--borboleta))
+          }
+        `}</style>
+
+        <Section id="home" pt="16 0" pb="80 80">
           <Hero
             service="consultancy"
             content={{
