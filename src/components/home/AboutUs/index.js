@@ -15,13 +15,14 @@ export default function AboutUs({ content }) {
             <header className={styles.headline}>
               <p className="overline light">{content.headline.overline}</p>
               <h2>{content.headline.title}</h2>
-              <Button href={`https://wa.me/${info.whatsapp}?text=Olá, vim pelo site de vocês e gostaria de saber mais sobre os serviços.`} className="inverted" LeftIcon={Heart}>Conheça mais</Button>
+              <Button href="/sobre-nos" className="inverted d-none d-lg-inline-flex" LeftIcon={Heart}>Conheça mais</Button>
             </header>
           </div>
 
           <div className="col-12 offset-lg-1 col-lg-5">
             <div className={styles.textContent}>
               <p>{content.text}</p>
+              <Button href="/sobre-nos" className="inverted d-lg-none d-inline-flex" LeftIcon={Heart}>Conheça mais</Button>
             </div>
           </div>
         </div>

@@ -12,6 +12,10 @@
   h2 {
     margin-bottom: 48px;
     color: rgb(var(--luz));
+
+    @include mixins.lg {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -22,4 +26,9 @@
   white-space: pre-line;
   color: rgb(var(--luz));
   padding-bottom: 16px;
+
+  @include mixins.lg {
+    flex-direction: column;
+    gap: 32px;
+  }
 }

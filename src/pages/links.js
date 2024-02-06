@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Section from "src/components/common/Section";
-import Footer from "src/components/layout/Footer";
 import Content from "src/components/links/Content";
 import fetchAPI, { getLayoutContent } from "src/utils/fetch";
 
@@ -12,8 +11,8 @@ export default function Links({ linkTree }) {
         <meta property="og:title" content="Links | Casulo" />
       </Head>
 
-      <main>
-        <Section id="conteudo">
+      <main className="home">
+        <Section id="conteudo" mt="56">
           <Content links={linkTree.link} cta={linkTree.cta} />
         </Section>
       </main>
