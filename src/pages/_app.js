@@ -48,7 +48,10 @@ function MyApp({ Component, pageProps }) {
       if (shallow || url.includes('/cases/')) {
         return;
       } else {
-        lenis.scrollTo(0);
+        setTimeout(() => {
+          lenis.scrollTo(0);
+          window.scrollTo(0, 0);
+        }, 100);
       }
     }
 

@@ -3,6 +3,7 @@ import styles from './AboutUs.module.scss';
 import Heart from 'public/images/icons/ui/heart.svg';
 import { useContext } from 'react';
 import { LayoutContext } from 'src/utils/contexts';
+import Link from 'next/link';
 
 export default function AboutUs({ content }) {
   const { info } = useContext(LayoutContext);
@@ -22,7 +23,7 @@ export default function AboutUs({ content }) {
           <div className="col-12 offset-lg-1 col-lg-5">
             <div className={styles.textContent}>
               <p>{content.text}</p>
-              <Button href="/sobre-nos" className="inverted d-lg-none d-inline-flex" LeftIcon={Heart}>Conheça mais</Button>
+              <Link scroll={true} href="/sobre-nos" className=" btn inverted d-lg-none d-inline-flex" LeftIcon={Heart}>Conheça mais</Link>
             </div>
           </div>
         </div>

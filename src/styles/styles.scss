@@ -24,6 +24,12 @@ html {
   padding: 0;
 }
 
+html.lenis-stopped {
+  #header {
+    transform: translateY(-100%) !important;
+  }
+}
+
 section {
   scroll-margin-top: 120px;
 }

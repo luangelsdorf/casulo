@@ -48,7 +48,7 @@ export default function SocialMedia({ blog, content, videos }) {
           {
             videos.map((video, index) => (
               <SwiperSlide key={index}>
-                <video src={apiURL + video.attributes.url} loop autoPlay muted />
+                <video playsInline src={apiURL + video.attributes.url} loop autoPlay muted />
               </SwiperSlide>
             ))
           }

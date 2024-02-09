@@ -19,12 +19,6 @@ export default function Consultancy({ nursery, info, faq, footer }) {
       <Header />
 
       <main>
-        <style jsx>{`
-          #home {
-            background-color: rgb(var(--folha))
-          }
-        `}</style>
-
         <Section id="home" pt="16 0" pb="64 80">
           <Hero
             service="nursery"

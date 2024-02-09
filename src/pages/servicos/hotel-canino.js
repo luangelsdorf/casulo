@@ -21,12 +21,6 @@ export default function Consultancy({ hotel, about, info, faq, footer }) {
       <Header />
 
       <main>
-        <style jsx>{`
-          #home {
-            background-color: rgb(var(--orvalho))
-          }
-        `}</style>
-
         <Section id="home" pt="16 0" pb="72 80">
           <Hero
             service="hotel"
