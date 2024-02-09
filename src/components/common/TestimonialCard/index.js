@@ -13,7 +13,8 @@ export default function TestimonialCard({ photos, name, slug, services, short, s
     <Link
       scroll={false}
       href={`?dog=${slug}&short=${short}`}
-      as={router.pathname}
+      /* as={router.pathname} */
+      shallow={true}
       className={`wrapper ${styles.slide}${short ? ' ' + styles.short : ''}`}
     >
       <Img {...photos[0].photo} sizes={sizes} fill priority={short ? undefined : true} />

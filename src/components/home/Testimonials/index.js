@@ -49,7 +49,7 @@ export default function Testimonials({ content, cases }) {
               </div>
             </header>
           </div>
-          <div style={{ overflow: 'hidden', textAlign: 'center' }}>
+          <div style={{ overflow: 'hidden' }}>
             <Swiper
               modules={[Autoplay, Navigation]}
               spaceBetween={24}
