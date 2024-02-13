@@ -79,10 +79,7 @@ export default function Hero({ content, highlights }) {
             </Swiper>
             {
               (router.query.dog && router.query.short === 'false') && (
-                <Modal open={(router.query.dog && router.query.short === 'false')} toggleOpen={() => {
-                  console.log('hero');
-
-                }}>
+                <Modal open={(router.query.dog && router.query.short === 'false')}>
                   {
                     (router.query.dog && router.query.short === 'false') && (
                       <Case {...(highlights.filter(dog => dog.attributes.slug === router.query.dog)[0].attributes)} />

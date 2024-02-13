@@ -23,7 +23,7 @@ export default function AboutUs({ content }) {
           <div className="col-12 offset-lg-1 col-lg-5">
             <div className={styles.textContent}>
               <p>{content.text}</p>
-              <Link scroll={true} href="/sobre-nos" className=" btn inverted d-lg-none d-inline-flex" LeftIcon={Heart}>Conheça mais</Link>
+              <Button href="/sobre-nos" className="inverted d-lg-none d-inline-flex" LeftIcon={Heart}>Conheça mais</Button>
             </div>
           </div>
         </div>

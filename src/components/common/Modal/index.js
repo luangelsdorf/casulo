@@ -3,14 +3,16 @@ import styles from './Modal.module.scss';
 import { Lenis, useLenis } from '@studio-freight/react-lenis';
 import { useRouter } from 'next/router';
 
-export default function Modal({ children, open, toggleOpen }) {
-  const [animation, setAnimation] = useState(null);
+export default function Modal({ children, open }) {
   const modalElement = useRef(null);
   const lenis = useLenis();
   const router = useRouter();
 
+  const keyframes = { opacity: [0, 1] };
+  const kfOptions = { duration: 350, easing: 'ease', fill: 'forwards' };
+
   /*** create and set animation ***/
-  useEffect(() => {
+  /* useEffect(() => {
     const ani = modalElement.current.animate(
       { opacity: [0, 1] },
       {
@@ -21,35 +23,33 @@ export default function Modal({ children, open, toggleOpen }) {
 
     ani.onfinish = handleFinish;
     setAnimation(ani);
-  }, []);
+  }, []); */
 
   const handleCLose = useCallback(e => {
     if (e.key === 'Escape' || e.type === 'close-modal') {
-      animation.reverse();
+      modalElement.current?.animate(keyframes, { ...kfOptions, direction: 'reverse', duration: 300 }).finished.then(pb => handleFinish(pb));
     }
-  }, [animation]);
+  }, [modalElement]);
 
   useEffect(() => {
-    if (animation && animation.startTime) {
-      if (open) {
-        lenis.stop();
-        document.querySelector('#header').classList.remove('active');
-        modalElement.current.style.display = 'flex';
-        document.addEventListener('keydown', handleCLose);
-        document.addEventListener('close-modal', handleCLose);
-        document.documentElement.classList.add('no-scroll');
-        animation.play();
-      } else {
-        lenis?.start();
-        document.removeEventListener('keydown', handleCLose);
-        document.removeEventListener('close-modal', handleCLose);
-        animation.reverse();
-      }
+    if (open) {
+      lenis.stop();
+      document.querySelector('#header').classList.remove('active');
+      modalElement.current.style.display = 'flex';
+      document.addEventListener('keydown', handleCLose);
+      document.addEventListener('close-modal', handleCLose);
+      document.documentElement.classList.add('no-scroll');
+      modalElement.current.animate(keyframes, kfOptions).finished.then(pb => handleFinish(pb));
+    } else {
+      lenis?.start();
+      document.removeEventListener('keydown', handleCLose);
+      document.removeEventListener('close-modal', handleCLose);
+      modalElement.current.animate(keyframes, { ...kfOptions, duration: 300, direction: 'reverse' }).finished.then(pb => handleFinish(pb));
     }
-  }, [open, lenis, animation]);
+  }, [open, lenis]);
 
   function handleFinish(playback) {
-    if (playback.currentTime === 0) {
+    if (playback.currentTime === 300) {
       router.replace(router.pathname, router.pathname, { scroll: false, shallow: true, });
       lenis?.start();
       if (window.scrollY > window.innerHeight) document.querySelector('#header').classList.add('active');
@@ -57,7 +57,6 @@ export default function Modal({ children, open, toggleOpen }) {
         modalElement.current.scrollTop = 0;
         modalElement.current.style.display = 'none';
       }
-      playback.currentTarget.playbackRate = 1;
       document.documentElement.classList.remove('no-scroll');
     }
   }
