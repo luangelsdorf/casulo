@@ -5,8 +5,11 @@ import Seal from 'public/images/brand/seal-dark.svg';
 import Img from 'src/components/common/Img';
 import Link from 'next/link';
 import { getSizesString } from 'src/utils/images';
+import { useRouter } from 'next/router';
 
 export default function Services({ content }) {
+
+  const router = useRouter();
 
   const Card = ({ image, sizes, href }) => {
     return (
@@ -52,7 +55,7 @@ export default function Services({ content }) {
               <div>
                 <h2>{content.dogHotel.title}</h2>
                 <p>{content.dogHotel.description}</p>
-                <Button divElement className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
+                <Button divElement onClick={() => router.push('/servicos/hotel-canino')} className="inverted" RightIcon={Arrow}>Saiba Mais</Button>
               </div>
             </article>
           </div>
