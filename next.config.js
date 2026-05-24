@@ -6,7 +6,28 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost', '127.0.0.1', 'casulo.pet']
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+      },
+      {
+        protocol: 'https',
+        hostname: 'casulo.pet',
+      },
+      {
+        protocol: 'https',
+        hostname: 'strapi.casulo.pet',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.casulo.pet', // Catches any unexpected subdomains in production
+      },
+    ],
   },
   sassOptions: {
     logger: {
